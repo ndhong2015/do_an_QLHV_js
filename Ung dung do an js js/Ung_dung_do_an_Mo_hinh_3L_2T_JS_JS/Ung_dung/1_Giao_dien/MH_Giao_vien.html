@@ -30,7 +30,6 @@
             <div id='Th_Giao_vien'></div>
             <div id='Th_Thong_bao'>
                 Xin vui lòng Nhập Tên đăng nhập và Mật khảu
-                <br />Click Đồng ý=>Nếu hợp lệ Ứng dụng sẽ chào anh/chị          
             </div>
             <div id='Th_Danh_sach_Lop'></div>
             <div id='Th_Danh_sach_Sinh_vien'></div>
@@ -54,18 +53,20 @@
            Giao_vien = Danh_sach_Giao_vien.find(x => x.Ten_dang_nhap == Ten_dang_nhap
                && x.Mat_khau == Mat_khau)
            Giao_vien.Danh_sach_Dang_nhap.push(new Date())
+           document.getElementById("form_dang_nhap").innerHTML = "";
+           Th_Giao_vien.innerHTML=Tao_Chuoi_HTML_Giao_vien_Khi_Chao(Giao_vien)
            var Danh_sach_Lop_cua_Giao_vien=Tao_Danh_sach_Lop_cua_Giao_vien(
               Giao_vien,Danh_sach_Lop)
             var Danh_sach_Sinh_vien_cua_Giao_vien=Tao_Danh_sach_Sinh_vien_cua_Giao_vien(
               Giao_vien,Danh_sach_Sinh_vien)
             Th_Giao_vien.innerHTML=Tao_Chuoi_HTML_Giao_vien_Khi_Chao(Giao_vien)
              Th_Thong_bao.innerHTML=`Anh/chị được phân công 
-               ${Danh_sach_Lop_cua_Giao_vien.length} Nhóm hàng 
-               với ${Danh_sach_Sinh_vien_cua_Giao_vien.length} Mặt hàng `
+               ${Danh_sach_Lop_cua_Giao_vien.length} lớp 
+               với ${Danh_sach_Sinh_vien_cua_Giao_vien.length} sinh viên `
             Th_Danh_sach_Lop.innerHTML=Tao_Chuoi_HTML_Danh_sach_Lop(
                  Danh_sach_Lop_cua_Giao_vien)
             Th_Danh_sach_Sinh_vien.innerHTML=Tao_Chuoi_HTML_Danh_sach_Sinh_vien(
-                Danh_sach_Sinh_vien_cua_Giao_vien) 
+                Danh_sach_Sinh_vien_cua_Giao_vien)
            //=== Ghi 
             
             Ghi_Giao_vien(Giao_vien)

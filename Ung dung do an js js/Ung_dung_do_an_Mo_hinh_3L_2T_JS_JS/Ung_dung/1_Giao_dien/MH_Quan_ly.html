@@ -11,9 +11,9 @@
 <body style="font-family:Arial">
     <form action="javascript:Xu_ly_Dong_y()">
         <div class="container-fluid">
-            <div>
+            <div id="form_dang_nhap">
                 <div class="alert" style="height:10px">
-                     Đăng nhập Quản lý 
+                     Đăng nhập Quản lý học viên
                 </div>           
                 <div class="alert" style="height:30px">
                     <input  id="Th_Ten_dang_nhap"  name="Th_Ten_dang_nhap" required="required"
@@ -30,7 +30,6 @@
             <div id='Th_Quan_ly'></div>
             <div id='Th_Thong_bao'>
                 Xin vui lòng Nhập Tên đăng nhập và Mật khảu
-                <br />Click Đồng ý=>Nếu hợp lệ Ứng dụng sẽ chào anh/chị          
             </div>
             <div id='Th_Danh_sach_Lop'></div>
             <div id='Th_Danh_sach_Sinh_vien'></div>
@@ -56,15 +55,15 @@
         Quan_ly = Danh_sach_Quan_ly.find(x => x.Ten_dang_nhap == Ten_dang_nhap
               && x.Mat_khau == Mat_khau)
         Quan_ly.Danh_sach_Dang_nhap.push(new Date())
+        document.getElementById("form_dang_nhap").innerHTML = "";
         Th_Quan_ly.innerHTML=Tao_Chuoi_HTML_Quan_ly_Khi_Chao(Quan_ly)
         Th_Thong_bao.innerHTML=`Anh/chị đang Quản lý 
-               ${Danh_sach_Lop.length} Nhóm hàng 
-               với ${Danh_sach_Sinh_vien.length} Mặt hàng `
+               ${Danh_sach_Lop.length} lớp 
+               với ${Danh_sach_Sinh_vien.length} sinh viên `
         Th_Danh_sach_Lop.innerHTML=Tao_Chuoi_HTML_Danh_sach_Lop(
             Danh_sach_Lop)
         Th_Danh_sach_Sinh_vien.innerHTML=Tao_Chuoi_HTML_Danh_sach_Sinh_vien(
             Danh_sach_Sinh_vien)
-       
         Ghi_Quan_ly(Quan_ly)
       }
       else {

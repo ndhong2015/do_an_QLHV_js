@@ -40,36 +40,35 @@
                   <div id="khung_menu" class="wsmenucontent overlapblackbg menuclose"></div>
                   <div class="wsmenuexpandermain slideRight">
                       <a id="navToggle" class="animated-arrow slideLeft menuclose"><span></span></a>
-                      <div class="search" style="background-color:orangered">
-                              <!-- <span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size:20px; color:#ffffff" onclick="Mo_khung_dang_nhap()"></span> -->
-                              <i id="Th_Hinh" class="fa fa-user" style="font-size:20px; color:#ffffff" onclick="Mo_khung_dang_nhap()"></i>
+                      <div class="search" style="background-color:orangered">                              
+                              
                       </div>
-                      <a href="/#" class="smallogo"><img src="./Template/logo_m.jpg" height="34px" alt="" style="border-radius:2px;"></a>    
+                      <a href="Index.html" class="smallogo"><img src="./Template/logo_m.jpg" height="34px" alt="" style="border-radius:2px;"></a>    
                   </div> 
                   <div class="header">
                       <div class="wrapper clearfix">
                       <div class="container hidden-xs" style="position:relative">
                         <div class="logo clearfix"><a href="/#" title="Responsive Slide Menus"><img src="./Template/logo.jpg" alt="" height="70px"></a></div>
-                          <div class="searchdestop">
-                              <span class="khung-dang-nhap" onclick="Mo_khung_dang_nhap()">
-                                  <!-- <span class="glyphicon glyphicon-user" aria-hidden="true" style="float:left; margin-right:5px;"></span> -->
-                                  <i id="Th_Hinh" class="fa fa-user" style="padding-right:10px; font-size:16px"></i>
-                                  <span>Đăng nhập</span>
-                              </span>
-                          </div>
+                          
                       </div>
                       </div>
                     <div class="container-fluid" style="background-color:orangered">
                         <div class="container">
                           <nav class="wsmenu pm_buttoncolor blue-grdt slideLeft clearfix menuclose" style="background-color:orangered">
                               <ul class="mobile-sub wsmenu-list" style="background-color:orangered">
-                                  <li><a data-id="trang-chu" class="thuc-don active" href="/"><i class="fa fa-home"></i><span class="hometext"></span></a></li>
+                                  <li><a data-id="trang-chu" class="thuc-don active" href="index.html"><i class="fa fa-home"></i><span class="hometext"></span></a></li>
                                   <li>
-                                    <div class="btn btn-primary CHUC_NANG" 
-                                        onclick="Khung_Chuc_nang.src='MH_Quan_ly.html'"  >
-                                      Quản lý học viên
+                                    <div class="btn btn-primary CHUC_NANG" onclick="Xu_ly_Quan_ly()">
+                                        Quản lý học viên
                                     </div>
-                                      <!-- <a data-id="gioi-thieu" class="thuc-don scroll" href="/#gioi-thieu">Quản lý học viên</a> -->
+                                    <div class="btn btn-primary CHUC_NANG" 
+                                    onclick="Xu_ly_Sinh_vien()"  >
+                                            Phân hệ Sinh viên
+                                        </div>                                        
+                                        <div class="btn btn-primary CHUC_NANG" 
+                                        onclick="Xu_ly_Giao_vien()"  >
+                                            Phân hệ Giáo viên
+                                        </div>
                                   </li>   
                                                                  
                               </ul>
@@ -77,30 +76,8 @@
                           </div>
                       </div>
                  </div>
-                 <!-- <div class="container-fluid">
-                    <div class="DANH_SACH_CHUC_NANG">
-                      <div class="btn btn-primary CHUC_NANG" 
-                          onclick="Khung_Chuc_nang.src='MH_Khach_Tham_quan.html'"  >
-                        Chào Khách tham quan
-                      </div>
-                      <div class="btn btn-primary CHUC_NANG" 
-                      onclick="Khung_Chuc_nang.src='MH_Sinh_vien.html'"  >
-                        Chào Sinh viên
-                      </div>
-                      <div class="btn btn-primary CHUC_NANG" 
-                               onclick="Khung_Chuc_nang.src='MH_Quan_ly.html'"  >
-                        Chào Quản lý
-                      </div>
-                      <div class="btn btn-primary CHUC_NANG" 
-                              onclick="Khung_Chuc_nang.src='MH_Giao_vien.html'"  >
-                        Chào Giáo viên
-                      </div>
-                    </div>
-                
-                    <iframe id="Khung_Chuc_nang" class="KHUNG_CHUC_NANG"   style="height:4000vh;width:96vw; border:none;padding-top:10px;overflow-x:hidden"
-                      scrolling="no"></iframe>
-                  </div> -->
-          <div class="wrapper content">
+                 
+        <div class="wrapper content" id="noi_dung_chinh">
                       
           <div id="slider-nganh" class="owl-carouse">
               <div id="owl-nganh" class="banner-chinh-nganh container" style="position:relative;">          
@@ -110,54 +87,21 @@
                   <p><a target="_blank" style="color: rgb(31, 31, 31); font-family: Arial; font-size: 18px; position: relative; top: -24px; padding: 6px; background-color: rgba(255, 255, 255, 0.7);" href="/thong-tin/danh-sach-sinh-vien-chinh-thuc-cntt-txqm-khoa-2-2018"><marquee behavior="alternate">Ứng dụng Quản lý sinh viên - Trương Đại học An ninh nhân dân TP. HCM</marquee></a></p>
               </div>
           </div>
-          <div id="gioi-thieu" class="container" style="text-align:center">
-              <h1 class="tieu-de-muc" style="margin-top:20px">Giới thiệu</h1>
-          </div>
-          <div class="gioi-thieu">
-              <div class="container">
-                  <div class="col-md-12"><p style="text-align:center"><span style="font-weight:bold; color: red">Đây là phân hệ khách tham quan của ứng dụng Quản lý học viên Trường Đại học An ninh nhân dân TP.Hồ Chí Minh. Các học viên, giáo viên, quản lý học viên vui lòng đăng nhập để xem thông tin và sử dụng!</span>&nbsp;</p>      
+          
+              <div class="container" >
+                  <div class="col-md-12" id="gioi_thieu"><p style="text-align:justify"><span style="font-weight:bold; color: red">Đây là phân hệ khách tham quan của ứng dụng Quản lý học viên Trường Đại học An ninh nhân dân TP.Hồ Chí Minh. Các học viên, giáo viên, quản lý học viên vui lòng đăng nhập vào phân hệ phù hợp để xem thông tin và sử dụng!<br>- Quản lý học viên: Tên đăng nhập QL_1, mật khẩu QL_1,...<br>- Sinh viên: Tên đăng nhập SV_1, mật khẩu SV_1,...<br>- Giáo viên: Tên đăng nhập GV_1, mật khẩu GV_1,...</span>&nbsp;</p>      
             </div>   
             <div class="container-fluid">        
-            <iframe id="Khung_Chuc_nang" src='MH_Khach_Tham_quan.html' class="KHUNG_CHUC_NANG"   style="height:20vw;width:96vw; border:none;padding-top:10px;overflow-x:hidden"
+            <iframe id="Khung_Chuc_nang" src='MH_Khach_Tham_quan.html' class="KHUNG_CHUC_NANG"   style="height:40vw;width:96vw; border:none;padding-top:10px;overflow-x:hidden"
               scrolling="yes">
             </iframe>
             
         </div>   
        
-        
-        <!-- <div class="container-fluid">
-            <div class="DANH_SACH_CHUC_NANG">
-              <div class="btn btn-primary CHUC_NANG" 
-                  onclick="Khung_Chuc_nang.src='MH_Khach_Tham_quan.html'"  >
-                Chào Khách tham quan
-              </div>
-              <div class="btn btn-primary CHUC_NANG" 
-              onclick="Khung_Chuc_nang.src='MH_Sinh_vien.html'"  >
-                Chào Sinh viên
-              </div>
-              <div class="btn btn-primary CHUC_NANG" 
-                       onclick="Khung_Chuc_nang.src='MH_Quan_ly.html'"  >
-                Chào Quản lý
-              </div>
-              <div class="btn btn-primary CHUC_NANG" 
-                      onclick="Khung_Chuc_nang.src='MH_Giao_vien.html'"  >
-                Chào Giáo viên
-              </div>
-            </div>
-        
-            <iframe id="Khung_Chuc_nang" class="KHUNG_CHUC_NANG"   style="height:4000vh;width:96vw; border:none;padding-top:10px;overflow-x:hidden"
-              scrolling="no"></iframe>
-          </div> -->
-
-
-
-        </div> 
-          </div>
-      
-
-                       
+        </div>                       
             
-                  </div>
+        </div>
+
                   <div style="clear:both"></div>  
                   <div class="footer">
                     <div class="container" style="min-height:30px">
@@ -182,59 +126,8 @@
                   </div>
                         <div style="clear: both"></div>
                       </div>
-                  </div>
-      
-                  <div id="Khung_dang_nhap" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                          <div class="modal-content" style="background-color: #eff4f5; top:70px">
-                              <div class="modal-header" style="padding:10px; background-color: orangered;">
-                                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                                  <h3 class="modal-title" style="font-size:16px; color: #ffffff;"><i id="Th_Hinh" class="fa fa-user" style="padding-right:10px; font-size:16px"></i>Đăng nhập Hệ thống</h3>
-                              </div>
-                              <div class="modal-body">
-                                  
-                                      <div class="row" style="margin-top:10px">
-                                          <div class="col-md-4" style="font-size:14px;padding:8px 0px 8px 10px; text-align:left">
-                                              Tên Đăng nhập
-                                          </div>
-                                          <div class="col-md-8">
-                                              <input id="Th_Ten_dang_nhap" name="Th_Ten_dang_nhap" class="form-control" style="height:30px; width:90%">					
-                                          </div>
-                                      </div>
-                                    <div class="row" style="margin-top:10px">
-                                        <div class="col-md-4" style="font-size:14px;padding:8px 0px 8px 10px; text-align:left">
-                                              Mật khẩu
-                                        </div>
-                                          <div class="col-md-8">
-                                            <input id="Th_Mat_khau" type="password" name="Th_Mat_khau" class="form-control" style="height:30px; width:90%" onkeyup="if (event.keyCode==13) Dang_nhap();">
-                                          </div>
-                                </div>
-                                      <div class="row" style="margin-top:10px; text-align:center">
-                                  <a href="/quen-mat-khau"><span style="color: orangered">Quên mật khẩu dành cho học viên</span></a>
-                                      </div>
-                                      <div class="row" style="margin-top:10px;text-align:center">
-                                  <div id="Th_Xu_ly_Dang_nhap" onclick="Dang_nhap();" class="btn btn-primary" style="background-color: orangered">Đăng nhập</div>
-                                      </div>
-                                      <div class="row" style="margin-top:10px; text-align:center; color:#F00" id="ThongBao">
-                                  
-                                      </div>
-                                       
-                              </div>
-                          </div>
-                      </div>
-                 </div>
-                  <div id="Khung_Modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                      <div class="modal-dialog" id="Th_Dialog">
-                          <div class="modal-content" style="background-color: #eff4f5; top:70px">
-                              <div class="modal-header" style="padding:10px; background-color: #337ab7;">
-                                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                                  <h3 class="modal-title" id="myModalLabel" style="font-size:16px; color: #ffffff;"></h3>
-                              </div>
-                              <div id="Th_Noidung" class="modal-body">
-                              </div>
-                          </div>
-                      </div>
-                  </div> 
+                  </div>                 
+                  
               </div>
       </form>
           
@@ -287,201 +180,24 @@
           });
       </script>
       <script type="text/javascript">
-          function Mo_khung_dang_nhap()
-          {
-            $('#Khung_dang_nhap').modal('show');
-          }
-          function Anhien()
-          {
-            $('#Khung_dang_nhap').modal('hide');
-          }
-          function ShowDialog(title,content,style) {
-              $("#myModalLabel").html(title);
-              $("#Th_Noidung").html(content);
-              if (style != null)
-                  $("#Th_Dialog").attr("style", style); 
-              $('#Khung_Modal').modal('show');
-          }
-          function validateEmail(email) {
-            var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            return re.test(email);
-          }
-      
-          function validate() {
-            var email = $("#email").val();
-            if (validateEmail(email)) {
-              alert("email hợp lệ");
-              return false;
-            }
-            else
-            {
-              alert("email không hợp lệ");
-              return true;
-            }
-          }
-        //   function Dang_nhap() {
-        //       var tdn = $('#Th_Ten_Dang_nhap').val();
-        //       var mk = $('#Th_Mat_khau').val();
-        //       tdn = tdn.trim();
-        //       mk = mk.trim();
-              
-        //     //   $.ajax({
-        //     //       type: 'POST',
-        //     //       url: '/services/xuly.aspx/Dang_nhap',
-        //     //       data: '{Ten_dang_nhap:"' + tdn + '", Mat_khau:"' + mk + '"}',
-        //     //       contentType: 'application/json; charset=utf-8',
-        //     //       dataType: 'json',
-        //     //       success: function (data) {
-        //     //           var a = data.d.split(',');
-        //     //           if (a[0] == "true") {
-        //     //               window.location.href = a[1];
-        //     //           }
-        //     //           else
-        //     //               $('#ThongBao').text(a[1]);
-        //     //       },
-        //     //       error: function (response) {
-        //     //           $('#ThongBao').text(response.d);
-        //     //       }
-        //     //   });
-        //   }
-                var Danh_sach_Lop = Doc_Danh_sach_Lop()
-                var Danh_sach_Sinh_vien = Doc_Danh_sach_Sinh_vien()
-                var Danh_sach_Quan_ly = Doc_Danh_sach_Quan_ly()
-                var Danh_sach_Giao_vien = Doc_Danh_sach_Giao_vien()
-
-                function Xu_ly_Dong_y(){    
-                
-                var Ten_dang_nhap = Th_; // Nhập liệu
-                var Mat_khau = $('#Th_Mat_khau').val(); // Nhập liệu
-                var Quan_ly = {} // Biến Kq quan ly
-                var Sinh_vien = {} // Bien Kq sinh vien
-                var Giao_vien = {} // Bien Kq Giao vien
-                var Hop_le_Quan_ly = Danh_sach_Quan_ly.some(x => x.Ten_dang_nhap == Ten_dang_nhap
-                        && x.Mat_khau == Mat_khau )
-                var Hop_le_Sinh_vien = Danh_sach_Sinh_vien.some(x => x.Ten_dang_nhap == Ten_dang_nhap
-                        && x.Mat_khau == Mat_khau )
-                var Hop_le_Giao_vien = Danh_sach_Giao_vien.some(x => x.Ten_dang_nhap == Ten_dang_nhap
-                        && x.Mat_khau == Mat_khau )
-                if (Hop_le_Quan_ly) {
-                    Quan_ly = Danh_sach_Quan_ly.find(x => x.Ten_dang_nhap == Ten_dang_nhap
-                        && x.Mat_khau == Mat_khau)
-                    Quan_ly.Danh_sach_Dang_nhap.push(new Date())
-                    Th_Quan_ly.innerHTML=Tao_Chuoi_HTML_Quan_ly_Khi_Chao(Quan_ly)
-                    Th_Thong_bao.innerHTML=`Anh/chị đang Quản lý 
-                        ${Danh_sach_Lop.length} lớp 
-                        với ${Danh_sach_Sinh_vien.length} sinh viên `
-                    Th_Danh_sach_Lop.innerHTML=Tao_Chuoi_HTML_Danh_sach_Lop(
-                        Danh_sach_Lop)
-                    Th_Danh_sach_Sinh_vien.innerHTML=Tao_Chuoi_HTML_Danh_sach_Sinh_vien(
-                        Danh_sach_Sinh_vien)
-                
-                    Ghi_Quan_ly(Quan_ly)
-                }
-                else {
-                    Th_Quan_ly.innerHTML=""
-                    Th_Danh_sach_Lop.innerHTML=""
-                    Th_Danh_sach_Sinh_vien.innerHTML=""
-                    Th_Thong_bao.innerHTML="<div>Đăng nhập không hợp lệ" 
-                        + "<br />Xin vui lòng <b>Nhập lại</b> Tên đăng nhập và Mật khẩu" + "</div>"
-                }
-
-                if (Hop_le_Giao_vien) {
-                Giao_vien = Danh_sach_Giao_vien.find(x => x.Ten_dang_nhap == Ten_dang_nhap
-                    && x.Mat_khau == Mat_khau)
-                Giao_vien.Danh_sach_Dang_nhap.push(new Date())
-                var Danh_sach_Lop_cua_Giao_vien=Tao_Danh_sach_Lop_cua_Giao_vien(
-                    Giao_vien,Danh_sach_Lop)
-                    var Danh_sach_Sinh_vien_cua_Giao_vien=Tao_Danh_sach_Sinh_vien_cua_Giao_vien(
-                    Giao_vien,Danh_sach_Sinh_vien)
-                    Th_Giao_vien.innerHTML=Tao_Chuoi_HTML_Giao_vien_Khi_Chao(Giao_vien)
-                    Th_Thong_bao.innerHTML=`Anh/chị được phân công 
-                    ${Danh_sach_Lop_cua_Giao_vien.length} Nhóm hàng 
-                    với ${Danh_sach_Sinh_vien_cua_Giao_vien.length} Mặt hàng `
-                    Th_Danh_sach_Lop.innerHTML=Tao_Chuoi_HTML_Danh_sach_Lop(
-                        Danh_sach_Lop_cua_Giao_vien)
-                    Th_Danh_sach_Sinh_vien.innerHTML=Tao_Chuoi_HTML_Danh_sach_Sinh_vien(
-                        Danh_sach_Sinh_vien_cua_Giao_vien) 
-                //=== Ghi 
-                    
-                    Ghi_Giao_vien(Giao_vien)
-                }
-                else {
-                    Th_Giao_vien.innerHTML=""
-                    Th_Danh_sach_Lop.innerHTML=""
-                    Th_Danh_sach_Sinh_vien.innerHTML=""
-                    Th_Thong_bao.innerHTML="<div>Đăng nhập không hợp lệ" 
-                        + "<br />Xin vui lòng <b>Nhập lại</b> Tên đăng nhập và Mật khẩu" + "</div>"
-                }
-
-                // if (Hop_le_Sinh_vien) {
-                // Sinh_vien = Danh_sach_Sinh_vien.find(x => x.Ten_dang_nhap == Ten_dang_nhap
-                //     && x.Mat_khau == Mat_khau)
-                // Sinh_vien.Danh_sach_Dang_nhap.push(new Date())                
-
-                //     Th_Danh_sach_Sinh_vien.innerHTML=Tao_Chuoi_HTML_Danh_sach_Sinh_vien(
-                //         Danh_sach_Sinh_vien_cua_Giao_vien) 
-                // //=== Ghi
-                    
-                //     Ghi_Sinh_vien(Sinh_vien)
-                // }
-                // else {
-                //     Th_Sinh_vien.innerHTML=""
-                //     Th_Danh_sach_Lop.innerHTML=""
-                //     Th_Danh_sach_Sinh_vien.innerHTML=""
-                //     Th_Thong_bao.innerHTML="<div>Đăng nhập không hợp lệ" 
-                //         + "<br />Xin vui lòng <b>Nhập lại</b> Tên đăng nhập và Mật khẩu" + "</div>"
-                // }
-            }
-        //     <!-- <div class="container-fluid">
-        //     <div class="DANH_SACH_CHUC_NANG">
-        //       <div class="btn btn-primary CHUC_NANG" 
-        //       onclick="Khung_Chuc_nang.src='MH_Sinh_vien.html'"  >
-        //         Chào Sinh viên
-        //       </div>
-        //       <div class="btn btn-primary CHUC_NANG" 
-        //                onclick="Khung_Chuc_nang.src='MH_Quan_ly.html'"  >
-        //         Chào Quản lý
-        //       </div>
-        //       <div class="btn btn-primary CHUC_NANG" 
-        //               onclick="Khung_Chuc_nang.src='MH_Giao_vien.html'"  >
-        //         Chào Giáo viên
-        //       </div>
-        //     </div>
-        
-        //     <iframe id="Khung_Chuc_nang" class="KHUNG_CHUC_NANG"   style="height:20vw;width:96vw; border:none;padding-top:10px;overflow-x:hidden"
-        //       scrolling="yes"></iframe>
-        // </div>    -->
-          function Giai_dap()
-          {
-              $("#myModalLabel").html("Giải đáp thắc mắc");
-              $("#Th_Noidung").html("<iframe frameborder='0' scrolling='no' src ='/giai-dap' width='100%' height='95%'></iframe>").attr("style","height:480px;");
-              $("#Th_Dialog").attr("style", "width:640px;");
-              $('#Khung_Modal').modal('show');
-          }
-          function Dang_xuat() {
-              $.ajax({
-                  type: 'POST',
-                  url: '/services/xuly.aspx/Dang_xuat',
-                  data: '',
-                  contentType: 'application/json; charset=utf-8',
-                  dataType: 'json',
-                  success: function (data) {
-                      window.location.href = "/";
-                  },
-                  error: function (response) {
-                      window.location.href = "/";
-                  }
-              });
-          }
+        function Xu_ly_Quan_ly(){
+            document.getElementById("slider-nganh").innerHTML="";
+            document.getElementById("gioi_thieu").innerHTML="";
+            document.getElementById("Khung_Chuc_nang").setAttribute("src","MH_Quan_ly.html");
+        }
+        function Xu_ly_Sinh_vien(){
+            document.getElementById("slider-nganh").innerHTML="";
+            document.getElementById("gioi_thieu").innerHTML="";
+            document.getElementById("Khung_Chuc_nang").setAttribute("src","MH_Sinh_vien.html");
+        }
+        function Xu_ly_Giao_vien(){
+            document.getElementById("slider-nganh").innerHTML="";
+            document.getElementById("gioi_thieu").innerHTML="";
+            document.getElementById("Khung_Chuc_nang").setAttribute("src","MH_Giao_vien.html");
+        }
+   
       </script>
-          
-              <!--Nội dung script trang con-->
-          
-      
-      
-      <div id="lbdictex_find_popup" class="lbexpopup hidden" style="position: absolute; top: 0px; left: 0px;"><div class="lbexpopup_top"><h2 class="fl popup_title">&nbsp;</h2><ul><li><a class="close_main popup_close" href="/#">&nbsp;</a></li></ul><div class="clr"></div></div><div class="popup_details"></div><div class="popup_powered">abc</div></div><div id="lbdictex_ask_mark" class="hidden" style="position: absolute; top: 0px; left: 0px;"><a class="lbdictex_ask_select" href="/#">&nbsp;</a></div>
-  
-  
+
 </body>
 
 </html>
