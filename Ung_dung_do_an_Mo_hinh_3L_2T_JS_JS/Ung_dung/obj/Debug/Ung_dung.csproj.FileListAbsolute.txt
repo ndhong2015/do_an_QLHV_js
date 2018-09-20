@@ -186,3 +186,4 @@ C:\wamp64\www\do_an_QLHV_js\Ung_dung_do_an_Mo_hinh_3L_2T_JS_JS\Ung_dung\obj\Debu
 C:\wamp64\www\do_an_QLHV_js\Ung_dung_do_an_Mo_hinh_3L_2T_JS_JS\Ung_dung\obj\Debug\Ung_dung.csproj.CopyComplete
 C:\wamp64\www\do_an_QLHV_js\Ung_dung_do_an_Mo_hinh_3L_2T_JS_JS\Ung_dung\obj\Debug\Ung_dung.dll
 C:\wamp64\www\do_an_QLHV_js\Ung_dung_do_an_Mo_hinh_3L_2T_JS_JS\Ung_dung\obj\Debug\Ung_dung.pdb
+C:\wamp64\www\do_an_QLHV_js\Ung_dung_do_an_Mo_hinh_3L_2T_JS_JS\Ung_dung\obj\Debug\Ung_dung.csprojAssemblyReference.cache
