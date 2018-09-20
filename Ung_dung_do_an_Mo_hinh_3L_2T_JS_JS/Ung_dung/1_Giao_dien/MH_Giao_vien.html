@@ -11,7 +11,7 @@
 <body style="font-family:Arial">
     <form action="javascript:Xu_ly_Dong_y()">
         <div class="container-fluid">
-            <div>
+            <div id="form_dang_nhap">
                 <div class="alert" style="height:10px">
                      Đăng nhập Giáo viên 
                 </div>           
@@ -29,7 +29,7 @@
             </div>
             <div id='Th_Giao_vien'></div>
             <div id='Th_Thong_bao'>
-                Xin vui lòng Nhập Tên đăng nhập và Mật khảu
+                Xin vui lòng Nhập Tên đăng nhập và Mật khẩu
             </div>
             <div id='Th_Danh_sach_Lop'></div>
             <div id='Th_Danh_sach_Sinh_vien'></div>
@@ -53,6 +53,7 @@
            Giao_vien = Danh_sach_Giao_vien.find(x => x.Ten_dang_nhap == Ten_dang_nhap
                && x.Mat_khau == Mat_khau)
            Giao_vien.Danh_sach_Dang_nhap.push(new Date())
+           document.getElementById("form_dang_nhap").innerHTML = "";
            var Danh_sach_Lop_cua_Giao_vien=Tao_Danh_sach_Lop_cua_Giao_vien(
               Giao_vien,Danh_sach_Lop)
             var Danh_sach_Sinh_vien_cua_Giao_vien=Tao_Danh_sach_Sinh_vien_cua_Giao_vien(

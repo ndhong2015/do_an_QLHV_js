@@ -1,9 +1,14 @@
 {
-	"Ma_so": "QL_1",
-	"Ho_ten": "Phan Hữu Bình",
-	"Ten_dang_nhap": "QL_1",
-	"Mat_khau": "QL_1",
-	"Danh_sach_Dang_nhap": [
+  "Ma_so": "SV_2",
+  "Ho_ten": "Nguyễn Thị B",
+  "Ten_dang_nhap":"SV_2",
+  "Mat_khau":"SV_2",
+  "Ma_so_Lop": "D25A1",
+  "Gioi_tinh": "Nữ",
+  "CMND": "212267356",
+  "Dia_chi": "113, Nguyễn Bỉnh Khiêm, P.Trần Phú, TP. Quảng Ngãi",
+  "Email": "9x9x9x@gmail.com",
+  "Danh_sach_Dang_nhap": [
 		"2017-11-09T16:08:19.24+07:00",
 		"2017-11-09T16:08:31.397+07:00",
 		"2017-11-09T16:25:42.982+07:00",

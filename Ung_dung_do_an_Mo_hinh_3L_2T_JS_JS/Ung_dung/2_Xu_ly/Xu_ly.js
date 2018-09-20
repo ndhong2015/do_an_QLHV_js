@@ -64,17 +64,29 @@ function Tao_Chuoi_HTML_Khach_Tham_quan_Khi_Chao(Khach_Tham_quan) {
 
     return Chuoi_HTML
 }
-function Tao_Chuoi_HTML_Khach_hang_Khi_Chao(Khach_hang) {
-    var Chuoi_Hinh = `<img src='../Media/${Khach_hang.Ma_so}.png'
+function Tao_Chuoi_HTML_Sinh_vien_Khi_Chao(Sinh_vien) {
+    var Chuoi_Hinh = `<img src='../Media/${Sinh_vien.Ma_so}.png'
                      style='width:60px;height:60px' />`
     var Chuoi_Tom_tat = `<div class='btn' >
-                      Xin chào ${Khach_hang.Ho_ten}
+                      Xin chào sinh viên ${Sinh_vien.Ho_ten}
                      </div>`
     var Chuoi_HTML = `<div class='btn' > 
                    ${Chuoi_Hinh}  ${Chuoi_Tom_tat}
                   </div>`
 
     return Chuoi_HTML
+}
+function Tao_Chuoi_HTML_Chi_tiet_Sinh_vien(Sinh_vien){
+    var Chuoi_Hinh = `<img src='../Media/${Sinh_vien.Ma_so}.png'
+    style='width:60px;height:60px' />`
+    var Chuoi_Tom_tat = `<div class='btn' style="color:red" >
+        Thông tin chi tiết của Sinh viên:<br>Họ và tên: ${Sinh_vien.Ho_ten}<br>MSSV: ${Sinh_vien.Ma_so}<br>Mã số lớp: ${Sinh_vien.Ma_so_Lop}<br>Giới tính: ${Sinh_vien.Gioi_tinh}<br>CMND: ${Sinh_vien.CMND}<br>Địa chỉ: ${Sinh_vien.Dia_chi}<br>Email: ${Sinh_vien.Email}<br>Số lần đăng nhập vào hệ thống: ${Sinh_vien.Danh_sach_Dang_nhap.length}   
+        </div>`
+    var Chuoi_HTML = `<div class='btn' > 
+    ${Chuoi_Hinh}  ${Chuoi_Tom_tat}
+    </div>`
+
+    return Chuoi_HTML 
 }
 function Tao_Chuoi_HTML_Quan_ly_Khi_Chao(Quan_ly) {
     var Chuoi_Hinh = `<img src='../Media/${Quan_ly.Ma_so}.png'
@@ -93,7 +105,7 @@ function Tao_Chuoi_HTML_Giao_vien_Khi_Chao(Giao_vien) {
     var Chuoi_Hinh = `<img src='../Media/${Giao_vien.Ma_so}.png'
                      style='width:60px;height:60px' />`
     var Chuoi_Tom_tat = `<div class='btn' >
-                      Xin chào Nhân viên  ${Giao_vien.Ho_ten}
+                      Xin chào Giáo viên  ${Giao_vien.Ho_ten}
                       <br />Số lần đăng nhập là  ${Giao_vien.Danh_sach_Dang_nhap.length}
                      </div>`
     var Chuoi_HTML = `<div class='btn' > 
@@ -127,7 +139,7 @@ function Tao_Chuoi_HTML_Danh_sach_Sinh_vien(Danh_sach) {
                   style='width:40px;height:40px' />`
         var Chuoi_Tom_tat = `<div class='btn'
               style='text-align:left' >
-            ${Sinh_vien.Ten}<br />${Sinh_vien.Don_gia_Ban} </div>`
+            ${Sinh_vien.Ten}<br />MSSV: ${Sinh_vien.Ma_so}<br/>Lớp: ${Sinh_vien.Ma_so_Lop}</div>`
         var Chuoi_HTML = `<div class='col-md-4'  > 
              ${Chuoi_Hinh}  ${Chuoi_Tom_tat}
                      </div>`

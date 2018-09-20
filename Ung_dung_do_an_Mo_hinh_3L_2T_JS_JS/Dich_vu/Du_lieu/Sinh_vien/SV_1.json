@@ -1,9 +1,14 @@
 {
-	"Ma_so": "QL_1",
-	"Ho_ten": "Phan Hữu Bình",
-	"Ten_dang_nhap": "QL_1",
-	"Mat_khau": "QL_1",
-	"Danh_sach_Dang_nhap": [
+  "Ma_so": "SV_1",
+  "Ho_ten": "Nguyễn Văn A",
+  "Ten_dang_nhap":"SV_1",
+  "Mat_khau":"SV_1",
+  "Ma_so_Lop": "D25A1",
+  "Gioi_tinh": "Nam",
+  "CMND": "212267367",
+  "Dia_chi": "Km 18, xa lộ Hà Nội, P.Linh Trung, Q.Thủ Đức, TP. Hồ Chí Minh",
+  "Email": "ndhong2015@gmail.com",
+  "Danh_sach_Dang_nhap": [
 		"2017-11-09T16:08:19.24+07:00",
 		"2017-11-09T16:08:31.397+07:00",
 		"2017-11-09T16:25:42.982+07:00",
