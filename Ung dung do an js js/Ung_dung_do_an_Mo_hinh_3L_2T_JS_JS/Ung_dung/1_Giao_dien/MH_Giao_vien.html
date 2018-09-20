@@ -13,7 +13,7 @@
         <div class="container-fluid">
             <div>
                 <div class="alert" style="height:10px">
-                     Đăng nhập Quản lý 
+                     Đăng nhập Giáo viên 
                 </div>           
                 <div class="alert" style="height:30px">
                     <input  id="Th_Ten_dang_nhap"  name="Th_Ten_dang_nhap" required="required"
@@ -27,13 +27,12 @@
                     <button class="btn btn-danger" type="submit">Đồng ý</button>
                 </div>
             </div>
-            <div id='Th_Quan_ly'></div>
+            <div id='Th_Giao_vien'></div>
             <div id='Th_Thong_bao'>
                 Xin vui lòng Nhập Tên đăng nhập và Mật khảu
-                <br />Click Đồng ý=>Nếu hợp lệ Ứng dụng sẽ chào anh/chị          
             </div>
-            <div id='Th_Danh_sach_Nhom_hang'></div>
-            <div id='Th_Danh_sach_Mat_hang'></div>
+            <div id='Th_Danh_sach_Lop'></div>
+            <div id='Th_Danh_sach_Sinh_vien'></div>
         </div>
     </form>
 
@@ -41,36 +40,41 @@
 </body>
 </html>
 <script >
-    var Danh_sach_Nhom_hang = Doc_Danh_sach_Nhom_hang()
-    var Danh_sach_Mat_hang = Doc_Danh_sach_Mat_hang()
-    var Danh_sach_Quan_ly = Doc_Danh_sach_Quan_ly()
-    var Danh_sach_Nhan_vien = Doc_Danh_sach_Nhan_vien()
+    var Danh_sach_Lop = Doc_Danh_sach_Lop()
+    var Danh_sach_Sinh_vien = Doc_Danh_sach_Sinh_vien()
+    var Danh_sach_Giao_vien = Doc_Danh_sach_Giao_vien()
    function Xu_ly_Dong_y(){    
-      
-      var Ten_dang_nhap = Th_Ten_dang_nhap.value // Nhập liệu
-      var Mat_khau = Th_Mat_khau.value // Nhập liệu
-      var Quan_ly = {} // Biến Kq
-      var Hop_le = Danh_sach_Quan_ly.some(x => x.Ten_dang_nhap == Ten_dang_nhap
-               && x.Mat_khau == Mat_khau )
-      if (Hop_le) {
-        Quan_ly = Danh_sach_Quan_ly.find(x => x.Ten_dang_nhap == Ten_dang_nhap
-              && x.Mat_khau == Mat_khau)
-        Quan_ly.Danh_sach_Dang_nhap.push(new Date())
-        Th_Quan_ly.innerHTML=Tao_Chuoi_HTML_Quan_ly_Khi_Chao(Quan_ly)
-        Th_Thong_bao.innerHTML=`Anh/chị đang Quản lý 
-               ${Danh_sach_Nhom_hang.length} Nhóm hàng 
-               với ${Danh_sach_Mat_hang.length} Mặt hàng `
-        Th_Danh_sach_Nhom_hang.innerHTML=Tao_Chuoi_HTML_Danh_sach_Nhom_hang(
-            Danh_sach_Nhom_hang)
-        Th_Danh_sach_Mat_hang.innerHTML=Tao_Chuoi_HTML_Danh_sach_Mat_hang(
-            Danh_sach_Mat_hang)
-       
-        Ghi_Quan_ly(Quan_ly)
+       var Ten_dang_nhap = Th_Ten_dang_nhap.value // Nhập liệu
+       var Mat_khau = Th_Mat_khau.value // Nhập liệu
+       var Giao_vien = {} // Biến Kq
+       var Hop_le = Danh_sach_Giao_vien.some(x => x.Ten_dang_nhap == Ten_dang_nhap
+           && x.Mat_khau == Mat_khau)
+       if (Hop_le) {
+           Giao_vien = Danh_sach_Giao_vien.find(x => x.Ten_dang_nhap == Ten_dang_nhap
+               && x.Mat_khau == Mat_khau)
+           Giao_vien.Danh_sach_Dang_nhap.push(new Date())
+           document.getElementById("form_dang_nhap").innerHTML = "";
+           Th_Giao_vien.innerHTML=Tao_Chuoi_HTML_Giao_vien_Khi_Chao(Giao_vien)
+           var Danh_sach_Lop_cua_Giao_vien=Tao_Danh_sach_Lop_cua_Giao_vien(
+              Giao_vien,Danh_sach_Lop)
+            var Danh_sach_Sinh_vien_cua_Giao_vien=Tao_Danh_sach_Sinh_vien_cua_Giao_vien(
+              Giao_vien,Danh_sach_Sinh_vien)
+            Th_Giao_vien.innerHTML=Tao_Chuoi_HTML_Giao_vien_Khi_Chao(Giao_vien)
+             Th_Thong_bao.innerHTML=`Anh/chị được phân công 
+               ${Danh_sach_Lop_cua_Giao_vien.length} lớp 
+               với ${Danh_sach_Sinh_vien_cua_Giao_vien.length} sinh viên `
+            Th_Danh_sach_Lop.innerHTML=Tao_Chuoi_HTML_Danh_sach_Lop(
+                 Danh_sach_Lop_cua_Giao_vien)
+            Th_Danh_sach_Sinh_vien.innerHTML=Tao_Chuoi_HTML_Danh_sach_Sinh_vien(
+                Danh_sach_Sinh_vien_cua_Giao_vien)
+           //=== Ghi 
+            
+            Ghi_Giao_vien(Giao_vien)
       }
       else {
-        Th_Quan_ly.innerHTML=""
-        Th_Danh_sach_Nhom_hang.innerHTML=""
-        Th_Danh_sach_Mat_hang.innerHTML=""
+        Th_Giao_vien.innerHTML=""
+        Th_Danh_sach_Lop.innerHTML=""
+        Th_Danh_sach_Sinh_vien.innerHTML=""
         Th_Thong_bao.innerHTML="<div>Đăng nhập không hợp lệ" 
               + "<br />Xin vui lòng <b>Nhập lại</b> Tên đăng nhập và Mật khẩu" + "</div>"
       }

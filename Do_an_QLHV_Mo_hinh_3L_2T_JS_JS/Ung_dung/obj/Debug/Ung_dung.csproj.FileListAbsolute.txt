@@ -165,3 +165,24 @@ C:\Users\HectorNguyen\Desktop\Thuc hanh js\4 Ung dung loi chao js js\Ung_dung_Lo
 C:\Users\HectorNguyen\Desktop\Thuc hanh js\4 Ung dung loi chao js js\Ung_dung_Loi_chao_Mo_hinh_3L_2T_JS_JS\Ung_dung\obj\Debug\Ung_dung.csproj.CopyComplete
 C:\Users\HectorNguyen\Desktop\Thuc hanh js\4 Ung dung loi chao js js\Ung_dung_Loi_chao_Mo_hinh_3L_2T_JS_JS\Ung_dung\obj\Debug\Ung_dung.dll
 C:\Users\HectorNguyen\Desktop\Thuc hanh js\4 Ung dung loi chao js js\Ung_dung_Loi_chao_Mo_hinh_3L_2T_JS_JS\Ung_dung\obj\Debug\Ung_dung.pdb
+C:\wamp64\www\do_an_QLHV_js\Do_an_QLHV_Mo_hinh_3L_2T_JS_JS\Ung_dung\bin\Ung_dung.dll.config
+C:\wamp64\www\do_an_QLHV_js\Do_an_QLHV_Mo_hinh_3L_2T_JS_JS\Ung_dung\bin\Ung_dung.dll
+C:\wamp64\www\do_an_QLHV_js\Do_an_QLHV_Mo_hinh_3L_2T_JS_JS\Ung_dung\bin\Ung_dung.pdb
+C:\wamp64\www\do_an_QLHV_js\Do_an_QLHV_Mo_hinh_3L_2T_JS_JS\Ung_dung\bin\Microsoft.Web.Infrastructure.dll
+C:\wamp64\www\do_an_QLHV_js\Do_an_QLHV_Mo_hinh_3L_2T_JS_JS\Ung_dung\bin\Newtonsoft.Json.dll
+C:\wamp64\www\do_an_QLHV_js\Do_an_QLHV_Mo_hinh_3L_2T_JS_JS\Ung_dung\bin\System.Web.Helpers.dll
+C:\wamp64\www\do_an_QLHV_js\Do_an_QLHV_Mo_hinh_3L_2T_JS_JS\Ung_dung\bin\System.Web.Mvc.dll
+C:\wamp64\www\do_an_QLHV_js\Do_an_QLHV_Mo_hinh_3L_2T_JS_JS\Ung_dung\bin\System.Web.Razor.dll
+C:\wamp64\www\do_an_QLHV_js\Do_an_QLHV_Mo_hinh_3L_2T_JS_JS\Ung_dung\bin\System.Web.WebPages.Deployment.dll
+C:\wamp64\www\do_an_QLHV_js\Do_an_QLHV_Mo_hinh_3L_2T_JS_JS\Ung_dung\bin\System.Web.WebPages.dll
+C:\wamp64\www\do_an_QLHV_js\Do_an_QLHV_Mo_hinh_3L_2T_JS_JS\Ung_dung\bin\System.Web.WebPages.Razor.dll
+C:\wamp64\www\do_an_QLHV_js\Do_an_QLHV_Mo_hinh_3L_2T_JS_JS\Ung_dung\bin\System.Web.Helpers.xml
+C:\wamp64\www\do_an_QLHV_js\Do_an_QLHV_Mo_hinh_3L_2T_JS_JS\Ung_dung\bin\System.Web.Mvc.xml
+C:\wamp64\www\do_an_QLHV_js\Do_an_QLHV_Mo_hinh_3L_2T_JS_JS\Ung_dung\bin\System.Web.Razor.xml
+C:\wamp64\www\do_an_QLHV_js\Do_an_QLHV_Mo_hinh_3L_2T_JS_JS\Ung_dung\bin\System.Web.WebPages.xml
+C:\wamp64\www\do_an_QLHV_js\Do_an_QLHV_Mo_hinh_3L_2T_JS_JS\Ung_dung\bin\System.Web.WebPages.Deployment.xml
+C:\wamp64\www\do_an_QLHV_js\Do_an_QLHV_Mo_hinh_3L_2T_JS_JS\Ung_dung\bin\System.Web.WebPages.Razor.xml
+C:\wamp64\www\do_an_QLHV_js\Do_an_QLHV_Mo_hinh_3L_2T_JS_JS\Ung_dung\obj\Debug\Ung_dung.csproj.CoreCompileInputs.cache
+C:\wamp64\www\do_an_QLHV_js\Do_an_QLHV_Mo_hinh_3L_2T_JS_JS\Ung_dung\obj\Debug\Ung_dung.csproj.CopyComplete
+C:\wamp64\www\do_an_QLHV_js\Do_an_QLHV_Mo_hinh_3L_2T_JS_JS\Ung_dung\obj\Debug\Ung_dung.dll
+C:\wamp64\www\do_an_QLHV_js\Do_an_QLHV_Mo_hinh_3L_2T_JS_JS\Ung_dung\obj\Debug\Ung_dung.pdb

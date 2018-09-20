@@ -19,8 +19,8 @@
             <div id='Th_Thong_bao'>
                 Xin vui lòng Nhập Họ tên khác trống
                 <br />Click Đồng ý=>Nếu hợp lệ Ứng dụng sẽ chào anh/chị           </div>
-            <div id='Th_Danh_sach_Nhom_hang'></div>
-            <div id='Th_Danh_sach_Mat_hang'></div>
+            <div id='Th_Danh_sach_Lop'></div>
+            <div id='Th_Danh_sach_Sinh_vien'></div>
         </div>
     </form>
 
@@ -28,8 +28,8 @@
 </body>
 </html>
 <script >
-   var Danh_sach_Nhom_hang = Doc_Danh_sach_Nhom_hang()
-   var Danh_sach_Mat_hang = Doc_Danh_sach_Mat_hang()
+   var Danh_sach_Lop = Doc_Danh_sach_Lop()
+   var Danh_sach_Sinh_vien = Doc_Danh_sach_Sinh_vien()
    function Xu_ly_Dong_y(){    
       var Khach_hang={"Ho_ten":"","Ma_so":"KHACH_HANG"} // Biến Kq
       Khach_hang.Ho_ten = Th_Ho_ten.value // Nhập liệu
@@ -38,12 +38,12 @@
         Th_Khach_hang.innerHTML=Tao_Chuoi_HTML_Khach_hang_Khi_Chao(
                       Khach_hang)
         Th_Thong_bao.innerHTML=`Chúng tôi hiện có 
-               ${Danh_sach_Nhom_hang.length} Nhóm hàng 
-               với ${Danh_sach_Mat_hang.length} Mặt hàng `
-        Th_Danh_sach_Nhom_hang.innerHTML=Tao_Chuoi_HTML_Danh_sach_Nhom_hang(
-            Danh_sach_Nhom_hang)
-        Th_Danh_sach_Mat_hang.innerHTML=Tao_Chuoi_HTML_Danh_sach_Mat_hang(
-            Danh_sach_Mat_hang)
+               ${Danh_sach_Lop.length} Nhóm hàng 
+               với ${Danh_sach_Sinh_vien.length} Mặt hàng `
+        Th_Danh_sach_Lop.innerHTML=Tao_Chuoi_HTML_Danh_sach_Lop(
+            Danh_sach_Lop)
+        Th_Danh_sach_Sinh_vien.innerHTML=Tao_Chuoi_HTML_Danh_sach_Sinh_vien(
+            Danh_sach_Sinh_vien)
       }
       else {
           // Không có trường hợp này

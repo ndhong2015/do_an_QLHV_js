@@ -8,16 +8,16 @@ var Dich_vu = XL_HTTP.createServer((Yeu_cau, Dap_ung) => {
         var Ma_so_Xu_ly=Tham_so.Ma_so_Xu_ly
         Yeu_cau.on('data', (chunk) => { Chuoi_Nhan += chunk })
         Yeu_cau.on('end', () => {
-            if (Ma_so_Xu_ly == "Doc_Danh_sach_Nhom_hang") {
-                var Danh_sach=Doc_Danh_sach("NHOM_HANG")
+            if (Ma_so_Xu_ly == "Doc_Danh_sach_Lop") {
+                var Danh_sach=Doc_Danh_sach("Lop")
                 Chuoi_Kq = JSON.stringify(Danh_sach)
             }
-            else if (Ma_so_Xu_ly == "Doc_Danh_sach_Mat_hang") {
-              var Danh_sach=Doc_Danh_sach("MAT_HANG")
+            else if (Ma_so_Xu_ly == "Doc_Danh_sach_Sinh_vien") {
+              var Danh_sach=Doc_Danh_sach("Sinh_vien")
               Chuoi_Kq = JSON.stringify(Danh_sach)
             }
-            else if (Ma_so_Xu_ly == "Doc_Danh_sach_Nhan_vien") {
-              var Danh_sach=Doc_Danh_sach("NHAN_VIEN")
+            else if (Ma_so_Xu_ly == "Doc_Danh_sach_Giao_vien") {
+              var Danh_sach=Doc_Danh_sach("GIAO_VIEN")
               Chuoi_Kq = JSON.stringify(Danh_sach)
             }
             else if (Ma_so_Xu_ly == "Doc_Danh_sach_Quan_ly") {
@@ -28,9 +28,9 @@ var Dich_vu = XL_HTTP.createServer((Yeu_cau, Dap_ung) => {
               var Doi_tuong=JSON.parse(Chuoi_Nhan)
               Ghi_Doi_tuong(Doi_tuong,"QUAN_LY")             
             }
-            else if (Ma_so_Xu_ly == "Ghi_Nhan_vien") {
+            else if (Ma_so_Xu_ly == "Ghi_Giao_vien") {
               var Doi_tuong=JSON.parse(Chuoi_Nhan)
-              Ghi_Doi_tuong(Doi_tuong,"NHAN_VIEN")             
+              Ghi_Doi_tuong(Doi_tuong,"Giao_vien")             
             }
             Dap_ung.setHeader("Access-Control-Allow-Origin", '*')
             Dap_ung.end(Chuoi_Kq);

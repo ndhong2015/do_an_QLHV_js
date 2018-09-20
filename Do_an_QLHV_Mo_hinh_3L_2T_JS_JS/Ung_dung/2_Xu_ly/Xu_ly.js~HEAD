@@ -1,19 +1,19 @@
 ﻿//===== Xử lý Lưu trữ 
 var Dia_chi_Dich_vu = "http://localhost:1000"
-function Doc_Danh_sach_Lop() {
+function Doc_Danh_sach_Nhom_hang() {
     var Danh_sach = []
     var Xu_ly_HTTP = new XMLHttpRequest()
-    var Dia_chi = `${Dia_chi_Dich_vu}?Ma_so_Xu_ly=Doc_Danh_sach_Lop`
+    var Dia_chi = `${Dia_chi_Dich_vu}?Ma_so_Xu_ly=Doc_Danh_sach_Nhom_hang`
     Xu_ly_HTTP.open("POST", Dia_chi, false)
     Xu_ly_HTTP.send("")
     var Chuoi = Xu_ly_HTTP.responseText
     Danh_sach = JSON.parse(Chuoi)
     return Danh_sach
 }
-function Doc_Danh_sach_Sinh_vien() {
+function Doc_Danh_sach_Mat_hang() {
     var Danh_sach = []
     var Xu_ly_HTTP = new XMLHttpRequest()
-    var Dia_chi = `${Dia_chi_Dich_vu}?Ma_so_Xu_ly=Doc_Danh_sach_Sinh_vien`
+    var Dia_chi = `${Dia_chi_Dich_vu}?Ma_so_Xu_ly=Doc_Danh_sach_Mat_hang`
     Xu_ly_HTTP.open("POST", Dia_chi, false)
     Xu_ly_HTTP.send("")
     var Chuoi = Xu_ly_HTTP.responseText
@@ -30,10 +30,10 @@ function Doc_Danh_sach_Quan_ly() {
     Danh_sach = JSON.parse(Chuoi)
     return Danh_sach
 }
-function Doc_Danh_sach_Giao_vien() {
+function Doc_Danh_sach_Nhan_vien() {
     var Danh_sach = []
     var Xu_ly_HTTP = new XMLHttpRequest()
-    var Dia_chi = `${Dia_chi_Dich_vu}?Ma_so_Xu_ly=Doc_Danh_sach_Giao_vien`
+    var Dia_chi = `${Dia_chi_Dich_vu}?Ma_so_Xu_ly=Doc_Danh_sach_Nhan_vien`
     Xu_ly_HTTP.open("POST", Dia_chi, false)
     Xu_ly_HTTP.send("")
     var Chuoi = Xu_ly_HTTP.responseText
@@ -89,12 +89,17 @@ function Tao_Chuoi_HTML_Quan_ly_Khi_Chao(Quan_ly) {
 
     return Chuoi_HTML
 }
-function Tao_Chuoi_HTML_Giao_vien_Khi_Chao(Giao_vien) {
-    var Chuoi_Hinh = `<img src='../Media/${Giao_vien.Ma_so}.png'
+function Tao_Chuoi_HTML_Nhan_vien_Khi_Chao(Nhan_vien) {
+    var Chuoi_Hinh = `<img src='../Media/${Nhan_vien.Ma_so}.png'
                      style='width:60px;height:60px' />`
     var Chuoi_Tom_tat = `<div class='btn' >
+<<<<<<< HEAD:Do_an_QLHV_Mo_hinh_3L_2T_JS_JS/Ung_dung/2_Xu_ly/Xu_ly.js
+                      Xin chào Nhân viên  ${Nhan_vien.Ho_ten}
+                      <br />Số lần đăng nhập là  ${Nhan_vien.Danh_sach_Dang_nhap.length}
+=======
                       Xin chào Nhân viên  ${Giao_vien.Ho_ten}
                       <br />Số lần đăng nhập là  ${Giao_vien.Danh_sach_Dang_nhap.length}
+>>>>>>> parent of 685c7eb... update:Ung dung do an js js/Ung_dung_do_an_Mo_hinh_3L_2T_JS_JS/Ung_dung/2_Xu_ly/Xu_ly.js
                      </div>`
     var Chuoi_HTML = `<div class='btn' > 
                    ${Chuoi_Hinh}  ${Chuoi_Tom_tat}
@@ -104,13 +109,13 @@ function Tao_Chuoi_HTML_Giao_vien_Khi_Chao(Giao_vien) {
 }
 
 // Tạo Chuỗi HTML Danh sách 
-function Tao_Chuoi_HTML_Danh_sach_Lop(Danh_sach) {
+function Tao_Chuoi_HTML_Danh_sach_Nhom_hang(Danh_sach) {
     var Chuoi_HTML_Danh_sach = `<div class='row'>`
-    Danh_sach.forEach(Lop => {
-        var Chuoi_Hinh = `<img src='../Media/${Lop.Ma_so}.png'
+    Danh_sach.forEach(Nhom_hang => {
+        var Chuoi_Hinh = `<img src='../Media/${Nhom_hang.Ma_so}.png'
                   style='width:40px;height:40px' />`
         var Chuoi_Tom_tat = `<div class='btn' >
-            ${Lop.Ten}  </div>`
+            ${Nhom_hang.Ten}  </div>`
         var Chuoi_HTML = `<div class='btn' > 
              ${Chuoi_Hinh}  ${Chuoi_Tom_tat}
                      </div>`
@@ -120,14 +125,18 @@ function Tao_Chuoi_HTML_Danh_sach_Lop(Danh_sach) {
 
     return Chuoi_HTML_Danh_sach
 }
-function Tao_Chuoi_HTML_Danh_sach_Sinh_vien(Danh_sach) {
+function Tao_Chuoi_HTML_Danh_sach_Mat_hang(Danh_sach) {
     var Chuoi_HTML_Danh_sach = `<div class='row'>`
-    Danh_sach.forEach(Sinh_vien => {
-        var Chuoi_Hinh = `<img src='../Media/${Sinh_vien.Ma_so}.png'
+    Danh_sach.forEach(Mat_hang => {
+        var Chuoi_Hinh = `<img src='../Media/${Mat_hang.Ma_so}.png'
                   style='width:40px;height:40px' />`
         var Chuoi_Tom_tat = `<div class='btn'
               style='text-align:left' >
+<<<<<<< HEAD:Do_an_QLHV_Mo_hinh_3L_2T_JS_JS/Ung_dung/2_Xu_ly/Xu_ly.js
+            ${Mat_hang.Ten}<br />${Mat_hang.Don_gia_Ban} </div>`
+=======
             ${Sinh_vien.Ten}<br />${Sinh_vien.Don_gia_Ban} </div>`
+>>>>>>> parent of 685c7eb... update:Ung dung do an js js/Ung_dung_do_an_Mo_hinh_3L_2T_JS_JS/Ung_dung/2_Xu_ly/Xu_ly.js
         var Chuoi_HTML = `<div class='col-md-4'  > 
              ${Chuoi_Hinh}  ${Chuoi_Tom_tat}
                      </div>`
@@ -138,23 +147,23 @@ function Tao_Chuoi_HTML_Danh_sach_Sinh_vien(Danh_sach) {
     return Chuoi_HTML_Danh_sach
 }
 //==== Xử lý Nghiệp vụ
-function Tao_Danh_sach_Lop_cua_Giao_vien(Giao_vien,
-    Danh_sach_Tat_ca_Lop) {
+function Tao_Danh_sach_Nhom_hang_cua_Nhan_vien(Nhan_vien,
+    Danh_sach_Tat_ca_Nhom_hang) {
     var Danh_sach = []
-    Giao_vien.Danh_sach_Ma_so_Lop.forEach(
-        Ma_so_Lop => {
-            var Lop = Danh_sach_Tat_ca_Lop.find(x => x.Ma_so == Ma_so_Lop)
-            if (Lop)
-                Danh_sach.push(Lop)
+    Nhan_vien.Danh_sach_Ma_so_Nhom_hang.forEach(
+        Ma_so_Nhom_hang => {
+            var Nhom_hang = Danh_sach_Tat_ca_Nhom_hang.find(x => x.Ma_so == Ma_so_Nhom_hang)
+            if (Nhom_hang)
+                Danh_sach.push(Nhom_hang)
         })
     return Danh_sach
 }
-function Tao_Danh_sach_Sinh_vien_cua_Giao_vien(Giao_vien, Danh_sach_Tat_ca_Sinh_vien) {
+function Tao_Danh_sach_Mat_hang_cua_Nhan_vien(Nhan_vien, Danh_sach_Tat_ca_Mat_hang) {
     var Danh_sach = []
-    Giao_vien.Danh_sach_Ma_so_Lop.forEach(
-        Ma_so_Lop => {
-            var DS_Sinh_vien = Danh_sach_Tat_ca_Sinh_vien.filter(x => x.Ma_so_Lop == Ma_so_Lop)
-            Array.prototype.push.apply(Danh_sach, DS_Sinh_vien)
+    Nhan_vien.Danh_sach_Ma_so_Nhom_hang.forEach(
+        Ma_so_Nhom_hang => {
+            var DS_Mat_hang = Danh_sach_Tat_ca_Mat_hang.filter(x => x.Ma_so_Nhom_hang == Ma_so_Nhom_hang)
+            Array.prototype.push.apply(Danh_sach, DS_Mat_hang)
         })
     return Danh_sach
 }
