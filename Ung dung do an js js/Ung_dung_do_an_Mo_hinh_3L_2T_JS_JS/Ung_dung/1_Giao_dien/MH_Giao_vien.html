@@ -8,40 +8,40 @@
     <script src="../2_Xu_ly/Xu_ly.js"></script>
 </head>
 
-<body style="font-family:Arial">
-    <form action="javascript:Xu_ly_Dong_y()">
-        <div class="container-fluid">
-            <div>
-                <div class="alert" style="height:10px">
-                     Đăng nhập Giáo viên 
-                </div>           
-                <div class="alert" style="height:30px">
-                    <input  id="Th_Ten_dang_nhap"  name="Th_Ten_dang_nhap" required="required"
-                           spellcheck="false" autocomplete="off" value="" />
+    <body style="font-family:Arial">
+        <form action="javascript:Xu_ly_Dong_y()">
+            <div class="container-fluid">
+                <div>
+                    <div class="alert" style="height:10px">
+                         Đăng nhập Giáo viên 
+                    </div>           
+                    <div class="alert" style="height:30px">
+                        <input  id="Th_Ten_dang_nhap"  name="Th_Ten_dang_nhap" required="required"
+                               spellcheck="false" autocomplete="off" value="" />
+                    </div>
+                    <div class="alert" style="height:30px">
+                        <input  id="Th_Mat_khau"  name="Th_Mat_khau" type="password" required="required"
+                               spellcheck="false" autocomplete="off" value="" />
+                    </div>
+                    <div class="alert" style="height:40px">
+                        <button class="btn btn-danger" type="submit">Đồng ý</button>
+                    </div>
                 </div>
-                <div class="alert" style="height:30px">
-                    <input  id="Th_Mat_khau"  name="Th_Mat_khau" type="password" required="required"
-                           spellcheck="false" autocomplete="off" value="" />
+                <div id='Th_Giao_vien'></div>
+                <div id='Th_Thong_bao'>
+                    Xin vui lòng Nhập Tên đăng nhập và Mật khảu
                 </div>
-                <div class="alert" style="height:40px">
-                    <button class="btn btn-danger" type="submit">Đồng ý</button>
-                </div>
+                <div id='Th_Danh_sach_Lop'></div>
+                <div id='Th_Danh_sach_Sinh_vien'></div>
             </div>
-            <div id='Th_Giao_vien'></div>
-            <div id='Th_Thong_bao'>
-                Xin vui lòng Nhập Tên đăng nhập và Mật khảu
-            </div>
-            <div id='Th_Danh_sach_Lop'></div>
-            <div id='Th_Danh_sach_Sinh_vien'></div>
-        </div>
-    </form>
-
+        </form>
+    
 
 </body>
 </html>
 <script >
     var Danh_sach_Lop = Doc_Danh_sach_Lop()
-    var Danh_sach_Sinh_vien = Doc_Danh_sach_Sinh_vien()
+    var Th_Danh_sach_sinh_vien = Doc_Danh_sach_Sinh_vien()
     var Danh_sach_Giao_vien = Doc_Danh_sach_Giao_vien()
    function Xu_ly_Dong_y(){    
        var Ten_dang_nhap = Th_Ten_dang_nhap.value // Nhập liệu
@@ -53,20 +53,18 @@
            Giao_vien = Danh_sach_Giao_vien.find(x => x.Ten_dang_nhap == Ten_dang_nhap
                && x.Mat_khau == Mat_khau)
            Giao_vien.Danh_sach_Dang_nhap.push(new Date())
-           document.getElementById("form_dang_nhap").innerHTML = "";
-           Th_Giao_vien.innerHTML=Tao_Chuoi_HTML_Giao_vien_Khi_Chao(Giao_vien)
            var Danh_sach_Lop_cua_Giao_vien=Tao_Danh_sach_Lop_cua_Giao_vien(
-              Giao_vien,Danh_sach_Lop)
+              Giao_vien,Danh_sach_lop)
             var Danh_sach_Sinh_vien_cua_Giao_vien=Tao_Danh_sach_Sinh_vien_cua_Giao_vien(
-              Giao_vien,Danh_sach_Sinh_vien)
+              Giao_vien,Danh_sach_sinh_vien)
             Th_Giao_vien.innerHTML=Tao_Chuoi_HTML_Giao_vien_Khi_Chao(Giao_vien)
              Th_Thong_bao.innerHTML=`Anh/chị được phân công 
                ${Danh_sach_Lop_cua_Giao_vien.length} lớp 
                với ${Danh_sach_Sinh_vien_cua_Giao_vien.length} sinh viên `
             Th_Danh_sach_Lop.innerHTML=Tao_Chuoi_HTML_Danh_sach_Lop(
                  Danh_sach_Lop_cua_Giao_vien)
-            Th_Danh_sach_Sinh_vien.innerHTML=Tao_Chuoi_HTML_Danh_sach_Sinh_vien(
-                Danh_sach_Sinh_vien_cua_Giao_vien)
+            Th_Danh_sach_sinh_vien.innerHTML=Tao_Chuoi_HTML_Danh_sach_Sinh_vien(
+                Danh_sach_Sinh_vien_cua_Giao_vien) 
            //=== Ghi 
             
             Ghi_Giao_vien(Giao_vien)
