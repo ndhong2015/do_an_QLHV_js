@@ -34,7 +34,6 @@ var Dich_vu = XL_HTTP.createServer((Yeu_cau, Dap_ung) => {
             }
             Dap_ung.setHeader("Access-Control-Allow-Origin", '*')
             Dap_ung.end(Chuoi_Kq);
-            console.log(Chuoi_Kq);
         })
     })
 Dich_vu.listen(So_hieu_Port)
