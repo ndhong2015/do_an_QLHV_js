@@ -166,7 +166,10 @@
    }
    function Xu_ly_Chi_tiet_Sinh_vien(){
        Th_Chi_tiet_Sinh_vien.innerHTML = Tao_Chuoi_HTML_Chi_tiet_Sinh_vien(Sinh_vien_dang_nhap)
-   }           
+   }   
+   function Xu_ly_Qua_trinh_hoc_tap(){
+       Th_Chi_tiet_Sinh_vien.innerHTML = Tao_Chuoi_HTML_Chi_tiet_Sinh_vien(Sinh_vien_dang_nhap) + Tao_Chuoi_HTML_Danh_sach_Diem(Sinh_vien_dang_nhap)
+   }         
     $(document).ready(function(){ 
     //Tự động click
     document.getElementById('Dong_y').click();
