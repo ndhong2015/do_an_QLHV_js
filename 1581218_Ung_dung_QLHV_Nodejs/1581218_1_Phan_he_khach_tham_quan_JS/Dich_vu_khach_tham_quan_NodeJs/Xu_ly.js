@@ -11,13 +11,22 @@ var Dich_vu = XL_HTTP.createServer((Yeu_cau, Dap_ung) => {
             if (Ma_so_Xu_ly == "Doc_Danh_sach_Lop") {
                 var Danh_sach=Doc_Danh_sach("LOP")
                 Chuoi_Kq = JSON.stringify(Danh_sach)
-            }
+            }            
             else if (Ma_so_Xu_ly == "Doc_Danh_sach_Sinh_vien") {
               var Danh_sach=Doc_Danh_sach("SINH_VIEN")
               Chuoi_Kq = JSON.stringify(Danh_sach)
+            } 
+            else if (Ma_so_Xu_ly == "Doc_Danh_sach_Giao_vien") {
+              var Danh_sach=Doc_Danh_sach("GIAO_VIEN")
+              Chuoi_Kq = JSON.stringify(Danh_sach)
+            }
+            else if (Ma_so_Xu_ly == "Doc_Danh_sach_Quan_ly") {
+              var Danh_sach=Doc_Danh_sach("QUAN_LY")
+              Chuoi_Kq = JSON.stringify(Danh_sach)
             }
             Dap_ung.setHeader("Access-Control-Allow-Origin", '*')
-            Dap_ung.end(Chuoi_Kq);            
+            Dap_ung.end(Chuoi_Kq);    
+            console.log(Chuoi_Kq);        
         })
     })
 Dich_vu.listen(So_hieu_Port)

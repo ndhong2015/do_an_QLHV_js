@@ -21,6 +21,26 @@ function Doc_Danh_sach_Sinh_vien() {
     Danh_sach = JSON.parse(Chuoi)
     return Danh_sach
 }
+function Doc_Danh_sach_Quan_ly() {
+    var Danh_sach = []
+    var Xu_ly_HTTP = new XMLHttpRequest()
+    var Dia_chi = `${Dia_chi_Dich_vu}?Ma_so_Xu_ly=Doc_Danh_sach_Quan_ly`
+    Xu_ly_HTTP.open("POST", Dia_chi, false)
+    Xu_ly_HTTP.send("")
+    var Chuoi = Xu_ly_HTTP.responseText
+    Danh_sach = JSON.parse(Chuoi)
+    return Danh_sach
+}
+function Doc_Danh_sach_Giao_vien() {
+    var Danh_sach = []
+    var Xu_ly_HTTP = new XMLHttpRequest()
+    var Dia_chi = `${Dia_chi_Dich_vu}?Ma_so_Xu_ly=Doc_Danh_sach_Giao_vien`
+    Xu_ly_HTTP.open("POST", Dia_chi, false)
+    Xu_ly_HTTP.send("")
+    var Chuoi = Xu_ly_HTTP.responseText
+    Danh_sach = JSON.parse(Chuoi)
+    return Danh_sach
+}
 
 //===== Xử lý Thể hiện
 function Tao_Chuoi_HTML_Khach_Tham_quan_Khi_Chao(Khach_Tham_quan) {
