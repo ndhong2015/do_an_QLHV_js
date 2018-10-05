@@ -36,6 +36,7 @@ var Dich_vu = XL_HTTP.createServer((Yeu_cau, Dap_ung) => {
             Dap_ung.end(Chuoi_Kq);
         })
     })
+console.log("Lang nghe o port " + So_hieu_Port);        
 Dich_vu.listen(So_hieu_Port)
 //======Xử lý Lưu trữ 
 var XL_File = require("fs")

@@ -2,8 +2,7 @@ var XL_HTTP = require("http")
 var XL_QueryString = require('querystring')
 var So_hieu_Port = 1000
 var Dich_vu = XL_HTTP.createServer((Yeu_cau, Dap_ung) => {  
-        var Chuoi_Nhan = "";
-        var Chuoi_Kq = "{}"
+        var Chuoi_Nhan = "";var Chuoi_Kq = "{}"
         var Chuoi_Tham_so = Yeu_cau.url.replace("/?","")
         var Tham_so = XL_QueryString.parse(Chuoi_Tham_so)
         var Ma_so_Xu_ly=Tham_so.Ma_so_Xu_ly
@@ -27,9 +26,10 @@ var Dich_vu = XL_HTTP.createServer((Yeu_cau, Dap_ung) => {
             }
             Dap_ung.setHeader("Access-Control-Allow-Origin", '*')
             Dap_ung.end(Chuoi_Kq);    
-            console.log(Chuoi_Kq);        
+            console.log(Chuoi_Kq);
         })
     })
+console.log("Lang nghe o port " + So_hieu_Port);        
 Dich_vu.listen(So_hieu_Port)
 //======Xử lý Lưu trữ 
 var XL_File = require("fs")

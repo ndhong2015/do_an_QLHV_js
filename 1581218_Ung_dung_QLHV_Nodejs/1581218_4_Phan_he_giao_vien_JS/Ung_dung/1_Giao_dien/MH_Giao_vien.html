@@ -34,7 +34,12 @@
                       <div class="wrapper clearfix">
                       <div class="container hidden-xs" style="position:relative">
                         <div class="logo clearfix"><a href="/#" title="Responsive Slide Menus"><img src="./Template/logo.jpg" alt="" height="70px"></a></div>                       
-                      </div>
+                        <div class="searchdestop" style="float:right">                                
+                            <div class="btn  CHUC_NANG" data-toggle="collapse" style="float:right">
+                                <div class="btn btn-outline-danger" onclick="Xu_ly_Dang_xuat()">Đăng xuất</div>
+                            </div>
+                        </div>
+                    </div>
                       </div>
                     <div class="container-fluid" style="background-color:orangered">
                         <div class="container">
@@ -65,9 +70,9 @@
             <div class="container">                
                     <form action="javascript:Xu_ly_Dong_y()">
                             <div class="container-fluid">
-                                <div id="form_dang_nhap" style="display:none">
+                                <div id="form_dang_nhap"style="display:none">
                                     <div class="alert" style="height:10px">
-                                         Đăng nhập Sinh viên
+                                         Đăng nhập Giáo viên 
                                     </div>           
                                     <div class="alert" style="height:30px">
                                         <input  id="Th_Ten_dang_nhap"  name="Th_Ten_dang_nhap" required="required"
@@ -81,12 +86,11 @@
                                         <button id="Dong_y" class="btn btn-danger" type="submit" onclick="Xu_ly_Dong_y()">Đồng ý</button>
                                     </div>
                                 </div>
-                                <div id='Th_Sinh_vien'></div>
-                                <div id="Th_Chi_tiet_Sinh_vien"></div>
-                                <div id="Th_Ho_so_sinh_vien"></div>
-                                <div id="Th_Qua_trinh_hoc_tap"></div>
-                                <div id="Th_Danh_sach_Don_xin_nghi"></div>
-                                <div id='Th_Thong_bao'></div>
+                                <div id='Th_Giao_vien'></div>
+                                <div id='Th_Thong_bao'>
+                                </div>
+                                <div id='Th_Danh_sach_Lop'></div>
+                                <div id='Th_Danh_sach_Sinh_vien'></div>
                             </div>
                         </form>                                                                   
             </div>         
@@ -130,11 +134,11 @@
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
         integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
              
-<script type="text/javascript">
-        var Danh_sach_Lop = Doc_Danh_sach_Lop()
-        var Danh_sach_Sinh_vien = Doc_Danh_sach_Sinh_vien()    
-        var Sinh_vien_dang_nhap
-        function GetURLParameter(sParam) {
+      <script type="text/javascript">
+      var Danh_sach_Lop = Doc_Danh_sach_Lop()
+    var Danh_sach_Sinh_vien = Doc_Danh_sach_Sinh_vien()
+    var Danh_sach_Giao_vien = Doc_Danh_sach_Giao_vien()
+    function GetURLParameter(sParam) {
             var sPageURL = window.location.search.substring(1);
             var sURLVariables = sPageURL.split('&');
             for (var i = 0; i < sURLVariables.length; i++) {
@@ -144,49 +148,48 @@
                 }
             } 
         }
-        function Xu_ly_Dong_y(){          
-        var Ten_dang_nhap = GetURLParameter('Th_Ten_dang_nhap'); // Nhập liệu
-        var Mat_khau = GetURLParameter('Th_Mat_khau'); // Nhập liệu
-        var Sinh_vien = {} // Biến Kq
-        var Hop_le = Danh_sach_Sinh_vien.some(x => x.Ten_dang_nhap == Ten_dang_nhap
-               && x.Mat_khau == Mat_khau )
-        if (Hop_le) {
-        Sinh_vien = Danh_sach_Sinh_vien.find(x => x.Ten_dang_nhap == Ten_dang_nhap
-              && x.Mat_khau == Mat_khau)
-        Sinh_vien.Danh_sach_Dang_nhap.push(new Date())
-        document.getElementById("form_dang_nhap").innerHTML = "";
-        Th_Sinh_vien.innerHTML=Tao_Chuoi_HTML_Sinh_vien_Khi_Chao(Sinh_vien)
-        Th_Chi_tiet_Sinh_vien.innerHTML = "<div class='alert' style='float: left;height:40px'><button class='btn btn-danger' onclick='Tao_Chuoi_HTML_Chi_tiet_Sinh_vien()'>Hồ sơ sinh viên</button></div><div class='alert' style='float: left;height:40px'><button class='btn btn-danger' onclick='Xu_ly_Qua_trinh_hoc_tap()'>Quá trình học tập</button></div><div class='alert' style='float: left;height:40px'><button class='btn btn-danger' onclick='Xu_ly_Danh_sach_Don_xin_nghi()'>Điểm danh</button></div>"
-        Th_Thong_bao.innerHTML=""
-        Ghi_Sinh_vien(Sinh_vien)
-        Sinh_vien_dang_nhap = Sinh_vien
+   function Xu_ly_Dong_y(){    
+    var Ten_dang_nhap = GetURLParameter('Th_Ten_dang_nhap'); // Nhập liệu
+    var Mat_khau = GetURLParameter('Th_Mat_khau'); // Nhập liệu
+       var Giao_vien = {} // Biến Kq
+       var Hop_le = Danh_sach_Giao_vien.some(x => x.Ten_dang_nhap == Ten_dang_nhap
+           && x.Mat_khau == Mat_khau)
+       if (Hop_le) {
+           Giao_vien = Danh_sach_Giao_vien.find(x => x.Ten_dang_nhap == Ten_dang_nhap
+               && x.Mat_khau == Mat_khau)
+           Giao_vien.Danh_sach_Dang_nhap.push(new Date())
+           document.getElementById("form_dang_nhap").innerHTML = "";
+           var Danh_sach_Lop_cua_Giao_vien=Tao_Danh_sach_Lop_cua_Giao_vien(
+              Giao_vien,Danh_sach_Lop)
+            var Danh_sach_Sinh_vien_cua_Giao_vien=Tao_Danh_sach_Sinh_vien_cua_Giao_vien(
+              Giao_vien,Danh_sach_Sinh_vien)
+            Th_Giao_vien.innerHTML=Tao_Chuoi_HTML_Giao_vien_Khi_Chao(Giao_vien)
+             Th_Thong_bao.innerHTML=`Anh/chị được phân công 
+               ${Danh_sach_Lop_cua_Giao_vien.length} lớp 
+               với ${Danh_sach_Sinh_vien_cua_Giao_vien.length} sinh viên `
+            Th_Danh_sach_Lop.innerHTML=Tao_Chuoi_HTML_Danh_sach_Lop(
+                 Danh_sach_Lop_cua_Giao_vien)
+            Th_Danh_sach_Sinh_vien.innerHTML=Tao_Chuoi_HTML_Danh_sach_Sinh_vien(
+                Danh_sach_Sinh_vien_cua_Giao_vien) 
+           //=== Ghi 
+            
+            Ghi_Giao_vien(Giao_vien)
       }
       else {
-        Th_Sinh_vien.innerHTML=""
-        Th_Chi_tiet_Sinh_vien.innerHTML=""
-        Th_Ho_so_sinh_vien.innerHTML=""
-        Th_Qua_trinh_hoc_tap.innerHTML=""
-        Th_Danh_sach_Don_xin_nghi.innerHTML=""
-        Th_Thong_bao.innerHTML=""    
+        Th_Giao_vien.innerHTML=""
+        Th_Danh_sach_Lop.innerHTML=""
+        Th_Danh_sach_Sinh_vien.innerHTML=""
+        Th_Thong_bao.innerHTML=""
       }
-   }
-   function Xu_ly_Chi_tiet_Sinh_vien(){
-       Th_Chi_tiet_Sinh_vien.innerHTML = Tao_Chuoi_HTML_Chi_tiet_Sinh_vien(Sinh_vien_dang_nhap)
-   }   
-   function Xu_ly_Ho_so_sinh_vien(){
-       Th_Ho_so_sinh_vien.innerHTML = Tao_Chuoi_HTML_Ho_so_sinh_vien(Sinh_vien_dang_nhap)
-   }
-   function Xu_ly_Qua_trinh_hoc_tap(){
-    Th_.innerHTML = Tao_Chuoi_HTML_Danh_sach_Diem(Sinh_vien_dang_nhap)
-   }      
-   function Xu_ly_Danh_sach_Don_xin_nghi(){
-    Th_.innerHTML = Tao_Chuoi_HTML_Danh_sach_Don_xin_nghi(Sinh_vien_dang_nhap)
    }    
-    $(document).ready(function(){ 
-    //Tự động click
-    document.getElementById('Dong_y').click();
-});
-</script>       
+   function Xu_ly_Dang_xuat(){
+            window.location.href ="../../../1581218_1_Phan_he_khach_tham_quan_JS/Ung_dung/1_Giao_dien/MH_Chinh.html"              
+        }
+        $(document).ready(function(){ 
+        //Tự động click
+        document.getElementById('Dong_y').click();
+    });
+        </script>       
 </body>
 
 </html>

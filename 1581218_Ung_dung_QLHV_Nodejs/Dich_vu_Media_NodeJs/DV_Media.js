@@ -17,9 +17,9 @@ var Dich_vu = NodeJs_Dich_vu.createServer((Yeu_cau, Dap_ung) => {
            Dap_ung.end(Nhi_phan, 'binary')
         }
         else {
-          Dap_ung.end("")
+          Dap_ung.end("");
         }
     })
 })
-
+console.log("Lang nghe o port " + Port);        
 Dich_vu.listen(Port);

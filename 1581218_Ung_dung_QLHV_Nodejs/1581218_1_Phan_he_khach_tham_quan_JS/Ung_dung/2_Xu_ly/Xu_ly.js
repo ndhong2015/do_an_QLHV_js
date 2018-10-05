@@ -74,14 +74,3 @@ function Tao_Chuoi_HTML_Danh_sach_Lop(Danh_sach) {
     return Chuoi_HTML_Danh_sach
 }
 //==== Xử lý Nghiệp vụ
-function Dang_nhap(Ten_dang_nhap, Mat_khau) {    
-    var Danh_sach = []
-    var Xu_ly_HTTP = new XMLHttpRequest()
-    var Dia_chi = `${Dia_chi_Dich_vu}?Ma_so_Xu_ly=Dang_nhap`
-    Xu_ly_HTTP.open("POST", Dia_chi, false)
-    Xu_ly_HTTP.send("")
-    var Chuoi = Xu_ly_HTTP.responseText
-    Danh_sach = JSON.parse(Chuoi)
-    return Danh_sach
-}
-
