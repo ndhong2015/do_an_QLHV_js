@@ -91,27 +91,25 @@
                 </div>         
         <div class="wrapper content" id="noi_dung_chinh">
                       
-          <div id="slider-nganh" class="owl-carouse">
+            <div id="slider-nganh" class="owl-carouse">
               <div id="owl-nganh" class="banner-chinh-nganh container" style="position:relative;">          
                   <div class="item">
                       <img src="./Template/slider.jpg" alt="Owl Image" width="100%">
                   </div>
                   <p><a target="_blank" style="color: rgb(31, 31, 31); font-family: Arial; font-size: 18px; position: relative; top: -24px; padding: 6px; background-color: rgba(255, 255, 255, 0.7);" href="/thong-tin/danh-sach-sinh-vien-chinh-thuc-cntt-txqm-khoa-2-2018"><marquee behavior="alternate">Ứng dụng Quản lý sinh viên - Trương Đại học An ninh nhân dân TP. HCM</marquee></a></p>
               </div>
-          </div>
+            </div>
           
-              <div class="container" >
-                  <div class="col-md-12" id="gioi_thieu"><p style="text-align:justify"><span style="font-weight:bold; color: red">Đây là phân hệ khách tham quan của ứng dụng Quản lý học viên Trường Đại học An ninh nhân dân TP.Hồ Chí Minh. Các học viên, giáo viên, quản lý học viên vui lòng đăng nhập vào phân hệ phù hợp để xem thông tin và sử dụng!<br>- Quản lý học viên: Tên đăng nhập QL_1, mật khẩu QL_1,...<br>- Sinh viên: Tên đăng nhập SV_1, mật khẩu SV_1,...<br>- Giáo viên: Tên đăng nhập GV_1, mật khẩu GV_1,...</span>&nbsp;</p>      
-            </div>   
-            <div class="container-fluid">            
-            <iframe id="Khung_Chuc_nang" src='MH_Khach_Tham_quan.html' class="KHUNG_CHUC_NANG"   style="height:40vw;width:96vw; border:none;padding-top:10px;overflow-x:hidden"
-              scrolling="yes">
-            </iframe>
-            
-        </div>   
-       
-        </div>                       
-            
+            <div class="container" >
+                    <div class="col-md-12" id="gioi_thieu"><p style="text-align:justify"><span style="font-weight:bold; color: red">Đây là phân hệ khách tham quan của ứng dụng Quản lý học viên Trường Đại học An ninh nhân dân TP.Hồ Chí Minh. Các học viên, giáo viên, quản lý học viên vui lòng đăng nhập vào phân hệ phù hợp để xem thông tin và sử dụng!<br>- Quản lý học viên: Tên đăng nhập QL_1, mật khẩu QL_1,...<br>- Sinh viên: Tên đăng nhập SV_1, mật khẩu SV_1,...<br>- Giáo viên: Tên đăng nhập GV_1, mật khẩu GV_1,...</span>&nbsp;</p>      
+                    </div>   
+                    <div class="container-fluid">
+                        <div id='Th_Khach_Tham_quan'></div>
+                        <div id='Th_Thong_bao_khach_tham_quan'></div>
+                        <div id='Th_Danh_sach_Lop'></div>
+                        <div id='Th_Danh_sach_Sinh_vien'></div>
+                    </div>                
+            </div>                       
         </div>
 
                   <div style="clear:both"></div>  
@@ -157,26 +155,69 @@
         var Danh_sach_Sinh_vien = Doc_Danh_sach_Sinh_vien()
         var Danh_sach_Quan_ly = Doc_Danh_sach_Quan_ly()
         var Danh_sach_Giao_vien = Doc_Danh_sach_Giao_vien()
-           function Xu_ly_Dong_y(){                  
-              var Ten_dang_nhap = Th_Ten_dang_nhap.value // Nhập liệu
-              var Mat_khau = Th_Mat_khau.value // Nhập liệu
-              if (Danh_sach_Quan_ly.some(x => x.Ten_dang_nhap == Ten_dang_nhap
-                       && x.Mat_khau == Mat_khau )) {
-                window.location.replace("../../../1581218_2_Phan_he_quan_ly_JS/Ung_dung/1_Giao_dien/MH_Chinh.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau)                                        
-              }
-              else if (Danh_sach_Sinh_vien.some(x => x.Ten_dang_nhap == Ten_dang_nhap
-                       && x.Mat_khau == Mat_khau )) {
-                        window.location.replace("../../../1581218_3_Phan_he_sinh_vien_JS/Ung_dung/1_Giao_dien/MH_Chinh.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau)                                        
-              } 
-              else if (Danh_sach_Giao_vien.some(x => x.Ten_dang_nhap == Ten_dang_nhap
-                       && x.Mat_khau == Mat_khau )) {
-                        window.location.replace("../../../1581218_4_Phan_he_giao_vien_JS/Ung_dung/1_Giao_dien/MH_Chinh.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau)                                        
-              }                      
-              else {
-                Th_Thong_bao.innerHTML="<div>Đăng nhập không hợp lệ" 
-               + "<br />Xin vui lòng <b>Nhập lại</b> Tên đăng nhập và Mật khẩu" + "</div>"
-              }    
-            }            
+        var Danh_sach_Lop=Doc_Danh_sach_Lop()
+
+        var Khach_Tham_quan={"Ho_ten":"Quý khách!","Ma_so":"KHACH_THAM_QUAN"} // Biến Kq
+        Th_Khach_Tham_quan.innerHTML=Tao_Chuoi_HTML_Khach_Tham_quan_Khi_Chao(Khach_Tham_quan)
+        Th_Thong_bao_khach_tham_quan.innerHTML=`Chúng tôi hiện có 
+               ${Danh_sach_Lop.length} lớp 
+               với ${Danh_sach_Sinh_vien.length} sinh viên `
+   
+        Th_Danh_sach_Lop.innerHTML=Tao_Chuoi_HTML_Danh_sach_Lop(
+            Danh_sach_Lop)
+
+        // function Xu_ly_Dong_y(){  
+        //       var Ten_dang_nhap = Th_Ten_dang_nhap.value // Nhập liệu
+        //       var Mat_khau = Th_Mat_khau.value // Nhập liệu
+        //       Dang_nhap(Ten_dang_nhap, Mat_khau)
+        //     //   if (Danh_sach_Quan_ly.some(x => x.Ten_dang_nhap == Ten_dang_nhap
+        //     //            && x.Mat_khau == Mat_khau )) {
+        //     //     window.location.replace("../../../1581218_2_Phan_he_quan_ly_JS/Ung_dung/1_Giao_dien/MH_Chinh.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau)                                        
+        //     //   }
+        //     //   else if (Danh_sach_Sinh_vien.some(x => x.Ten_dang_nhap == Ten_dang_nhap
+        //     //            && x.Mat_khau == Mat_khau )) {
+        //     //             window.location.replace("../../../1581218_3_Phan_he_sinh_vien_JS/Ung_dung/1_Giao_dien/MH_Chinh.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau)                                        
+        //     //   } 
+        //     //   else if (Danh_sach_Giao_vien.some(x => x.Ten_dang_nhap == Ten_dang_nhap
+        //     //            && x.Mat_khau == Mat_khau )) {
+        //     //             window.location.replace("../../../1581218_4_Phan_he_giao_vien_JS/Ung_dung/1_Giao_dien/MH_Chinh.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau)                                        
+        //     //   }                      
+        //     //   else {
+        //     //     Th_Thong_bao.innerHTML="<div>Đăng nhập không hợp lệ" 
+        //     //    + "<br />Xin vui lòng <b>Nhập lại</b> Tên đăng nhập và Mật khẩu" + "</div>"
+        //     //   }    
+        //     }     
+    //     function Dang_nhap() {
+    //     var tdn = $('#Th_Ten_Dang_nhap').val();
+    //     var mk = $('#Th_Mat_khau').val();
+    //     tdn = tdn.trim();
+    //     mk = mk.trim();
+    //     $.ajax({
+    //         type: 'POST',
+    //         url: '/services/xuly.aspx/Dang_nhap',
+    //         data: '{Ten_dang_nhap:"' + tdn + '", Mat_khau:"' + mk + '"}',
+    //         contentType: 'application/json; charset=utf-8',
+    //         dataType: 'json',
+    //         success: function (data) {
+    //             var a = data.d.split(',');
+    //             if (a[0] == "true") {
+    //                 window.location.href = a[1];
+    //             }
+    //             else
+    //                 $('#ThongBao').text(a[1]);
+    //         },
+    //         error: function (response) {
+    //             $('#ThongBao').text(response.d);
+    //         }
+    //     });
+    // }
+
+        function Xu_ly_Dong_y() {
+        var Ten_dang_nhap = Th_Ten_dang_nhap.value // Nhập liệu
+        var Mat_khau = Th_Mat_khau.value // Nhập liệu
+        Dang_nhap(Ten_dang_nhap, Mat_khau)
+    }
+       
         </script>
 
 </body>

@@ -51,9 +51,9 @@ function Tao_Chuoi_HTML_Chi_tiet_Sinh_vien(Sinh_vien){
     style='width:60px;height:60px' /></div>`
     var Chuoi_Tom_tat = `<div class='btn' style="color:red; text-align: left">
         <span style = "text-align: center">HỒ SƠ SINH VIÊN:</span><br>Họ và tên: ${Sinh_vien.Ho_ten}<br>MSSV: ${Sinh_vien.Ma_so}<br>Mã số lớp: ${Sinh_vien.Ma_so_Lop}<br>Giới tính: ${Sinh_vien.Gioi_tinh}<br>CMND: ${Sinh_vien.CMND}<br>Địa chỉ: ${Sinh_vien.Dia_chi}<br>Email: ${Sinh_vien.Email}<br>Số lần đăng nhập vào hệ thống: ${Sinh_vien.Danh_sach_Dang_nhap.length}   
-        </div>`
-    var Chuoi_Danh_sach_nghi_phep = `<div class='alert' style='height:40px'><button class='btn btn-danger' onclick='Xu_ly_Danh_sach_nghi_phep()'>Xem danh sách nghỉ phép</button></div>`
-    var Chuoi_Qua_trinh_hoc_tap = `<div class='alert' style='height:40px'><button class='btn btn-danger' onclick='Xu_ly_Qua_trinh_hoc_tap()'>Xem điểm</button></div>`
+        </div>`    
+    // var Chuoi_Qua_trinh_hoc_tap = `<div class='alert' style='height:40px'><button class='btn btn-danger' onclick='Xu_ly_Qua_trinh_hoc_tap()'>Xem điểm</button></div>`
+    // var Chuoi_Danh_sach_nghi_phep = `<div class='alert' style='height:40px'><button class='btn btn-danger' onclick='Xu_ly_Danh_sach_nghi_phep()'>Danh sách nghỉ phép</button></div>`
     var Chuoi_HTML = `<div class='btn' style="color:red; text-align: left; border-style: solid; border-color: orangered"><div class='btn' > 
     ${Chuoi_Hinh}  ${Chuoi_Tom_tat} 
     </div></div>`
@@ -62,36 +62,33 @@ function Tao_Chuoi_HTML_Chi_tiet_Sinh_vien(Sinh_vien){
         </div>
         <div onclick="this.style.display='none'">
             ${Chuoi_HTML}
-        </div>
-        <div>
-            ${Chuoi_Danh_sach_nghi_phep} ${Chuoi_Qua_trinh_hoc_tap}
         </div>`
+        // <div>
+        // ${Chuoi_Qua_trinh_hoc_tap} ${Chuoi_Danh_sach_nghi_phep} 
+        // </div>
     return Chuoi_HTML 
 }
-function Tao_Chuoi_HTML_Danh_sach_Diem(Sinh_vien){
-    // function forEach(Sinh_vien.Qua_trinh_hoc_tap, function()){
-    //     for(var i = 0; i < Sinh_vien.Qua_trinh_hoc_tap.length; i++)
-    //       action(array[i]);
-    //   }    
-    //   var Chuoi_Danh_sach_Diem = `<div class='btn' style="color:red; text-align: left; border-style: solid; border-color: orangered" >
-    //     <span style = "text-align: center">HỒ SƠ SINH VIÊN:</span><br>Họ và tên: ${Sinh_vien.Ho_ten}<br>MSSV: ${Sinh_vien.Ma_so}<br>Mã số lớp: ${Sinh_vien.Ma_so_Lop}<br>Giới tính: ${Sinh_vien.Gioi_tinh}<br>CMND: ${Sinh_vien.CMND}<br>Địa chỉ: ${Sinh_vien.Dia_chi}<br>Email: ${Sinh_vien.Email}<br>Số lần đăng nhập vào hệ thống: ${Sinh_vien.Danh_sach_Dang_nhap.length}   
-    //     </div>`
-    // var Chuoi_Danh_sach_nghi_phep = `<div class='alert' style='height:40px'><button class='btn btn-danger' onclick='Xu_ly_Danh_sach_nghi_phep()'>Xem danh sách nghỉ phép</button></div>`
-    // var Chuoi_Qua_trinh_hoc_tap = `<div class='alert' style='height:40px'><button class='btn btn-danger' onclick='Xu_ly_Qua_trinh_hoc_tap()'>Xem điểm</button></div>`
-    // var Chuoi_HTML = `<div class='btn' style="color:red; text-align: left; border-style: solid; border-color: orangered"><div class='btn' > 
-    // ${Chuoi_Hinh}  ${Chuoi_Tom_tat} 
-    // </div></div>`
+function Tao_Chuoi_HTML_Ho_so_sinh_vien(Sinh_vien){
+    var Chuoi_Hinh = `<div class='btn' style="color:red; text-align: left; border-style: solid; border-color: orangered"><img src='${Dia_chi_Dich_vu_Media}/${Sinh_vien.Ma_so}.png'
+    style='width:60px;height:60px' /></div>`
+    var Chuoi_Tom_tat = `<div class='btn' style="color:red; text-align: left">
+        <span style = "text-align: center">HỒ SƠ SINH VIÊN:</span><br>Họ và tên: ${Sinh_vien.Ho_ten}<br>MSSV: ${Sinh_vien.Ma_so}<br>Mã số lớp: ${Sinh_vien.Ma_so_Lop}<br>Giới tính: ${Sinh_vien.Gioi_tinh}<br>CMND: ${Sinh_vien.CMND}<br>Địa chỉ: ${Sinh_vien.Dia_chi}<br>Email: ${Sinh_vien.Email}<br>Số lần đăng nhập vào hệ thống: ${Sinh_vien.Danh_sach_Dang_nhap.length}   
+        </div>`    
+    var Chuoi_HTML = `<div class='btn' style="color:red; text-align: left; border-style: solid; border-color: orangered"><div class='btn' > 
+    ${Chuoi_Hinh}  ${Chuoi_Tom_tat} 
+    </div></div>`
     // Chuoi_HTML =`<div class='alert' style='height:40px'>
     //         <button class='btn btn-danger' onclick='Xu_ly_Chi_tiet_Sinh_vien()'>Thông tin chi tiết</button>
     //     </div>
     //     <div onclick="this.style.display='none'">
     //         ${Chuoi_HTML}
-    //     </div>
-    //     <div>
-    //         ${Chuoi_Danh_sach_nghi_phep} ${Chuoi_Qua_trinh_hoc_tap}
     //     </div>`
-
-
+        // <div>
+        // ${Chuoi_Qua_trinh_hoc_tap} ${Chuoi_Danh_sach_nghi_phep} 
+        // </div>
+    return Chuoi_HTML 
+}
+function Tao_Chuoi_HTML_Danh_sach_Diem(Sinh_vien){
     var Chuoi_Qua_trinh_hoc_tap =`
         <div class="thong-tin-thong-bao">                    	
         <div class="tieu-de-thong-tin-chi-tiet">
