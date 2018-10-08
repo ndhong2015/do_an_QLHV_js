@@ -51,7 +51,7 @@
                                                 <div class="DANH_SACH_CHUC_NANG">
                                                     <div class="btn  CHUC_NANG">
                                                         <form method="post">
-                                                            <input name="Th_Ma_so_Chuc_nang" type="hidden" value="@Khach_Tham_quan.Chuc_nang_Tra_cuu_Sinh_vien.Ma_so" />
+                                                            <input name="Th_Ma_so_Chuc_nang" type="hidden" value="" />
                                                             <input name="Th_Chuoi_Tra_cuu" style="height:30px"
                                                                    spellcheck="false" autocomplete="off" />
                                                         </form>
@@ -149,7 +149,7 @@
             } 
         }
         function Xu_ly_Dong_y(){             
-                var Ten_dang_nhap = GetURLParameter('Th_Ten_dang_nhap'); // Nhập liệu
+                   var Ten_dang_nhap = GetURLParameter('Th_Ten_dang_nhap'); // Nhập liệu
                    var Mat_khau = GetURLParameter('Th_Mat_khau'); // Nhập liệu
                    var Quan_ly = {} // Biến Kq
                    var Hop_le = Danh_sach_Quan_ly.some(x => x.Ten_dang_nhap == Ten_dang_nhap
@@ -182,8 +182,10 @@
         }
         $(document).ready(function(){ 
         //Tự động click
-        document.getElementById('Dong_y').click();
-});
+        if (GetURLParameter('Th_Ten_dang_nhap') != null && GetURLParameter('Th_Mat_khau') != null){
+            document.getElementById('Dong_y').click();
+        }
+        });
         </script>       
 </body>
 

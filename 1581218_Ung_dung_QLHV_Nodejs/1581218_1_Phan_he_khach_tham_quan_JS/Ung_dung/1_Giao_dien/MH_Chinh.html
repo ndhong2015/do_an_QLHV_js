@@ -34,7 +34,7 @@
                   <div class="header">
                       <div class="wrapper clearfix">
                       <div class="container hidden-xs" style="position:relative">
-                        <div class="logo clearfix"><a href="MH_Chinh.html" title="Responsive Slide Menus"><img src="./Template/logo.jpg" alt="" height="70px"></a></div>
+                        <div class="logo clearfix"><a href="/#" title="Responsive Slide Menus"><img src="./Template/logo.jpg" alt="" height="70px"></a></div>
                         <div class="searchdestop" style="float:right">                                
                                 <div class="btn  CHUC_NANG" data-toggle="collapse" data-target="#Cua_so_Dang_nhap" style="float:right">
                                     <div class="btn btn-outline-danger">Đăng nhập</div>
@@ -52,7 +52,7 @@
                                                 <div class="DANH_SACH_CHUC_NANG">
                                                     <div class="btn  CHUC_NANG">
                                                         <form method="post">
-                                                            <input name="Th_Ma_so_Chuc_nang" type="hidden" value="@Khach_Tham_quan.Chuc_nang_Tra_cuu_Sinh_vien.Ma_so" />
+                                                            <input name="Th_Ma_so_Chuc_nang" type="hidden" value="" />
                                                             <input name="Th_Chuoi_Tra_cuu" style="height:30px"
                                                                    spellcheck="false" autocomplete="off" />
                                                         </form>
@@ -154,50 +154,28 @@
       
       
       <script type="text/javascript">
-        //var Danh_sach_Sinh_vien = Doc_Danh_sach_Sinh_vien()
-        //var Danh_sach_Quan_ly = Doc_Danh_sach_Quan_ly()
-        //var Danh_sach_Giao_vien = Doc_Danh_sach_Giao_vien()
+        var Danh_sach_Sinh_vien = Doc_Danh_sach_Sinh_vien()
+        var Danh_sach_Quan_ly = Doc_Danh_sach_Quan_ly()
+        var Danh_sach_Giao_vien = Doc_Danh_sach_Giao_vien()
            function Xu_ly_Dong_y(){                  
               var Ten_dang_nhap = Th_Ten_dang_nhap.value // Nhập liệu
               var Mat_khau = Th_Mat_khau.value // Nhập liệu
-<<<<<<< HEAD
-              Th_Thong_bao.innerHTML = Dang_nhap(Ten_dang_nhap, Mat_khau)
-              //Th_Ma_so_Chuc_nang
-            //   if (Danh_sach_Quan_ly.some(x => x.Ten_dang_nhap == Ten_dang_nhap
-            //            && x.Mat_khau == Mat_khau )) {
-            //             window.location.href ="../../../1581218_2_Phan_he_quan_ly_JS/Ung_dung/1_Giao_dien/MH_Quan_ly.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau                                      
-            // }
-            //   else if (Danh_sach_Sinh_vien.some(x => x.Ten_dang_nhap == Ten_dang_nhap
-            //            && x.Mat_khau == Mat_khau )) {
-            //             window.location.href ="../../../1581218_3_Phan_he_sinh_vien_JS/Ung_dung/1_Giao_dien/MH_Sinh_vien.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau                                      
-            //   } 
-            //   else if (Danh_sach_Giao_vien.some(x => x.Ten_dang_nhap == Ten_dang_nhap
-            //            && x.Mat_khau == Mat_khau )) {
-            //             window.location.href ="../../../1581218_4_Phan_he_giao_vien_JS/Ung_dung/1_Giao_dien/MH_Giao_vien.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau                                       
-            //   }                      
-            //   else {
-            //     Th_Thong_bao.innerHTML="<div>Đăng nhập không hợp lệ" 
-            //    + "<br />Xin vui lòng <b>Nhập lại</b> Tên đăng nhập và Mật khẩu" + "</div>"
-            //   }    
-=======
               if (Danh_sach_Quan_ly.some(x => x.Ten_dang_nhap == Ten_dang_nhap
                        && x.Mat_khau == Mat_khau )) {
-                //window.location.replace("../../../1581218_2_Phan_he_quan_ly_JS/Ung_dung/1_Giao_dien/MH_Quan_ly.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau)                                        
-                window.location.href ="../../../1581218_2_Phan_he_quan_ly_JS/Ung_dung/1_Giao_dien/MH_Quan_ly.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau                                      
+                        window.location.href ="../../../1581218_2_Phan_he_quan_ly_JS/Ung_dung/1_Giao_dien/MH_Quan_ly.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau                                      
             }
               else if (Danh_sach_Sinh_vien.some(x => x.Ten_dang_nhap == Ten_dang_nhap
                        && x.Mat_khau == Mat_khau )) {
-                        window.location.replace("../../../1581218_3_Phan_he_sinh_vien_JS/Ung_dung/1_Giao_dien/MH_Sinh_vien.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau)                                        
+                        window.location.href ="../../../1581218_3_Phan_he_sinh_vien_JS/Ung_dung/1_Giao_dien/MH_Sinh_vien.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau                                      
               } 
               else if (Danh_sach_Giao_vien.some(x => x.Ten_dang_nhap == Ten_dang_nhap
                        && x.Mat_khau == Mat_khau )) {
-                        window.location.replace("../../../1581218_4_Phan_he_giao_vien_JS/Ung_dung/1_Giao_dien/MH_Giao_vien.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau)                                        
+                        window.location.href ="../../../1581218_4_Phan_he_giao_vien_JS/Ung_dung/1_Giao_dien/MH_Giao_vien.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau                                       
               }                      
               else {
                 Th_Thong_bao.innerHTML="<div>Đăng nhập không hợp lệ" 
                + "<br />Xin vui lòng <b>Nhập lại</b> Tên đăng nhập và Mật khẩu" + "</div>"
               }    
->>>>>>> parent of c5aa5ba... chinh sua linh tinh ban chuan
             }            
         </script>
 

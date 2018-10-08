@@ -121,21 +121,3 @@ function Tao_Danh_sach_Sinh_vien_cua_Giao_vien(Giao_vien, Danh_sach_Tat_ca_Sinh_
         })
     return Danh_sach
 }
-// public XL_NGUOI_DUNG Dang_nhap(string Ten_Dang_nhap, string Mat_khau)
-// {
-//         var Nguoi_dung = Danh_sach_Nguoi_dung.FirstOrDefault(
-//                                 x => x.Ten_Dang_nhap == Ten_Dang_nhap
-//                                       && x.Mat_khau == Mat_khau 
-//                                       && x.Nhom_Nguoi_dung.Ma_so=="NHAN_VIEN_BAN_HANG");
-
-//         if (Nguoi_dung != null)
-//         {   //Khởi động  Thông tin Online  
-             
-//             Nguoi_dung.Danh_sach_Tivi_Xem = Nguoi_dung.Danh_sach_Tivi;
-//             Nguoi_dung.Danh_sach_Tivi_Chon = new List<XL_TIVI>();
-//             Nguoi_dung.Danh_sach_Nhom_Tivi_Xem = Nguoi_dung.Danh_sach_Nhom_Tivi;
-//             HttpContext.Current.Session["Nguoi_dung_Dang_nhap"] = Nguoi_dung;
-//         }
-            
-//         return Nguoi_dung;
-// }
