@@ -32,6 +32,17 @@ function Ghi_Sinh_vien(Sinh_vien) {
     Doi_tuong = JSON.parse(Chuoi_Kq)
     return Doi_tuong
 }
+function Ghi_Don_nghi_phep(Sinh_vien) {
+    var Doi_tuong = []
+    var Chuoi_Goi = JSON.stringify(Sinh_vien)
+    var Xu_ly_HTTP = new XMLHttpRequest()
+    var Dia_chi = `${Dia_chi_Dich_vu}?Ma_so_Xu_ly=Ghi_Don_nghi_phep`
+    Xu_ly_HTTP.open("POST", Dia_chi, false)
+    Xu_ly_HTTP.send(Chuoi_Goi)
+    var Chuoi_Kq = Xu_ly_HTTP.responseText
+    Doi_tuong = JSON.parse(Chuoi_Kq)
+    return Doi_tuong
+}
 //===== Xử lý Thể hiện
 function Tao_Chuoi_HTML_Sinh_vien_Khi_Chao(Sinh_vien) {
     var Chuoi_Hinh = `<img src='${Dia_chi_Dich_vu_Media}/${Sinh_vien.Ma_so}.png'
@@ -157,9 +168,69 @@ function Tao_Chuoi_HTML_Danh_sach_nghi_phep(Sinh_vien){
         <div onclick="this.style.display='none'">
             ${Chuoi_Danh_sach_Don_xin_nghi}
         </div>`
+    Chuoi_Danh_sach_Don_xin_nghi += `<div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick='Xu_ly_Don_xin_nghi()'>Tạo đơn xin nghỉ</button></div>`
     return Chuoi_Danh_sach_Don_xin_nghi 
 }
-
+function Tao_Chuoi_HTML_Nop_Don_xin_nghi(Sinh_vien){
+    var Don_xin_nghi = {
+        "Ngay_Nop_don": "",
+        "Ngay_Bat_dau": "",
+        "So_ngay": 1,
+        "Ly_do": "",
+        "Y_kien": { 
+            "Ngay": "", 
+            "Da_co_Y_kien": false, 
+            "Noi_dung": "" 
+        }
+    }
+    var Chuoi_Don_xin_nghi =`<form>
+        <div class="thong-tin-thong-bao">                    	
+        <div class="tieu-de-thong-tin-chi-tiet">
+            <h3 style="color: Red; text-Align: center">Đơn xin nghỉ phép</h3>
+        </div>					
+        <div class="noi-dung">
+            <div id="bang-bieu" style="color:#2B2B2B; margin:0px">
+                <table class="col-sm-12 table-bordered table-striped table-condensed" style="padding:0px; width:100%;">
+                    <thead>
+                        <tr style="background-color:orangered; color:#ffffff; height:38px; text-align: center;">
+                            <td style="width:16%">Ngày nộp đơn</td>
+                            <td style="width:16%">Ngày bắt đầu</td>
+                            <td style="width:10%">Số ngày</td>
+                            <td style="width:30%">Lý do</td>
+                        </tr>
+                    </thead>
+                    <tbody>`
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth()+1;
+            var yyyy = today.getFullYear();
+                    
+            if(dd<10) {
+                dd = '0'+dd
+            } 
+                    
+            if(mm<10) {
+                mm = '0'+mm
+            }                   
+            today = mm + '/' + dd + '/' + yyyy;        
+            Don_xin_nghi.Ngay_Nop_don = today
+        Chuoi_Don_xin_nghi +=`<tr class='chieu-cao'>
+        <td data-title='Ngay_Nop_don' style='text-align: center;'>${Don_xin_nghi.Ngay_Nop_don}</td>
+        <td data-title='Ngay_Bat_dau' style='text-align: center;'><input type="date" name="Ngay_Bat_dau"></td>
+        <td data-title='So_ngay' style='text-align: center;'><input type="number" min="1" max="5" name="So_ngay" value=1></td>
+        <td data-title='Ly_do' style='text-align: left;'><input type="text" style="width:100%" name="Ly_do" required></td>
+    </tr>`
+    Chuoi_Don_xin_nghi +=       
+                    `</tbody>
+                </table>
+            </div>
+            <div style="clear:both"></div>
+        </div>                
+    </div>`    
+    Chuoi_Don_xin_nghi += `<div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick='Xu_ly_Ghi_Don_xin_nghi()'>Nộp đơn</button></div></form>`
+    
+    return Chuoi_Don_xin_nghi 
+}
 //==== Xử lý Nghiệp vụ
 function Tao_Danh_sach_Lop_cua_Giao_vien(Giao_vien,
     Danh_sach_Tat_ca_Lop) {
