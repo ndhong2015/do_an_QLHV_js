@@ -69,39 +69,17 @@ function Tao_Chuoi_HTML_Chi_tiet_Sinh_vien(Sinh_vien){
     return Chuoi_HTML 
 }
 function Tao_Chuoi_HTML_Danh_sach_Diem(Sinh_vien){
-    // function forEach(Sinh_vien.Qua_trinh_hoc_tap, function()){
-    //     for(var i = 0; i < Sinh_vien.Qua_trinh_hoc_tap.length; i++)
-    //       action(array[i]);
-    //   }    
-    //   var Chuoi_Danh_sach_Diem = `<div class='btn' style="color:red; text-align: left; border-style: solid; border-color: orangered" >
-    //     <span style = "text-align: center">HỒ SƠ SINH VIÊN:</span><br>Họ và tên: ${Sinh_vien.Ho_ten}<br>MSSV: ${Sinh_vien.Ma_so}<br>Mã số lớp: ${Sinh_vien.Ma_so_Lop}<br>Giới tính: ${Sinh_vien.Gioi_tinh}<br>CMND: ${Sinh_vien.CMND}<br>Địa chỉ: ${Sinh_vien.Dia_chi}<br>Email: ${Sinh_vien.Email}<br>Số lần đăng nhập vào hệ thống: ${Sinh_vien.Danh_sach_Dang_nhap.length}   
-    //     </div>`
-    // var Chuoi_Danh_sach_nghi_phep = `<div class='alert' style='height:40px'><button class='btn btn-danger' onclick='Xu_ly_Danh_sach_nghi_phep()'>Xem danh sách nghỉ phép</button></div>`
-    // var Chuoi_Qua_trinh_hoc_tap = `<div class='alert' style='height:40px'><button class='btn btn-danger' onclick='Xu_ly_Qua_trinh_hoc_tap()'>Xem điểm</button></div>`
-    // var Chuoi_HTML = `<div class='btn' style="color:red; text-align: left; border-style: solid; border-color: orangered"><div class='btn' > 
-    // ${Chuoi_Hinh}  ${Chuoi_Tom_tat} 
-    // </div></div>`
-    // Chuoi_HTML =`<div class='alert' style='height:40px'>
-    //         <button class='btn btn-danger' onclick='Xu_ly_Chi_tiet_Sinh_vien()'>Thông tin chi tiết</button>
-    //     </div>
-    //     <div onclick="this.style.display='none'">
-    //         ${Chuoi_HTML}
-    //     </div>
-    //     <div>
-    //         ${Chuoi_Danh_sach_nghi_phep} ${Chuoi_Qua_trinh_hoc_tap}
-    //     </div>`
-
-
+    var Danh_sach_Diem = Sinh_vien.Qua_trinh_hoc_tap;
     var Chuoi_Qua_trinh_hoc_tap =`
         <div class="thong-tin-thong-bao">                    	
         <div class="tieu-de-thong-tin-chi-tiet">
-            Quá trình học tập
+            <h3 style="color: Red; text-Align: center">Quá trình học tập</h3>
         </div>					
         <div class="noi-dung">
             <div id="bang-bieu" style="color:#2B2B2B; margin:0px">
                 <table class="col-sm-12 table-bordered table-striped table-condensed" style="padding:0px; width:100%;">
                     <thead>
-                        <tr style="background-color:#0082c8; color:#ffffff; height:38px; text-align: center;">
+                        <tr style="background-color:orangered; color:#ffffff; height:38px; text-align: center;">
                             <td style="width:6%">STT</td>
                             <td style="width:10%">Niên khóa</td>
                             <td style="width:8%">Học kỳ</td>
@@ -111,199 +89,25 @@ function Tao_Chuoi_HTML_Danh_sach_Diem(Sinh_vien){
                             <td style="width:8%">Điểm</td>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr class='chieu-cao'>
-                <td data-title='STT' style='text-align: center;'>1</td>
-                <td data-title='Niên khóa' style='text-align: center;'>2015-2016</td>
-                <td data-title='Học kỳ' style='text-align: center;'>II</td>
-                <td data-title='Mã môn' style='text-align: center;'>CTT003</td>
-                <td data-title='Tên lớp học' style='text-align: left;'>Lớp Nhập môn lập trình (2010) (2015K2)</td>
-                <td data-title='Loại điểm' style='text-align: left;'>Thi lần 1</td>
-                <td data-title='Điểm' style='text-align: center;'>6.5</td>
-            </tr><tr class='chieu-cao'>
-                <td data-title='STT' style='text-align: center;'>2</td>
-                <td data-title='Niên khóa' style='text-align: center;'>2015-2016</td>
-                <td data-title='Học kỳ' style='text-align: center;'>II</td>
-                <td data-title='Mã môn' style='text-align: center;'>CTT002</td>
-                <td data-title='Tên lớp học' style='text-align: left;'>Lớp Tin học cơ sở (2015K2)</td>
-                <td data-title='Loại điểm' style='text-align: left;'>Thi lần 1</td>
-                <td data-title='Điểm' style='text-align: center;'>10.0</td>
-            </tr><tr class='chieu-cao'>
-                <td data-title='STT' style='text-align: center;'>3</td>
-                <td data-title='Niên khóa' style='text-align: center;'>2015-2016</td>
-                <td data-title='Học kỳ' style='text-align: center;'>II</td>
-                <td data-title='Mã môn' style='text-align: center;'>CTH001</td>
-                <td data-title='Tên lớp học' style='text-align: left;'>Lớp Những nguyên lý cơ bản của Chủ nghĩa Mác-Lênin (2015K2)</td>
-                <td data-title='Loại điểm' style='text-align: left;'>Thi lần 1</td>
-                <td data-title='Điểm' style='text-align: center;'>7.0</td>
-            </tr><tr class='chieu-cao'>
-                <td data-title='STT' style='text-align: center;'>4</td>
-                <td data-title='Niên khóa' style='text-align: center;'>2016-2017</td>
-                <td data-title='Học kỳ' style='text-align: center;'>I</td>
-                <td data-title='Mã môn' style='text-align: center;'>CTT008</td>
-                <td data-title='Tên lớp học' style='text-align: left;'>Lớp Kỹ thuật lập trình (2010) (2016K1)</td>
-                <td data-title='Loại điểm' style='text-align: left;'>Thi lần 1</td>
-                <td data-title='Điểm' style='text-align: center;'>9.0</td>
-            </tr><tr class='chieu-cao'>
-                <td data-title='STT' style='text-align: center;'>5</td>
-                <td data-title='Niên khóa' style='text-align: center;'>2016-2017</td>
-                <td data-title='Học kỳ' style='text-align: center;'>I</td>
-                <td data-title='Mã môn' style='text-align: center;'>CTT006</td>
-                <td data-title='Tên lớp học' style='text-align: left;'>Lớp P.pháp lập trình hướng đối tượng (2016K1)</td>
-                <td data-title='Loại điểm' style='text-align: left;'>Thi lần 1</td>
-                <td data-title='Điểm' style='text-align: center;'>9.0</td>
-            </tr><tr class='chieu-cao'>
-                <td data-title='STT' style='text-align: center;'>6</td>
-                <td data-title='Niên khóa' style='text-align: center;'>2016-2017</td>
-                <td data-title='Học kỳ' style='text-align: center;'>I</td>
-                <td data-title='Mã môn' style='text-align: center;'>TTH030</td>
-                <td data-title='Tên lớp học' style='text-align: left;'>Lớp Giải tích (2016K1)</td>
-                <td data-title='Loại điểm' style='text-align: left;'>Thi lần 1</td>
-                <td data-title='Điểm' style='text-align: center;'>6.0</td>
-            </tr><tr class='chieu-cao'>
-                <td data-title='STT' style='text-align: center;'>7</td>
-                <td data-title='Niên khóa' style='text-align: center;'>2016-2017</td>
-                <td data-title='Học kỳ' style='text-align: center;'>I</td>
-                <td data-title='Mã môn' style='text-align: center;'>CTT101</td>
-                <td data-title='Tên lớp học' style='text-align: left;'>Lớp Cấu trúc dữ liệu và giải thuật (2016K1)</td>
-                <td data-title='Loại điểm' style='text-align: left;'>Thi lần 1</td>
-                <td data-title='Điểm' style='text-align: center;'>9.0</td>
-            </tr><tr class='chieu-cao'>
-                <td data-title='STT' style='text-align: center;'>8</td>
-                <td data-title='Niên khóa' style='text-align: center;'>2016-2017</td>
-                <td data-title='Học kỳ' style='text-align: center;'>II</td>
-                <td data-title='Mã môn' style='text-align: center;'>CTT102</td>
-                <td data-title='Tên lớp học' style='text-align: left;'>Lớp Cơ sở dữ liệu (2016K2)</td>
-                <td data-title='Loại điểm' style='text-align: left;'>Thi lần 1</td>
-                <td data-title='Điểm' style='text-align: center;'>6.5</td>
-            </tr><tr class='chieu-cao'>
-                <td data-title='STT' style='text-align: center;'>9</td>
-                <td data-title='Niên khóa' style='text-align: center;'>2016-2017</td>
-                <td data-title='Học kỳ' style='text-align: center;'>II</td>
-                <td data-title='Mã môn' style='text-align: center;'>CTT104</td>
-                <td data-title='Tên lớp học' style='text-align: left;'>Lớp Kiến trúc máy tính và hợp ngữ (2016K2)</td>
-                <td data-title='Loại điểm' style='text-align: left;'>Thi lần 1</td>
-                <td data-title='Điểm' style='text-align: center;'>6.5</td>
-            </tr><tr class='chieu-cao'>
-                <td data-title='STT' style='text-align: center;'>10</td>
-                <td data-title='Niên khóa' style='text-align: center;'>2016-2017</td>
-                <td data-title='Học kỳ' style='text-align: center;'>II</td>
-                <td data-title='Mã môn' style='text-align: center;'>CTT105</td>
-                <td data-title='Tên lớp học' style='text-align: left;'>Lớp Mạng Máy tính (2016K2)</td>
-                <td data-title='Loại điểm' style='text-align: left;'>Thi lần 1</td>
-                <td data-title='Điểm' style='text-align: center;'>7.0</td>
-            </tr><tr class='chieu-cao'>
-                <td data-title='STT' style='text-align: center;'>11</td>
-                <td data-title='Niên khóa' style='text-align: center;'>2016-2017</td>
-                <td data-title='Học kỳ' style='text-align: center;'>II</td>
-                <td data-title='Mã môn' style='text-align: center;'>CTT702</td>
-                <td data-title='Tên lớp học' style='text-align: left;'>Lớp Quản trị Cơ sở dữ liệu (2016K2)</td>
-                <td data-title='Loại điểm' style='text-align: left;'>Thi lần 1</td>
-                <td data-title='Điểm' style='text-align: center;'>7.0</td>
-            </tr><tr class='chieu-cao'>
-                <td data-title='STT' style='text-align: center;'>12</td>
-                <td data-title='Niên khóa' style='text-align: center;'>2017-2018</td>
-                <td data-title='Học kỳ' style='text-align: center;'>I</td>
-                <td data-title='Mã môn' style='text-align: center;'>CTH003</td>
-                <td data-title='Tên lớp học' style='text-align: left;'>Lớp Tư tưởng HCM (2017K1)</td>
-                <td data-title='Loại điểm' style='text-align: left;'>Thi lần 1</td>
-                <td data-title='Điểm' style='text-align: center;'>7.0</td>
-            </tr><tr class='chieu-cao'>
-                <td data-title='STT' style='text-align: center;'>13</td>
-                <td data-title='Niên khóa' style='text-align: center;'>2017-2018</td>
-                <td data-title='Học kỳ' style='text-align: center;'>I</td>
-                <td data-title='Mã môn' style='text-align: center;'>CTT005</td>
-                <td data-title='Tên lớp học' style='text-align: left;'>Lớp Lý thuyết đồ thị (2017K1)</td>
-                <td data-title='Loại điểm' style='text-align: left;'>Thi lần 1</td>
-                <td data-title='Điểm' style='text-align: center;'>8.5</td>
-            </tr><tr class='chieu-cao'>
-                <td data-title='STT' style='text-align: center;'>14</td>
-                <td data-title='Niên khóa' style='text-align: center;'>2017-2018</td>
-                <td data-title='Học kỳ' style='text-align: center;'>I</td>
-                <td data-title='Mã môn' style='text-align: center;'>CTT021</td>
-                <td data-title='Tên lớp học' style='text-align: left;'>Lớp Logic toán (2017K1)</td>
-                <td data-title='Loại điểm' style='text-align: left;'>Thi lần 1</td>
-                <td data-title='Điểm' style='text-align: center;'>9.0</td>
-            </tr><tr class='chieu-cao'>
-                <td data-title='STT' style='text-align: center;'>15</td>
-                <td data-title='Niên khóa' style='text-align: center;'>2017-2018</td>
-                <td data-title='Học kỳ' style='text-align: center;'>I</td>
-                <td data-title='Mã môn' style='text-align: center;'>CTT203</td>
-                <td data-title='Tên lớp học' style='text-align: left;'>Lớp Hệ quản trị cơ sở dữ liệu (2017K1)</td>
-                <td data-title='Loại điểm' style='text-align: left;'>Thi lần 1</td>
-                <td data-title='Điểm' style='text-align: center;'>6.0</td>
-            </tr><tr class='chieu-cao'>
-                <td data-title='STT' style='text-align: center;'>16</td>
-                <td data-title='Niên khóa' style='text-align: center;'>2017-2018</td>
-                <td data-title='Học kỳ' style='text-align: center;'>I</td>
-                <td data-title='Mã môn' style='text-align: center;'>CTT705</td>
-                <td data-title='Tên lớp học' style='text-align: left;'>Lớp Lập trình Ứng dụng Quản lý I (2016) (2017K1)</td>
-                <td data-title='Loại điểm' style='text-align: left;'>Thi lần 1</td>
-                <td data-title='Điểm' style='text-align: center;'>7.0</td>
-            </tr><tr class='chieu-cao'>
-                <td data-title='STT' style='text-align: center;'>17</td>
-                <td data-title='Niên khóa' style='text-align: center;'>2017-2018</td>
-                <td data-title='Học kỳ' style='text-align: center;'>I</td>
-                <td data-title='Mã môn' style='text-align: center;'>TTH063</td>
-                <td data-title='Tên lớp học' style='text-align: left;'>Lớp Toán rời rạc (2017K1)</td>
-                <td data-title='Loại điểm' style='text-align: left;'>Thi lần 1</td>
-                <td data-title='Điểm' style='text-align: center;'>8.0</td>
-            </tr><tr class='chieu-cao'>
-                <td data-title='STT' style='text-align: center;'>18</td>
-                <td data-title='Niên khóa' style='text-align: center;'>2017-2018</td>
-                <td data-title='Học kỳ' style='text-align: center;'>II</td>
-                <td data-title='Mã môn' style='text-align: center;'>CTT103</td>
-                <td data-title='Tên lớp học' style='text-align: left;'>Lớp Hệ Điều hành (2017K2)</td>
-                <td data-title='Loại điểm' style='text-align: left;'>Thi lần 1</td>
-                <td data-title='Điểm' style='text-align: center;'>8</td>
-            </tr><tr class='chieu-cao'>
-                <td data-title='STT' style='text-align: center;'>19</td>
-                <td data-title='Niên khóa' style='text-align: center;'>2017-2018</td>
-                <td data-title='Học kỳ' style='text-align: center;'>II</td>
-                <td data-title='Mã môn' style='text-align: center;'>CTT204</td>
-                <td data-title='Tên lớp học' style='text-align: left;'>Lớp Phân tích thiết kế hệ thống thông tin (2017K2)</td>
-                <td data-title='Loại điểm' style='text-align: left;'>Thi lần 1</td>
-                <td data-title='Điểm' style='text-align: center;'>8</td>
-            </tr><tr class='chieu-cao'>
-                <td data-title='STT' style='text-align: center;'>20</td>
-                <td data-title='Niên khóa' style='text-align: center;'>2017-2018</td>
-                <td data-title='Học kỳ' style='text-align: center;'>II</td>
-                <td data-title='Mã môn' style='text-align: center;'>CTT703</td>
-                <td data-title='Tên lớp học' style='text-align: left;'>Lớp Lập trình Web I (2017K2)</td>
-                <td data-title='Loại điểm' style='text-align: left;'>Thi lần 1</td>
-                <td data-title='Điểm' style='text-align: center;'>7.5</td>
-            </tr><tr class='chieu-cao'>
-                <td data-title='STT' style='text-align: center;'>21</td>
-                <td data-title='Niên khóa' style='text-align: center;'>2017-2018</td>
-                <td data-title='Học kỳ' style='text-align: center;'>II</td>
-                <td data-title='Mã môn' style='text-align: center;'>CTT732</td>
-                <td data-title='Tên lớp học' style='text-align: left;'>Lớp Lập trình Ứng dụng Quản lý II (2016) (2017K2)</td>
-                <td data-title='Loại điểm' style='text-align: left;'>Thi lần 1</td>
-                <td data-title='Điểm' style='text-align: center;'>7.5</td>
-            </tr><tr class='chieu-cao'>
-                <td data-title='STT' style='text-align: center;'>22</td>
-                <td data-title='Niên khóa' style='text-align: center;'>2017-2018</td>
-                <td data-title='Học kỳ' style='text-align: center;'>II</td>
-                <td data-title='Mã môn' style='text-align: center;'>CTT524</td>
-                <td data-title='Tên lớp học' style='text-align: left;'>Lớp Công nghệ XML và ứng dụng (2017) (2017K2)</td>
-                <td data-title='Loại điểm' style='text-align: left;'>Thi lần 1</td>
-                <td data-title='Điểm' style='text-align: center;'>8.5</td>
-            </tr><tr class='chieu-cao'>
-                <td data-title='STT' style='text-align: center;'>23</td>
-                <td data-title='Niên khóa' style='text-align: center;'>2017-2018</td>
-                <td data-title='Học kỳ' style='text-align: center;'>II</td>
-                <td data-title='Mã môn' style='text-align: center;'>CTT504</td>
-                <td data-title='Tên lớp học' style='text-align: left;'>Lớp Phân tích Thiết kế Phần mềm (2017A) (2017K2)</td>
-                <td data-title='Loại điểm' style='text-align: left;'>Thi lần 1</td>
-                <td data-title='Điểm' style='text-align: center;'>6.5</td>
-            </tr>
-                    </tbody>
+                    <tbody>`
+    for (var i = 0; i < Danh_sach_Diem.length; i++){
+        Chuoi_Qua_trinh_hoc_tap +=`<tr class='chieu-cao'>
+        <td data-title='STT' style='text-align: center;'>${i+1}</td>
+        <td data-title='Niên khóa' style='text-align: center;'>${Danh_sach_Diem[i].Nien_khoa}</td>
+        <td data-title='Học kỳ' style='text-align: center;'>${Danh_sach_Diem[i].Hoc_ky}</td>
+        <td data-title='Mã môn' style='text-align: center;'>${Danh_sach_Diem[i].Ma_mon}</td>
+        <td data-title='Tên lớp học' style='text-align: left;'>${Danh_sach_Diem[i].Ten_lop_hoc}</td>
+        <td data-title='Loại điểm' style='text-align: left;'>${Danh_sach_Diem[i].Loai_diem}</td>
+        <td data-title='Điểm' style='text-align: center;'>${Danh_sach_Diem[i].Diem}</td>
+    </tr>`
+    }
+    Chuoi_Qua_trinh_hoc_tap +=       
+                    `</tbody>
                 </table>
             </div>
             <div style="clear:both"></div>
         </div>                
     </div>`
-
     return Chuoi_Qua_trinh_hoc_tap 
 }
 
