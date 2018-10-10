@@ -1,4 +1,4 @@
-﻿//===== Xử lý Lưu trữ
+﻿//===== Xử lý Lưu trữ 
 var Dia_chi_Dich_vu = "http://localhost:3000"
 var Dia_chi_Dich_vu_Media = "http://localhost:2000"
 function Doc_Danh_sach_Lop() {

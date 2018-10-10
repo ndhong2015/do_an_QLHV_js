@@ -69,7 +69,7 @@
                  </div>
                  <div class="container">
                     <div class="CUA_SO_KET_QUA" style="background-color:white;margin:10px">
-                        <form class="collapse" id="Cua_so_Dang_nhap" action="../../../1581218_2_Phan_he_quan_ly_JS/Ung_dung/1_Giao_dien/MH_Quan_ly.html" method="post" style="width: auto; border-style: solid; border-color: orangered">
+                        <form class="collapse" id="Cua_so_Dang_nhap" method="post" style="width: auto; border-style: solid; border-color: orangered">
                             <div class="alert" style="height:10px; ">
                                 Đăng nhập
                             </div>
@@ -81,10 +81,9 @@
                                 <input id="Th_Mat_khau" name="Th_Mat_khau" type="password" required="required"
                                        spellcheck="false" autocomplete="off" />
                             </div>
-                            <button class="alert" style="height:40px">
+                            <div class="alert" style="height:40px">
                                 <input name="Th_Ma_so_Chuc_nang" type="hidden" value="DANG_NHAP" />
-                                <button class="btn btn-danger" type="submit">Đồng ý</button> 
-                                <!-- onclick="Xu_ly_Dong_y()" -->
+                                <div class="btn btn-danger" onclick="Xu_ly_Dong_y()">Đồng ý</div>
                             </div>
                             <div id="Th_Thong_bao"></div>
                         </form>
@@ -161,24 +160,22 @@
            function Xu_ly_Dong_y(){                  
               var Ten_dang_nhap = Th_Ten_dang_nhap.value // Nhập liệu
               var Mat_khau = Th_Mat_khau.value // Nhập liệu
-              Dang_nhap(Th_Ten_dang_nhap.value,Th_Mat_khau.value);
-            //   if (Danh_sach_Quan_ly.some(x => x.Ten_dang_nhap == Ten_dang_nhap
-            //            && x.Mat_khau == Mat_khau )) {
-            //             document
-            //             //window.location.href ="../../../1581218_2_Phan_he_quan_ly_JS/Ung_dung/1_Giao_dien/MH_Quan_ly.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau                                      
-            // }
-            //   else if (Danh_sach_Sinh_vien.some(x => x.Ten_dang_nhap == Ten_dang_nhap
-            //            && x.Mat_khau == Mat_khau )) {
-            //             window.location.href ="../../../1581218_3_Phan_he_sinh_vien_JS/Ung_dung/1_Giao_dien/MH_Sinh_vien.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau                                      
-            //   } 
-            //   else if (Danh_sach_Giao_vien.some(x => x.Ten_dang_nhap == Ten_dang_nhap
-            //            && x.Mat_khau == Mat_khau )) {
-            //             window.location.href ="../../../1581218_4_Phan_he_giao_vien_JS/Ung_dung/1_Giao_dien/MH_Giao_vien.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau                                       
-            //   }                      
-            //   else {
-            //     Th_Thong_bao.innerHTML="<div>Đăng nhập không hợp lệ" 
-            //    + "<br />Xin vui lòng <b>Nhập lại</b> Tên đăng nhập và Mật khẩu" + "</div>"
-            //   }    
+              if (Danh_sach_Quan_ly.some(x => x.Ten_dang_nhap == Ten_dang_nhap
+                       && x.Mat_khau == Mat_khau )) {
+                        window.location.href ="../../../1581218_2_Phan_he_quan_ly_JS/Ung_dung/1_Giao_dien/MH_Quan_ly.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau                                      
+            }
+              else if (Danh_sach_Sinh_vien.some(x => x.Ten_dang_nhap == Ten_dang_nhap
+                       && x.Mat_khau == Mat_khau )) {
+                        window.location.href ="../../../1581218_3_Phan_he_sinh_vien_JS/Ung_dung/1_Giao_dien/MH_Sinh_vien.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau                                      
+              } 
+              else if (Danh_sach_Giao_vien.some(x => x.Ten_dang_nhap == Ten_dang_nhap
+                       && x.Mat_khau == Mat_khau )) {
+                        window.location.href ="../../../1581218_4_Phan_he_giao_vien_JS/Ung_dung/1_Giao_dien/MH_Giao_vien.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau                                       
+              }                      
+              else {
+                Th_Thong_bao.innerHTML="<div>Đăng nhập không hợp lệ" 
+               + "<br />Xin vui lòng <b>Nhập lại</b> Tên đăng nhập và Mật khẩu" + "</div>"
+              }    
             }            
         </script>
 

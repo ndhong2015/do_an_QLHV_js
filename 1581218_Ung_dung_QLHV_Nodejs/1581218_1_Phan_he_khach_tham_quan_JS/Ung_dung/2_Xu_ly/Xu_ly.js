@@ -74,30 +74,3 @@ function Tao_Chuoi_HTML_Danh_sach_Lop(Danh_sach) {
     return Chuoi_HTML_Danh_sach
 }
 //==== Xử lý Nghiệp vụ
-function Dang_nhap(Ten_dang_nhap,Mat_khau){
-    var Du_lieu_Quan_ly = []
-    var Xu_ly_HTTP = new XMLHttpRequest()
-    var Dia_chi = `../../../1581218_2_Phan_he_quan_ly_JS/Ung_dung/1_Giao_dien/MH_Quan_ly.html?Th_Ten_dang_nhap=${Ten_dang_nhap}&Th_Mat_khau=${Mat_khau}`
-    Xu_ly_HTTP.open("POST", Dia_chi, false)
-    Xu_ly_HTTP.send("")
-    var Chuoi = Xu_ly_HTTP.responseText
-    Du_lieu_Quan_ly = JSON.parse(Chuoi)
-    return Du_lieu_Quan_ly
-    //   if (Danh_sach_Quan_ly.some(x => x.Ten_dang_nhap == Ten_dang_nhap
-            //            && x.Mat_khau == Mat_khau )) {
-            //             document
-            //             //window.location.href ="../../../1581218_2_Phan_he_quan_ly_JS/Ung_dung/1_Giao_dien/MH_Quan_ly.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau                                      
-            // }
-            //   else if (Danh_sach_Sinh_vien.some(x => x.Ten_dang_nhap == Ten_dang_nhap
-            //            && x.Mat_khau == Mat_khau )) {
-            //             window.location.href ="../../../1581218_3_Phan_he_sinh_vien_JS/Ung_dung/1_Giao_dien/MH_Sinh_vien.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau                                      
-            //   } 
-            //   else if (Danh_sach_Giao_vien.some(x => x.Ten_dang_nhap == Ten_dang_nhap
-            //            && x.Mat_khau == Mat_khau )) {
-            //             window.location.href ="../../../1581218_4_Phan_he_giao_vien_JS/Ung_dung/1_Giao_dien/MH_Giao_vien.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau                                       
-            //   }                      
-            //   else {
-            //     Th_Thong_bao.innerHTML="<div>Đăng nhập không hợp lệ" 
-            //    + "<br />Xin vui lòng <b>Nhập lại</b> Tên đăng nhập và Mật khẩu" + "</div>"
-            //   }   
-}
