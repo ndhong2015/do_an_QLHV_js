@@ -89,7 +89,9 @@
                                 <div id='Th_Quan_ly'></div>
                                 <div id='Th_Thong_bao'></div>
                                 <div id='Th_Danh_sach_Lop'></div>
-                                <div id='Th_Danh_sach_Sinh_vien'></div>  
+                                <div id='Th_Danh_sach_Sinh_vien'></div> 
+                                <div id='Th_Sinh_vien'></div> 
+                                <div id='Th_Chi_tiet_Sinh_vien'></div>    
                             </div>
                         </form>                                                                   
             </div>         
@@ -138,9 +140,13 @@
         var Danh_sach_Sinh_vien = Doc_Danh_sach_Sinh_vien()
         var Danh_sach_Quan_ly = Doc_Danh_sach_Quan_ly()
         var Danh_sach_Giao_vien = Doc_Danh_sach_Giao_vien()
+        
         function GetURLParameter(sParam) {
             var sPageURL = window.location.search.substring(1);
             var sURLVariables = sPageURL.split('&');
+            if (sURLVariables.length != 2){
+                return 0;
+            }
             for (var i = 0; i < sURLVariables.length; i++) {
                 var sParameterName = sURLVariables[i].split('=');
                 if (sParameterName[0] == sParam) {
@@ -173,17 +179,38 @@
                     Th_Quan_ly.innerHTML=""
                     Th_Danh_sach_Lop.innerHTML=""
                     Th_Danh_sach_Sinh_vien.innerHTML=""
+                    Th_Sinh_vien = ""
+                    Th_Chi_tiet_Sinh_vien.innerHTML=""
                     Th_Thong_bao.innerHTML="";
-                  }     
-                 
+                  }
         }      
+        function Xu_ly_chon_Sinh_vien(Ma_so){
+            var Sinh_vien = Tim_Sinh_vien(Ma_so, Danh_sach_Sinh_vien)
+            Th_Danh_sach_Sinh_vien.innerHTML = ""
+            Th_Sinh_vien.innerHTML = Tao_Chuoi_HTML_Sinh_vien(Sinh_vien)
+            Th_Chi_tiet_Sinh_vien.innerHTML =`<div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick="Xu_ly_Chi_tiet_Sinh_vien('${Ma_so}')">Hồ sơ sinh viên</button></div><div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick="Xu_ly_Qua_trinh_hoc_tap('${Ma_so}')">Quá trình học tập</button></div><div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick="Xu_ly_Danh_sach_nghi_phep('${Ma_so}')">Nghỉ phép</button></div><div style='clear:both'></div>`
+        }
+        function Xu_ly_Chi_tiet_Sinh_vien(Ma_so){
+            var Sinh_vien = Tim_Sinh_vien(Ma_so, Danh_sach_Sinh_vien)
+            Th_Danh_sach_Sinh_vien.innerHTML = ""
+            Th_Chi_tiet_Sinh_vien.innerHTML =`<div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick="Xu_ly_Chi_tiet_Sinh_vien('${Ma_so}')">Hồ sơ sinh viên</button></div><div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick="Xu_ly_Qua_trinh_hoc_tap('${Ma_so}')">Quá trình học tập</button></div><div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick="Xu_ly_Danh_sach_nghi_phep('${Ma_so}')">Nghỉ phép</button></div><div style='clear:both'></div>`
+            + Tao_Chuoi_HTML_Chi_tiet_Sinh_vien(Sinh_vien)
+        }   
+        function Xu_ly_Qua_trinh_hoc_tap(Ma_so){
+            var Sinh_vien = Tim_Sinh_vien(Ma_so, Danh_sach_Sinh_vien)
+            Th_Chi_tiet_Sinh_vien.innerHTML = `<div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick="Xu_ly_Chi_tiet_Sinh_vien('${Ma_so}')">Hồ sơ sinh viên</button></div><div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick="Xu_ly_Qua_trinh_hoc_tap('${Ma_so}')">Quá trình học tập</button></div><div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick="Xu_ly_Danh_sach_nghi_phep('${Ma_so}')">Nghỉ phép</button></div><div style='clear:both'></div>`+Tao_Chuoi_HTML_Danh_sach_Diem(Sinh_vien)
+        }   
+        function Xu_ly_Danh_sach_nghi_phep(Ma_so){
+            var Sinh_vien = Tim_Sinh_vien(Ma_so, Danh_sach_Sinh_vien)
+            Th_Chi_tiet_Sinh_vien.innerHTML = `<div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick="Xu_ly_Chi_tiet_Sinh_vien('${Ma_so}')">Hồ sơ sinh viên</button></div><div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick="Xu_ly_Qua_trinh_hoc_tap('${Ma_so}')">Quá trình học tập</button></div><div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick="Xu_ly_Danh_sach_nghi_phep('${Ma_so}')">Nghỉ phép</button></div><div style='clear:both'></div>`+Tao_Chuoi_HTML_Danh_sach_nghi_phep(Sinh_vien)
+        }
         function Xu_ly_Dang_xuat(){
             window.location.href ="../../../1581218_1_Phan_he_khach_tham_quan_JS/Ung_dung/1_Giao_dien/MH_Chinh.html"              
         }
         $(document).ready(function(){ 
         //Tự động click
-        if (GetURLParameter('Th_Ten_dang_nhap') != null && GetURLParameter('Th_Mat_khau') != null){
-            document.getElementById('Dong_y').click();
+        if (GetURLParameter('Th_Ten_dang_nhap') != 0 && GetURLParameter('Th_Mat_khau') != 0){
+        document.getElementById('Dong_y').click();
         }
         });
         </script>       
