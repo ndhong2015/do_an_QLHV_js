@@ -110,28 +110,54 @@ function Tao_Chuoi_HTML_Danh_sach_Diem(Sinh_vien){
     </div>`
     return Chuoi_Qua_trinh_hoc_tap 
 }
-
-
-
-// Tạo Chuỗi HTML Danh sách 
-
-// function Tao_Chuoi_HTML_Danh_sach_Diem(Danh_sach) {
-//     var Chuoi_HTML_Danh_sach = `<div class='row'>`
-//     Danh_sach.forEach(Sinh_vien => {
-//         var Chuoi_Hinh = `<img src='../Media/${Sinh_vien.Ma_so}.png'
-//                   style='width:40px;height:40px' />`
-//         var Chuoi_Tom_tat = `<div class='btn'
-//               style='text-align:left' >
-//             ${Sinh_vien.Ten}<br />MSSV: ${Sinh_vien.Ma_so}<br/>Lớp: ${Sinh_vien.Ma_so_Lop}</div>`
-//         var Chuoi_HTML = `<div class='col-md-4'  > 
-//              ${Chuoi_Hinh}  ${Chuoi_Tom_tat}
-//                      </div>`
-//         Chuoi_HTML_Danh_sach += Chuoi_HTML
-//     })
-//     Chuoi_HTML_Danh_sach += `</div>`
-
-//     return Chuoi_HTML_Danh_sach
-// }
+function Tao_Chuoi_HTML_Danh_sach_nghi_phep(Sinh_vien){
+    var Danh_sach_Don_xin_nghi = Sinh_vien.Danh_sach_Don_xin_nghi;
+    var Chuoi_Danh_sach_Don_xin_nghi =`
+        <div class="thong-tin-thong-bao">                    	
+        <div class="tieu-de-thong-tin-chi-tiet">
+            <h3 style="color: Red; text-Align: center">Danh sách nghỉ phép</h3>
+        </div>					
+        <div class="noi-dung">
+            <div id="bang-bieu" style="color:#2B2B2B; margin:0px">
+                <table class="col-sm-12 table-bordered table-striped table-condensed" style="padding:0px; width:100%;">
+                    <thead>
+                        <tr style="background-color:orangered; color:#ffffff; height:38px; text-align: center;">
+                            <td style="width:6%">STT</td>
+                            <td style="width:10%">Ngày nộp đơn</td>
+                            <td style="width:10%">Ngày bắt đầu</td>
+                            <td style="width:10%">Số ngày</td>
+                            <td style="width:30%">Lý do</td>
+                            <td style="width:26%">Ý kiến</td>
+                            <td style="width:8%">Trạng thái</td>
+                        </tr>
+                    </thead>
+                    <tbody>`
+    for (var i = 0; i < Danh_sach_Don_xin_nghi.length; i++){
+        var Chuoi_trang_thai = ""
+        if (Danh_sach_Don_xin_nghi[i].Y_kien.Da_co_Y_kien == true){
+            Chuoi_trang_thai = "Đã duyệt"
+        } else{
+            Chuoi_trang_thai = "Chưa duyệt"
+        }
+        Chuoi_Danh_sach_Don_xin_nghi +=`<tr class='chieu-cao'>
+        <td data-title='STT' style='text-align: center;'>${i+1}</td>
+        <td data-title='Ngay_Nop_don' style='text-align: center;'>${Danh_sach_Don_xin_nghi[i].Ngay_Nop_don}</td>
+        <td data-title='Ngay_Bat_dau' style='text-align: center;'>${Danh_sach_Don_xin_nghi[i].Ngay_Bat_dau}</td>
+        <td data-title='So_ngay' style='text-align: center;'>${Danh_sach_Don_xin_nghi[i].So_ngay}</td>
+        <td data-title='Ly_do' style='text-align: left;'>${Danh_sach_Don_xin_nghi[i].Ly_do}</td>
+        <td data-title='Noi_dung' style='text-align: left;'>${Danh_sach_Don_xin_nghi[i].Y_kien.Noi_dung}</td>
+        <td data-title='Chuoi_trang_thai' style='text-align: center;'>${Chuoi_trang_thai}</td>
+    </tr>`
+    }
+    Chuoi_Danh_sach_Don_xin_nghi +=       
+                    `</tbody>
+                </table>
+            </div>
+            <div style="clear:both"></div>
+        </div>                
+    </div>`
+    return Chuoi_Danh_sach_Don_xin_nghi 
+}
 
 //==== Xử lý Nghiệp vụ
 function Tao_Danh_sach_Lop_cua_Giao_vien(Giao_vien,
