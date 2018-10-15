@@ -87,6 +87,7 @@
                                     </div>
                                 </div>
                                 <div id='Th_Quan_ly'></div>
+                                <div id='Th_Vai_tro' style="float:right"></div>
                                 <div id='Th_Thong_bao'></div>
                                 <div id='Th_Danh_sach_Lop'></div>
                                 <div id='Th_Danh_sach_Sinh_vien'></div> 
@@ -140,6 +141,7 @@
         var Danh_sach_Sinh_vien = Doc_Danh_sach_Sinh_vien()
         var Danh_sach_Quan_ly = Doc_Danh_sach_Quan_ly()
         var Danh_sach_Giao_vien = Doc_Danh_sach_Giao_vien()
+        var Quan_ly_Dang_nhap
         
         function GetURLParameter(sParam) {
             var sPageURL = window.location.search.substring(1);
@@ -173,7 +175,18 @@
                         Danh_sach_Lop)
                     Th_Danh_sach_Sinh_vien.innerHTML=Tao_Chuoi_HTML_Danh_sach_Sinh_vien(
                         Danh_sach_Sinh_vien)
+
                     Ghi_Quan_ly(Quan_ly)
+                    Quan_ly_Dang_nhap = Quan_ly
+
+                    var Chuoi_HTML_Danh_sach_Nhom_nguoi_dung = `<select>`
+                    var DS_Vai_tro = Quan_ly_Dang_nhap.Danh_sach_Nhom_Nguoi_dung
+                    for (var i = 0; i < DS_Vai_tro.length; i++){
+                        Chuoi_HTML_Danh_sach_Nhom_nguoi_dung += `<option value="">${DS_Vai_tro[i].Ten}</option>`
+                    }
+                    Chuoi_HTML_Danh_sach_Nhom_nguoi_dung += `</select>`
+
+                    Th_Vai_tro.innerHTML = `<div><h5 style="color:red">Chọn nhóm người dùng: `+ Chuoi_HTML_Danh_sach_Nhom_nguoi_dung + `</h5></div>`
                    }
                   else {
                     Th_Quan_ly.innerHTML=""
@@ -181,7 +194,8 @@
                     Th_Danh_sach_Sinh_vien.innerHTML=""
                     Th_Sinh_vien = ""
                     Th_Chi_tiet_Sinh_vien.innerHTML=""
-                    Th_Thong_bao.innerHTML="";
+                    Th_Thong_bao.innerHTML=""
+                    Th_Vai_tro.innerHTML=""
                   }
         }      
         function Xu_ly_chon_Sinh_vien(Ma_so){

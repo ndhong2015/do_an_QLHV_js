@@ -168,7 +168,7 @@ function Tao_Chuoi_HTML_Danh_sach_Diem(Sinh_vien){
 }
 
 function Tao_Chuoi_HTML_Nhap_Diem(Giao_vien){
-    // var Danh_sach_Diem = Sinh_vien.Qua_trinh_hoc_tap;
+    
     var Chuoi_Qua_trinh_hoc_tap =`
         <div class="thong-tin-thong-bao" style=
     "clear: both">                    	
@@ -190,7 +190,7 @@ function Tao_Chuoi_HTML_Nhap_Diem(Giao_vien){
                         </tr>
                     </thead>
                     <tbody>`
-    // for (var i = 0; i < Danh_sach_Diem.length; i++){
+    
         var today = new Date()
         var year = today.getFullYear()
         var hoc_ky = 'I'
@@ -221,7 +221,7 @@ function Tao_Chuoi_HTML_Nhap_Diem(Giao_vien){
         <td data-title='Loại điểm' style='text-align: left;'><input id="Loai_diem" type="text" style="width:100%" name="Loai_diem" required value='Thi lần 1'></td>
         <td data-title='Điểm' style='text-align: center;'><input id="Diem" type="text" style="width:100%" name="Diem" required ></td>
     </tr>`
-    //}
+    
     Chuoi_Qua_trinh_hoc_tap +=       
                     `</tbody>
                 </table>

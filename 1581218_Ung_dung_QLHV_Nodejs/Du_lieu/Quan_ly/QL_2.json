@@ -82,8 +82,10 @@
 		"Ten": "Quản lý",
 		"Ma_so": "QUAN_LY"
 	},
-	"Danh_sach_Nhom_Nguoi_dung": [{
+	"Danh_sach_Nhom_Nguoi_dung": [
+		{
 		"Ten": "Quản lý",
 		"Ma_so": "QUAN_LY"
-    }]
+	}
+]
 }
