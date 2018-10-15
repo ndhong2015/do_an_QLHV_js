@@ -186,12 +186,14 @@
    }
    function Xu_ly_Ghi_Don_xin_nghi (){
         var Don_xin_nghi = {
+            "Ma_so":"",
 			"Ngay_Nop_don": "",
 			"Ngay_Bat_dau": "",
 			"So_ngay": 1,
 			"Ly_do": "",
 			"Y_kien": { "Ngay": "", "Da_co_Y_kien": false, "Noi_dung": "" }
         }
+        Don_xin_nghi.Ma_so = Sinh_vien_dang_nhap.Danh_sach_Don_xin_nghi.length + 1
         Don_xin_nghi.Ngay_Nop_don = new Date()
         Don_xin_nghi.Ngay_Bat_dau = document.getElementById('Ngay_Bat_dau').value
         Don_xin_nghi.So_ngay = document.getElementById('So_ngay').value

@@ -52,6 +52,17 @@ function Ghi_Quan_ly(Quan_ly) {
     Doi_tuong = JSON.parse(Chuoi_Kq)
     return Doi_tuong
 }
+function Ghi_Don_nghi_phep(Sinh_vien) {
+    var Doi_tuong = []
+    var Chuoi_Goi = JSON.stringify(Sinh_vien)
+    var Xu_ly_HTTP = new XMLHttpRequest()
+    var Dia_chi = `${Dia_chi_Dich_vu}?Ma_so_Xu_ly=Ghi_Don_nghi_phep`
+    Xu_ly_HTTP.open("POST", Dia_chi, false)
+    Xu_ly_HTTP.send(Chuoi_Goi)
+    var Chuoi_Kq = Xu_ly_HTTP.responseText
+    Doi_tuong = JSON.parse(Chuoi_Kq)
+    return Doi_tuong
+}
 //===== Xử lý Thể hiện
 function Tao_Chuoi_HTML_Quan_ly_Khi_Chao(Quan_ly) {
     var Chuoi_Hinh = `<img src='${Dia_chi_Dich_vu_Media}/${Quan_ly.Ma_so}.png'
@@ -108,8 +119,9 @@ function Tao_Chuoi_HTML_Danh_sach_Sinh_vien(Danh_sach) {
         var Chuoi_HTML = `<div class='col-md-4'  > 
              ${Chuoi_Hinh}  ${Chuoi_Tom_tat}
                      </div>`
-        Chuoi_HTML = `<div style='border-style: solid; border-color: orangered; width:100%'> ${Chuoi_HTML} <div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick="Xu_ly_chon_Sinh_vien('${Sinh_vien.Ma_so}')">Chi tiết sinh viên</button></div><div style='clear:both'></div></div>`
-        Chuoi_HTML_Danh_sach += Chuoi_HTML
+        Chuoi_HTML = `<div style='border-style: solid; border-color: orangered; width:100%'> ${Chuoi_HTML} <div class='alert' style='height:40px'><button class='btn btn-danger' onclick="Xu_ly_chon_Sinh_vien('${Sinh_vien.Ma_so}')">Chi tiết sinh viên</button></div><div></div>`
+        Chuoi_HTML_Danh_sach += Chuoi_HTML + Tao_Chuoi_HTML_Danh_sach_Don_nghi_phep_chua_duyet(Sinh_vien)
+        Chuoi_HTML_Danh_sach += `</div>`
     })
     Chuoi_HTML_Danh_sach += `</div>`
 
@@ -228,6 +240,61 @@ function Tao_Chuoi_HTML_Danh_sach_nghi_phep(Sinh_vien){
         </div>`
     return Chuoi_Danh_sach_Don_xin_nghi 
 }
+
+function Tao_Chuoi_HTML_Danh_sach_Don_nghi_phep_chua_duyet(Sinh_vien){
+    var Danh_sach_Don_xin_nghi = Sinh_vien.Danh_sach_Don_xin_nghi;
+    var Chuoi_Danh_sach_Don_xin_nghi =`
+        <div class="thong-tin-thong-bao">                    	
+        <div class="tieu-de-thong-tin-chi-tiet">
+            <h3 style="color: Red; text-Align: center">Danh sách nghỉ phép</h3>
+        </div>					
+        <div class="noi-dung">
+            <div id="bang-bieu" style="color:#2B2B2B; margin:0px">
+                <table class="col-sm-12 table-bordered table-striped table-condensed" style="padding:0px; width:100%;">
+                    <thead>
+                        <tr style="background-color:orangered; color:#ffffff; height:38px; text-align: center;">
+                            <td style="width:6%">STT</td>
+                            <td style="width:10%">Ngày nộp đơn</td>
+                            <td style="width:10%">Ngày bắt đầu</td>
+                            <td style="width:10%">Số ngày</td>
+                            <td style="width:25%">Lý do</td>
+                            <td style="width:18%">Ý kiến</td>
+                            <td style="width:8%">Duyệt</td>
+                            <td style="width:13%">Không duyệt</td>
+
+                        </tr>
+                    </thead>
+                    <tbody>`
+    var j = 0
+    for (var i = 0; i < Danh_sach_Don_xin_nghi.length; i++){
+        if (Danh_sach_Don_xin_nghi[i].Y_kien.Da_co_Y_kien == false){
+            Chuoi_trang_thai = "Duyệt"
+            Chuoi_Danh_sach_Don_xin_nghi +=`<tr class='chieu-cao' id='${Sinh_vien.Ma_so}_${Danh_sach_Don_xin_nghi[i].Ma_so}'>
+        <td data-title='STT' style='text-align: center;'>${j+1}</td>
+        <td data-title='Ngay_Nop_don' style='text-align: center;'>${Danh_sach_Don_xin_nghi[i].Ngay_Nop_don}</td>
+        <td data-title='Ngay_Bat_dau' style='text-align: center;'>${Danh_sach_Don_xin_nghi[i].Ngay_Bat_dau}</td>
+        <td data-title='So_ngay' style='text-align: center;'>${Danh_sach_Don_xin_nghi[i].So_ngay}</td>
+        <td data-title='Ly_do' style='text-align: left;'>${Danh_sach_Don_xin_nghi[i].Ly_do}</td>
+        <td data-title='Noi_dung' style='text-align: left;'><input id='Noi_dung_phe_duyet' type='text' style='width: 100%' value=''></td>
+        <td data-title='Duyet' style='text-align: center;'><input class='btn btn-danger' type='button' name='duyet' onclick="Xu_ly_Duyet_nghi_phep('${Sinh_vien.Ma_so}','${Danh_sach_Don_xin_nghi[i].Ma_so}')" value='Duyệt'></td>
+        <td data-title='Khong_duyet' style='text-align: center;'><input class='btn btn-danger' type='button' name='khongduyet' onclick="Xu_ly_Khong_Duyet_nghi_phep('${Sinh_vien.Ma_so}','${Danh_sach_Don_xin_nghi[i].Ma_so}')" value='Không duyệt'></td>
+    </tr>`
+        j++
+        }        
+    }
+    if (j==0){
+        Chuoi_Danh_sach_Don_xin_nghi = ""
+        return Chuoi_Danh_sach_Don_xin_nghi
+    }
+    Chuoi_Danh_sach_Don_xin_nghi +=       
+                    `</tbody>
+                </table>
+            </div>
+            <div style="clear:both"></div>
+        </div>                
+    </div>`
+    return Chuoi_Danh_sach_Don_xin_nghi 
+}
 //==== Xử lý Nghiệp vụ
 function Tim_Sinh_vien(Ma_so, Danh_sach_Sinh_vien){
     var Sinh_vien = {}
@@ -235,6 +302,17 @@ function Tim_Sinh_vien(Ma_so, Danh_sach_Sinh_vien){
         if (Hop_le) {
         Sinh_vien = Danh_sach_Sinh_vien.find(x => x.Ma_so == Ma_so)
         return Sinh_vien
+    } 
+    return 0 
+}
+function Tim_Don_nghi_phep(Sinh_vien, Ma_so_Don_nghi_phep){
+    var Don_nghi_phep = {}
+    var Sinh_vien = Sinh_vien
+    var Danh_sach_Don_xin_nghi = Sinh_vien.Danh_sach_Don_xin_nghi
+    var Hop_le = Danh_sach_Don_xin_nghi.some(x => x.Ma_so == Ma_so_Don_nghi_phep)
+        if (Hop_le) {
+        Don_nghi_phep = Danh_sach_Don_xin_nghi.find(x => x.Ma_so == Ma_so_Don_nghi_phep)
+        return Don_nghi_phep
     } 
     return 0 
 }

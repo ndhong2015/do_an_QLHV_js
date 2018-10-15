@@ -144,6 +144,9 @@ function Tao_Chuoi_HTML_Danh_sach_nghi_phep(Sinh_vien){
         var Chuoi_trang_thai = ""
         if (Danh_sach_Don_xin_nghi[i].Y_kien.Da_co_Y_kien == true){
             Chuoi_trang_thai = "Đã duyệt"
+            if (Danh_sach_Don_xin_nghi[i].Y_kien.Noi_dung == "Không duyệt"){
+                Chuoi_trang_thai = "Đã xem"
+            }
         } else{
             Chuoi_trang_thai = "Chưa duyệt"
         }

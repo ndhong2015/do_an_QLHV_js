@@ -204,6 +204,32 @@
             var Sinh_vien = Tim_Sinh_vien(Ma_so, Danh_sach_Sinh_vien)
             Th_Chi_tiet_Sinh_vien.innerHTML = `<div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick="Xu_ly_Chi_tiet_Sinh_vien('${Ma_so}')">Hồ sơ sinh viên</button></div><div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick="Xu_ly_Qua_trinh_hoc_tap('${Ma_so}')">Quá trình học tập</button></div><div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick="Xu_ly_Danh_sach_nghi_phep('${Ma_so}')">Nghỉ phép</button></div><div style='clear:both'></div>`+Tao_Chuoi_HTML_Danh_sach_nghi_phep(Sinh_vien)
         }
+        function Xu_ly_Duyet_nghi_phep(Ma_so_Sinh_vien, Ma_so_Don_nghi_phep){
+            var Sinh_vien = Tim_Sinh_vien(Ma_so_Sinh_vien, Danh_sach_Sinh_vien)
+            var Don_nghi_phep = Tim_Don_nghi_phep(Sinh_vien, Ma_so_Don_nghi_phep) 
+            Don_nghi_phep.Y_kien.Ngay = new Date()
+            Don_nghi_phep.Y_kien.Da_co_Y_kien = true
+            Don_nghi_phep.Y_kien.Noi_dung = document.getElementById('Noi_dung_phe_duyet').value
+            var kiem_tra_hop_le = Don_nghi_phep.Y_kien.Noi_dung != ""
+            if (kiem_tra_hop_le == true){         
+                Ghi_Don_nghi_phep(Sinh_vien)
+                alert("Đã phê duyệt")
+                document.getElementById(Ma_so_Sinh_vien+"_"+Ma_so_Don_nghi_phep).outerHTML = ""
+            }
+            else {
+                alert("Cần cho ý kiến")
+            }    
+        }   
+        function Xu_ly_Khong_Duyet_nghi_phep(Ma_so_Sinh_vien, Ma_so_Don_nghi_phep){
+            var Sinh_vien = Tim_Sinh_vien(Ma_so_Sinh_vien, Danh_sach_Sinh_vien)
+            var Don_nghi_phep = Tim_Don_nghi_phep(Sinh_vien, Ma_so_Don_nghi_phep)
+            Don_nghi_phep.Y_kien.Ngay = new Date()
+            Don_nghi_phep.Y_kien.Da_co_Y_kien = true
+            Don_nghi_phep.Y_kien.Noi_dung ="Không duyệt"                     
+            Ghi_Don_nghi_phep(Sinh_vien)
+            alert("Đã ghi nhận không đồng ý")  
+            document.getElementById(Ma_so_Sinh_vien+"_"+Ma_so_Don_nghi_phep).outerHTML = ""      
+        }     
         function Xu_ly_Dang_xuat(){
             window.location.href ="../../../1581218_1_Phan_he_khach_tham_quan_JS/Ung_dung/1_Giao_dien/MH_Chinh.html"              
         }
