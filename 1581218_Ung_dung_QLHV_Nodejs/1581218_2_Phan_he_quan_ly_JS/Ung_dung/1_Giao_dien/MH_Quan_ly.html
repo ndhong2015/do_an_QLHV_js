@@ -180,9 +180,16 @@
                     Quan_ly_Dang_nhap = Quan_ly
 
                     var Chuoi_HTML_Danh_sach_Nhom_nguoi_dung = `<select>`
+                    var Ma_so_Nhom_nguoi_dung = Quan_ly_Dang_nhap.Nhom_Nguoi_dung.Ma_so
                     var DS_Vai_tro = Quan_ly_Dang_nhap.Danh_sach_Nhom_Nguoi_dung
                     for (var i = 0; i < DS_Vai_tro.length; i++){
-                        Chuoi_HTML_Danh_sach_Nhom_nguoi_dung += `<option value="">${DS_Vai_tro[i].Ten}</option>`
+                        if (Ma_so_Nhom_nguoi_dung == DS_Vai_tro[i].Ma_so){
+                            Chuoi_HTML_Danh_sach_Nhom_nguoi_dung += `<option value="" selected>${DS_Vai_tro[i].Ten}</option>`
+
+                        }
+                        else{
+                            Chuoi_HTML_Danh_sach_Nhom_nguoi_dung += `<option value="">${DS_Vai_tro[i].Ten}</option>`
+                        }                    
                     }
                     Chuoi_HTML_Danh_sach_Nhom_nguoi_dung += `</select>`
 
