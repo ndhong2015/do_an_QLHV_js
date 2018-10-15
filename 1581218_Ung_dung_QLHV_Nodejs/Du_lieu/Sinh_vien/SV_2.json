@@ -28,20 +28,20 @@
 	],
 	"Danh_sach_Don_xin_nghi": [
 		{
-            "Ma_so":1,
-			"Ngay_Nop_don": "2017-09-01T00:00:00",
-			"Ngay_Bat_dau": "2017-12-03T00:00:00+07:00",
-			"So_ngay": 2,
-			"Ly_do": "Bị ốm",
-			"Y_kien": { "Ngay": "2017-09-09T00:00:00", "Da_co_Y_kien": true, "Noi_dung": "Đồng ý cho nghỉ " }
+			"Ma_so": 1,
+			"Ngay_Nop_don": "2018-10-15T16:30:28.242Z",
+			"Ngay_Bat_dau": "2018-10-19",
+			"So_ngay": "2",
+			"Ly_do": "Em đi về quê",
+			"Y_kien": { "Ngay": "2018-10-15T16:31:29.681Z", "Da_co_Y_kien": true, "Noi_dung": "Không duyệt" }
 		},
 		{
-            "Ma_so":2,
-			"Ngay_Nop_don": "2017-09-02T00:00:00",
-			"Ngay_Bat_dau": "2017-11-26T00:00:00+07:00",
-			"So_ngay": 2,
-			"Ly_do": "Bị ốm",
-			"Y_kien": { "Ngay": "2017-09-17T00:00:00", "Da_co_Y_kien": true, "Noi_dung": "Đồng ý cho nghỉ " }
+			"Ma_so": 2,
+			"Ngay_Nop_don": "2018-10-15T16:30:53.987Z",
+			"Ngay_Bat_dau": "2018-10-17",
+			"So_ngay": "2",
+			"Ly_do": "Em bị sốt nặng phải nhập viện",
+			"Y_kien": { "Ngay": "2018-10-15T16:31:44.471Z", "Da_co_Y_kien": true, "Noi_dung": "Đồng ý cho nghỉ" }
 		}
 	],
 	"Danh_sach_Dang_nhap": [
