@@ -32,6 +32,10 @@ var Dich_vu = XL_HTTP.createServer((Yeu_cau, Dap_ung) => {
               var Doi_tuong=JSON.parse(Chuoi_Nhan)
               Ghi_Doi_tuong(Doi_tuong,"GIAO_VIEN")             
             }
+            else if (Ma_so_Xu_ly == "Dang_nhap") {
+              var Tai_khoan = JSON.parse(Chuoi_Nhan)
+              Chuoi_Kq = JSON.stringify(Tai_khoan)
+            }
             Dap_ung.setHeader("Access-Control-Allow-Origin", '*')
             Dap_ung.end(Chuoi_Kq);
             console.log(Chuoi_Kq);

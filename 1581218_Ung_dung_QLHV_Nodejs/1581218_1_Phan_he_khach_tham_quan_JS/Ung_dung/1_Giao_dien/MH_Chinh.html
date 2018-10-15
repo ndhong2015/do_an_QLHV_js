@@ -151,17 +151,44 @@
         integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
       
       
-      <script type="text/javascript">
-        var Danh_sach_Sinh_vien = Doc_Danh_sach_Sinh_vien()
-        var Danh_sach_Quan_ly = Doc_Danh_sach_Quan_ly()
-        var Danh_sach_Giao_vien = Doc_Danh_sach_Giao_vien()
+      <script type="text/javascript"> 
+      var Danh_sach_Sinh_vien = Doc_Danh_sach_Sinh_vien()
+    var Danh_sach_Quan_ly = Doc_Danh_sach_Quan_ly()
+    var Danh_sach_Giao_vien = Doc_Danh_sach_Giao_vien()
+      function postAndRedirect(url, postData)
+{
+    var postFormStr = "<form method='POST' action='" + url + "'>\n";
+
+    for (var key in postData)
+    {
+        if (postData.hasOwnProperty(key))
+        {
+            postFormStr += "<input type='hidden' name='" + key + "' value='" + postData[key] + "'></input>";
+        }
+    }
+
+    postFormStr += "</form>";
+
+    var formElement = $(postFormStr);
+
+    $('body').append(formElement);
+    $(formElement).submit();
+}       
            function Xu_ly_Dong_y(){                  
               var Ten_dang_nhap = Th_Ten_dang_nhap.value // Nhập liệu
               var Mat_khau = Th_Mat_khau.value // Nhập liệu
+              var Tai_khoan = {
+                  "Th_Ten_dang_nhap":"",
+                  "Th_Mat_khau":""
+              }
+              Tai_khoan.Th_Ten_dang_nhap = Ten_dang_nhap
+              Tai_khoan.Th_Mat_khau = Mat_khau
+              //Dang_nhap(Tai_khoan)
               if (Danh_sach_Quan_ly.some(x => x.Ten_dang_nhap == Ten_dang_nhap
                        && x.Mat_khau == Mat_khau )) {
-                        window.location.href ="../../../1581218_2_Phan_he_quan_ly_JS/Ung_dung/1_Giao_dien/MH_Quan_ly.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau                                      
-            }
+                        //window.location.href ="../../../1581218_2_Phan_he_quan_ly_JS/Ung_dung/1_Giao_dien/MH_Quan_ly.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau                                      
+                        postAndRedirect("../../../1581218_2_Phan_he_quan_ly_JS/Ung_dung/1_Giao_dien/MH_Quan_ly.html", Tai_khoan)
+                    }
               else if (Danh_sach_Sinh_vien.some(x => x.Ten_dang_nhap == Ten_dang_nhap
                        && x.Mat_khau == Mat_khau )) {
                         window.location.href ="../../../1581218_3_Phan_he_sinh_vien_JS/Ung_dung/1_Giao_dien/MH_Sinh_vien.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau                                      
