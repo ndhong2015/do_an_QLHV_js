@@ -183,8 +183,7 @@ function Tao_Chuoi_HTML_Nop_Don_xin_nghi(Sinh_vien){
             "Noi_dung": "" 
         }
     }
-    var Chuoi_Don_xin_nghi =`<form>
-        <div class="thong-tin-thong-bao">                    	
+    var Chuoi_Don_xin_nghi =`<form name="form_don_xin_nghi_phep" action="javascript:Xu_ly_Ghi_Don_xin_nghi()"><div class="thong-tin-thong-bao">                   	
         <div class="tieu-de-thong-tin-chi-tiet">
             <h3 style="color: Red; text-Align: center">Đơn xin nghỉ phép</h3>
         </div>					
@@ -216,9 +215,9 @@ function Tao_Chuoi_HTML_Nop_Don_xin_nghi(Sinh_vien){
             Don_xin_nghi.Ngay_Nop_don = today
         Chuoi_Don_xin_nghi +=`<tr class='chieu-cao'>
         <td data-title='Ngay_Nop_don' style='text-align: center;'>${Don_xin_nghi.Ngay_Nop_don}</td>
-        <td data-title='Ngay_Bat_dau' style='text-align: center;'><input type="date" name="Ngay_Bat_dau"></td>
-        <td data-title='So_ngay' style='text-align: center;'><input type="number" min="1" max="5" name="So_ngay" value=1></td>
-        <td data-title='Ly_do' style='text-align: left;'><input type="text" style="width:100%" name="Ly_do" required></td>
+        <td data-title='Ngay_Bat_dau' style='text-align: center;'><input id="Ngay_Bat_dau" type="date" name="Ngay_Bat_dau"></td>
+        <td data-title='So_ngay' style='text-align: center;'><input id="So_ngay" type="number" min="1" max="5" name="So_ngay" value=1></td>
+        <td data-title='Ly_do' style='text-align: left;'><input id="Ly_do" type="text" style="width:100%" name="Ly_do" required ></td>
     </tr>`
     Chuoi_Don_xin_nghi +=       
                     `</tbody>
@@ -227,7 +226,7 @@ function Tao_Chuoi_HTML_Nop_Don_xin_nghi(Sinh_vien){
             <div style="clear:both"></div>
         </div>                
     </div>`    
-    Chuoi_Don_xin_nghi += `<div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick='Xu_ly_Ghi_Don_xin_nghi()'>Nộp đơn</button></div></form>`
+    Chuoi_Don_xin_nghi += `<div class='alert' style='height:40px; float:left'><button class='btn btn-danger' type = "submit" onclick='Xu_ly_Ghi_Don_xin_nghi()'>Nộp đơn</button></div></form>`
     
     return Chuoi_Don_xin_nghi 
 }

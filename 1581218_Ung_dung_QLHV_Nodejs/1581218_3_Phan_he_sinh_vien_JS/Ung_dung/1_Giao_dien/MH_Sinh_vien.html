@@ -88,7 +88,7 @@
                                 </div>
                                 <div id='Th_Sinh_vien'></div>
                                 <div id="Th_Chi_tiet_Sinh_vien"></div>
-                                <div id='Th_Thong_bao'></div>
+                                <div id='Th_Thong_bao'></div>                      
                             </div>
                         </form>                                                                   
             </div>         
@@ -185,8 +185,27 @@
         Th_Chi_tiet_Sinh_vien.innerHTML = "<div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick='Xu_ly_Chi_tiet_Sinh_vien()'>Hồ sơ sinh viên</button></div><div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick='Xu_ly_Qua_trinh_hoc_tap()'>Quá trình học tập</button></div><div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick='Xu_ly_Danh_sach_nghi_phep()'>Nghỉ phép</button></div><div style='clear:both'></div>"+Tao_Chuoi_HTML_Nop_Don_xin_nghi(Sinh_vien_dang_nhap)
    }
    function Xu_ly_Ghi_Don_xin_nghi (){
-
-   }
+        var Don_xin_nghi = {
+			"Ngay_Nop_don": "",
+			"Ngay_Bat_dau": "",
+			"So_ngay": 1,
+			"Ly_do": "",
+			"Y_kien": { "Ngay": "", "Da_co_Y_kien": false, "Noi_dung": "" }
+        }
+        Don_xin_nghi.Ngay_Nop_don = new Date()
+        Don_xin_nghi.Ngay_Bat_dau = document.getElementById('Ngay_Bat_dau').value
+        Don_xin_nghi.So_ngay = document.getElementById('So_ngay').value
+        Don_xin_nghi.Ly_do  = document.getElementById('Ly_do').value        
+        var kiem_tra_hop_le = Don_xin_nghi.Ngay_Bat_dau != "" && Don_xin_nghi.Ly_do != ""
+        if (kiem_tra_hop_le == true){
+            Sinh_vien_dang_nhap.Danh_sach_Don_xin_nghi.push(Don_xin_nghi)
+            Ghi_Don_nghi_phep(Sinh_vien_dang_nhap)
+            alert("Đã nộp đơn thành công, xin chờ phê duyệt")
+        }
+        else {
+            alert("Du lieu khong hop le")
+        }       
+    }
    function Xu_ly_Dang_xuat(){
             window.location.href ="../../../1581218_1_Phan_he_khach_tham_quan_JS/Ung_dung/1_Giao_dien/MH_Chinh.html"              
         }
@@ -195,7 +214,7 @@
     //Tự động click
     if (GetURLParameter('Th_Ten_dang_nhap') != 0 && GetURLParameter('Th_Mat_khau') != 0){
     document.getElementById('Dong_y').click();
-    }
+    }    
     }); 
 </script>       
 </body>
