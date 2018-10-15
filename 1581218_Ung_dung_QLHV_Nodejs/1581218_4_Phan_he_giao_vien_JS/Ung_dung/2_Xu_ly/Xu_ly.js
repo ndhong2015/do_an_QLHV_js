@@ -97,7 +97,7 @@ function Tao_Chuoi_HTML_Danh_sach_Sinh_vien(Danh_sach) {
         var Chuoi_HTML = `<div class='col-md-4'  > 
              ${Chuoi_Hinh}  ${Chuoi_Tom_tat}
                      </div>`
-        Chuoi_HTML = `<div style='border-style: solid; border-color: orangered; width:100%'> ${Chuoi_HTML} <div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick="Xu_ly_chon_Sinh_vien('${Sinh_vien.Ma_so}')">Chi tiết sinh viên</button></div><div style='clear:both'></div></div>`
+        Chuoi_HTML = `<div style='border-style: solid; border-color: orangered; width:100%'> ${Chuoi_HTML} <div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick="Xu_ly_cho_diem_Sinh_vien('${Sinh_vien.Ma_so}')">Cho điểm sinh viên</button></div><div style='clear:both'></div></div>`
         Chuoi_HTML_Danh_sach += Chuoi_HTML
     })
     Chuoi_HTML_Danh_sach += `</div>`
@@ -122,7 +122,8 @@ function Tao_Chuoi_HTML_Chi_tiet_Sinh_vien(Sinh_vien){
 function Tao_Chuoi_HTML_Danh_sach_Diem(Sinh_vien){
     var Danh_sach_Diem = Sinh_vien.Qua_trinh_hoc_tap;
     var Chuoi_Qua_trinh_hoc_tap =`
-        <div class="thong-tin-thong-bao">                    	
+        <div class="thong-tin-thong-bao" style=
+        "clear: both">                    	
         <div class="tieu-de-thong-tin-chi-tiet">
             <h3 style="color: Red; text-Align: center">Quá trình học tập</h3>
         </div>					
@@ -163,6 +164,71 @@ function Tao_Chuoi_HTML_Danh_sach_Diem(Sinh_vien){
         <div onclick="this.style.display='none'">
             ${Chuoi_Qua_trinh_hoc_tap}
         </div>`
+    return Chuoi_Qua_trinh_hoc_tap 
+}
+
+function Tao_Chuoi_HTML_Nhap_Diem(Giao_vien){
+    // var Danh_sach_Diem = Sinh_vien.Qua_trinh_hoc_tap;
+    var Chuoi_Qua_trinh_hoc_tap =`
+        <div class="thong-tin-thong-bao" style=
+    "clear: both">                    	
+        <div class="tieu-de-thong-tin-chi-tiet">
+            <h3 style="color: Red; text-Align: center">Nhập thông tin điểm môn học</h3>
+        </div>					
+        <div class="noi-dung">
+            <div id="bang-bieu" style="color:#2B2B2B; margin:0px">
+                <table class="col-sm-12 table-bordered table-striped table-condensed" style="padding:0px; width:100%;">
+                    <thead>
+                        <tr style="background-color:orangered; color:#ffffff; height:38px; text-align: center;">
+                            <td style="width:6%">STT</td>
+                            <td style="width:10%">Niên khóa</td>
+                            <td style="width:8%">Học kỳ</td>
+                            <td style="width:10%">Mã môn</td>
+                            <td style="width:48%">Tên lớp học</td>
+                            <td style="width:10%">Loại điểm</td>
+                            <td style="width:8%">Điểm</td>
+                        </tr>
+                    </thead>
+                    <tbody>`
+    // for (var i = 0; i < Danh_sach_Diem.length; i++){
+        var today = new Date()
+        var year = today.getFullYear()
+        var hoc_ky = 'I'
+        if (today.getMonth() > 5) {
+            hoc_ky = 'II'
+        }
+        
+        var Chuoi_HTML_Danh_sach_Ma_mon = `<select style='width: 100%' >`
+        var Danh_sach_Mon_day = Giao_vien.Danh_sach_Mon_day
+        for (var i = 0; i < Danh_sach_Mon_day.length;i++){
+            Chuoi_HTML_Danh_sach_Ma_mon += `<option value="">${Danh_sach_Mon_day[i].Ma_mon}</option>`
+        }
+        Chuoi_HTML_Danh_sach_Ma_mon += `</select>`
+
+        var Chuoi_HTML_Danh_sach_Ten_lop_hoc = `<select style='width: 100%'>`
+        var Danh_sach_Mon_day = Giao_vien.Danh_sach_Mon_day
+        for (var i = 0; i < Danh_sach_Mon_day.length;i++){
+            Chuoi_HTML_Danh_sach_Ten_lop_hoc += `<option value="">${Danh_sach_Mon_day[i].Ten_lop_hoc}</option>`
+        }
+        Chuoi_HTML_Danh_sach_Ten_lop_hoc += `</select>`
+
+        Chuoi_Qua_trinh_hoc_tap +=`<tr class='chieu-cao'>
+        <td data-title='STT' style='text-align: center;'>${1}</td>
+        <td data-title='Niên khóa' style='text-align: center;'>${year}-${year+1}</td>
+        <td data-title='Học kỳ' style='text-align: center;'>${hoc_ky}</td>
+        <td data-title='Mã môn' style='text-align: center;'>${Chuoi_HTML_Danh_sach_Ma_mon}</td>
+        <td data-title='Tên lớp học' style='text-align: left;'>${Chuoi_HTML_Danh_sach_Ten_lop_hoc}</td>
+        <td data-title='Loại điểm' style='text-align: left;'><input id="Loai_diem" type="text" style="width:100%" name="Loai_diem" required value='Thi lần 1'></td>
+        <td data-title='Điểm' style='text-align: center;'><input id="Diem" type="text" style="width:100%" name="Diem" required ></td>
+    </tr>`
+    //}
+    Chuoi_Qua_trinh_hoc_tap +=       
+                    `</tbody>
+                </table>
+            </div>
+            <div style="clear:both"></div>
+        </div>                
+    </div>`
     return Chuoi_Qua_trinh_hoc_tap 
 }
 function Tao_Chuoi_HTML_Danh_sach_nghi_phep(Sinh_vien){
