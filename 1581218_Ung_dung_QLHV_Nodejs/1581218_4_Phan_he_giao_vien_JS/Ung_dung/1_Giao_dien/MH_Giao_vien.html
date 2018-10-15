@@ -182,16 +182,16 @@
             Ghi_Giao_vien(Giao_vien)
             Giao_vien_dang_nhap = Giao_vien
 
-            var Chuoi_HTML_Danh_sach_Nhom_nguoi_dung = `<select>`
+            var Chuoi_HTML_Danh_sach_Nhom_nguoi_dung = `<select id="mySelect" onchange="Chuyen_doi_vai_tro()">`
                     var Ma_so_Nhom_nguoi_dung = Giao_vien_dang_nhap.Nhom_Nguoi_dung.Ma_so
                     var DS_Vai_tro = Giao_vien_dang_nhap.Danh_sach_Nhom_Nguoi_dung
                     for (var i = 0; i < DS_Vai_tro.length; i++){
                         if (Ma_so_Nhom_nguoi_dung == DS_Vai_tro[i].Ma_so){
-                            Chuoi_HTML_Danh_sach_Nhom_nguoi_dung += `<option value="" selected>${DS_Vai_tro[i].Ten}</option>`
+                            Chuoi_HTML_Danh_sach_Nhom_nguoi_dung += `<option selected>${DS_Vai_tro[i].Ten}</option>`
 
                         }
                         else{
-                            Chuoi_HTML_Danh_sach_Nhom_nguoi_dung += `<option value="">${DS_Vai_tro[i].Ten}</option>`
+                            Chuoi_HTML_Danh_sach_Nhom_nguoi_dung += `<option>${DS_Vai_tro[i].Ten}</option>`
                         }                    
                     }
                     Chuoi_HTML_Danh_sach_Nhom_nguoi_dung += `</select>`
@@ -222,7 +222,16 @@
             var Sinh_vien = Tim_Sinh_vien(Ma_so, Danh_sach_Sinh_vien)
             Th_Chi_tiet_Sinh_vien.innerHTML = `<div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick="Xu_ly_Qua_trinh_hoc_tap('${Ma_so}')">Quá trình học tập</button></div><div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick="Xu_ly_Cho_diem('${Ma_so}')">Nhập điểm</button></div>`+Tao_Chuoi_HTML_Nhap_Diem(Giao_vien_dang_nhap)
         } 
-    
+        function Chuyen_doi_vai_tro(){
+            var Danh_sach_Nhom_Nguoi_dung = Giao_vien_dang_nhap.Danh_sach_Nhom_Nguoi_dung
+            for (var i = 0; i < Danh_sach_Nhom_Nguoi_dung.length;i++){
+                if (Danh_sach_Nhom_Nguoi_dung[i].Ten == document.getElementById("mySelect").value){
+                    var Ten_dang_nhap = Danh_sach_Nhom_Nguoi_dung[i].Ten_dang_nhap
+                    var Mat_khau = Danh_sach_Nhom_Nguoi_dung[i].Mat_khau
+                    window.location.href ="../../../1581218_1_Phan_he_khach_tham_quan_JS/Ung_dung/1_Giao_dien/MH_Chinh.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau
+                }
+            }
+        }
    function Xu_ly_Dang_xuat(){
             window.location.href ="../../../1581218_1_Phan_he_khach_tham_quan_JS/Ung_dung/1_Giao_dien/MH_Chinh.html"              
         }

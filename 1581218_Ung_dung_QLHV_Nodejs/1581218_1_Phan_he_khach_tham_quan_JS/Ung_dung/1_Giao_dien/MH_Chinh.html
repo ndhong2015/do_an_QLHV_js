@@ -152,9 +152,22 @@
       
       
       <script type="text/javascript">
-        var Danh_sach_Sinh_vien = Doc_Danh_sach_Sinh_vien()
-        var Danh_sach_Quan_ly = Doc_Danh_sach_Quan_ly()
-        var Danh_sach_Giao_vien = Doc_Danh_sach_Giao_vien()
+            var Danh_sach_Sinh_vien = Doc_Danh_sach_Sinh_vien()
+            var Danh_sach_Quan_ly = Doc_Danh_sach_Quan_ly()
+            var Danh_sach_Giao_vien = Doc_Danh_sach_Giao_vien()
+            function GetURLParameter(sParam) {
+                var sPageURL = window.location.search.substring(1);
+                var sURLVariables = sPageURL.split('&');
+                if (sURLVariables.length != 2){
+                    return 0;
+                }
+                for (var i = 0; i < sURLVariables.length; i++) {
+                    var sParameterName = sURLVariables[i].split('=');
+                    if (sParameterName[0] == sParam) {
+                        return sParameterName[1];
+                    }
+                } 
+            }
            function Xu_ly_Dong_y(){                  
               var Ten_dang_nhap = Th_Ten_dang_nhap.value // Nhập liệu
               var Mat_khau = Th_Mat_khau.value // Nhập liệu
@@ -174,7 +187,30 @@
                 Th_Thong_bao.innerHTML="<div>Đăng nhập không hợp lệ" 
                + "<br />Xin vui lòng <b>Nhập lại</b> Tên đăng nhập và Mật khẩu" + "</div>"
               }    
-            }            
+            }   
+            $(document).ready(function(){ 
+            //Tự động click
+            if (GetURLParameter('Th_Ten_dang_nhap') != 0 && GetURLParameter('Th_Mat_khau') != 0){
+                var Ten_dang_nhap = GetURLParameter('Th_Ten_dang_nhap')
+                var Mat_khau = GetURLParameter('Th_Mat_khau')
+              if (Danh_sach_Quan_ly.some(x => x.Ten_dang_nhap == Ten_dang_nhap
+                       && x.Mat_khau == Mat_khau )) {
+                        window.location.href ="../../../1581218_2_Phan_he_quan_ly_JS/Ung_dung/1_Giao_dien/MH_Quan_ly.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau                                      
+            }
+              else if (Danh_sach_Sinh_vien.some(x => x.Ten_dang_nhap == Ten_dang_nhap
+                       && x.Mat_khau == Mat_khau )) {
+                        window.location.href ="../../../1581218_3_Phan_he_sinh_vien_JS/Ung_dung/1_Giao_dien/MH_Sinh_vien.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau                                      
+              } 
+              else if (Danh_sach_Giao_vien.some(x => x.Ten_dang_nhap == Ten_dang_nhap
+                       && x.Mat_khau == Mat_khau )) {
+                        window.location.href ="../../../1581218_4_Phan_he_giao_vien_JS/Ung_dung/1_Giao_dien/MH_Giao_vien.html?"+"Th_Ten_dang_nhap=" + Ten_dang_nhap +"&Th_Mat_khau="+Mat_khau                                       
+              }                      
+              else {
+                Th_Thong_bao.innerHTML="<div>Đăng nhập không hợp lệ" 
+               + "<br />Xin vui lòng <b>Nhập lại</b> Tên đăng nhập và Mật khẩu" + "</div>"
+              } 
+            }
+            });         
         </script>
 
 </body>
