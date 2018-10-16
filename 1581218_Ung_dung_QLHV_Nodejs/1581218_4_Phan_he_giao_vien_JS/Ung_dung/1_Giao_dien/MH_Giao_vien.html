@@ -175,7 +175,7 @@
                với ${Danh_sach_Sinh_vien_cua_Giao_vien.length} sinh viên `
             Th_Danh_sach_Lop.innerHTML=Tao_Chuoi_HTML_Danh_sach_Lop(
                  Danh_sach_Lop_cua_Giao_vien)
-            Th_Danh_sach_Sinh_vien.innerHTML=Tao_Chuoi_HTML_Danh_sach_Sinh_vien(
+            Th_Danh_sach_Sinh_vien.innerHTML=Tao_Chuoi_HTML_Danh_sach_Sinh_vien(Giao_vien,
                 Danh_sach_Sinh_vien_cua_Giao_vien) 
            //=== Ghi 
             
@@ -232,25 +232,52 @@
 			"Loai_diem": "",
             "Diem": ""
             }
-            Diem_mon_hoc.Nien_khoa = document.getElementById('Nien_khoa').innerHTML
-            Diem_mon_hoc.Hoc_ky = document.getElementById('Hoc_ky').innerHTML
-            Diem_mon_hoc.Ma_mon = document.getElementById('chon_ma_mon').value
-            Diem_mon_hoc.Ten_lop_hoc = document.getElementById('chon_lop_hoc').value
-            Diem_mon_hoc.Loai_diem = document.getElementById('Loai_diem').value
-            Diem_mon_hoc.Diem = document.getElementById('Diem').value
+            var id_nien_khoa = 'Nien_khoa' + '_' + Ma_so
+            var id_hoc_ky = 'Hoc_ky'+ '_' + Ma_so
+            var id_ma_mon = 'chon_ma_mon'+ '_' + Ma_so
+            var id_ten_lop_hoc = 'chon_lop_hoc'+ '_' + Ma_so
+            var id_loai_diem = 'Loai_diem'+ '_' + Ma_so
+            var id_diem = 'Diem'+ '_' + Ma_so
+            
+            Diem_mon_hoc.Nien_khoa = document.getElementById(id_nien_khoa).innerHTML
+            Diem_mon_hoc.Hoc_ky = document.getElementById(id_hoc_ky).innerHTML
+            Diem_mon_hoc.Ma_mon = document.getElementById(id_ma_mon).value
+            Diem_mon_hoc.Ten_lop_hoc = document.getElementById(id_ten_lop_hoc).value
+            Diem_mon_hoc.Loai_diem = document.getElementById(id_loai_diem).value
+            Diem_mon_hoc.Diem = document.getElementById(id_diem).value
 
             var kiem_tra_hop_le = Diem_mon_hoc.Loai_diem != "" && Diem_mon_hoc.Diem != ""
             if (kiem_tra_hop_le == true){
                 Sinh_vien.Qua_trinh_hoc_tap.push(Diem_mon_hoc)
                 Ghi_Diem(Sinh_vien)
                 alert("Đã ghi điểm thành công")
-                Th_Chi_tiet_Sinh_vien.innerHTML = ""
             }
             else {
                 alert("Du lieu khong hop le")
             }  
     }
-        
+        function Dong_bo_ma_mon_va_ten_mon(Ma_so_Sinh_vien){
+            var Danh_sach_Mon_day = Giao_vien_dang_nhap.Danh_sach_Mon_day
+            var id_chon_ma_mon = 'chon_ma_mon_'+ Ma_so_Sinh_vien
+            var id_chon_lop_hoc = 'chon_lop_hoc_'+ Ma_so_Sinh_vien
+            var ma_mon_chon = document.getElementById(id_chon_ma_mon).value
+            for (var i = 0; i < Danh_sach_Mon_day.length; i++){
+                if (Danh_sach_Mon_day[i].Ma_mon == ma_mon_chon){
+                    document.getElementById(id_chon_lop_hoc).selectedIndex = i
+                }
+            }
+        }     
+        function Dong_bo_ten_mon_va_ma_mon(Ma_so_Sinh_vien){
+            var Danh_sach_Mon_day = Giao_vien_dang_nhap.Danh_sach_Mon_day
+            var id_chon_ma_mon = 'chon_ma_mon_'+ Ma_so_Sinh_vien
+            var id_chon_lop_hoc = 'chon_lop_hoc_'+ Ma_so_Sinh_vien
+            var ten_mon_chon = document.getElementById(id_chon_lop_hoc).value
+            for (var i = 0; i < Danh_sach_Mon_day.length; i++){
+                if (Danh_sach_Mon_day[i].Ten_lop_hoc == ten_mon_chon){
+                    document.getElementById(id_chon_ma_mon).selectedIndex = i
+                }
+            }
+        }    
     function Chuyen_doi_vai_tro(){
             var Danh_sach_Nhom_Nguoi_dung = Giao_vien_dang_nhap.Danh_sach_Nhom_Nguoi_dung
             for (var i = 0; i < Danh_sach_Nhom_Nguoi_dung.length;i++){
