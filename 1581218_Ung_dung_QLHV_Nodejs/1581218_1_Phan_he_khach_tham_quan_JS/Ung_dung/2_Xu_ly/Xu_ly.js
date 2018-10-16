@@ -58,12 +58,14 @@ function Tao_Chuoi_HTML_Khach_Tham_quan_Khi_Chao(Khach_Tham_quan) {
 }
 // Tạo Chuỗi HTML Danh sách 
 function Tao_Chuoi_HTML_Danh_sach_Lop(Danh_sach) {
+    var Danh_sach_Sinh_vien = Doc_Danh_sach_Sinh_vien()
     var Chuoi_HTML_Danh_sach = `<div class='row'>`
     Danh_sach.forEach(Lop => {
+        var Danh_sach_Sinh_vien_cua_Lop = Tao_Danh_sach_Sinh_vien_cua_Lop(Lop.Ma_so, Danh_sach_Sinh_vien)
         var Chuoi_Hinh = `<img src='${Dia_chi_Dich_vu_Media}/icon_lop.png'
                   style='width:40px;height:40px' />`
         var Chuoi_Tom_tat = `<div class='btn' >
-            ${Lop.Ten}  </div>`
+            ${Lop.Ten} - (${Danh_sach_Sinh_vien_cua_Lop.length} SV) </div>`
         var Chuoi_HTML = `<div class='btn' > 
              ${Chuoi_Hinh}  ${Chuoi_Tom_tat}
                      </div>`
@@ -74,3 +76,12 @@ function Tao_Chuoi_HTML_Danh_sach_Lop(Danh_sach) {
     return Chuoi_HTML_Danh_sach
 }
 //==== Xử lý Nghiệp vụ
+function Tao_Danh_sach_Sinh_vien_cua_Lop(Ma_so_lop, Danh_sach_Sinh_vien) {
+    var Danh_sach = []
+    Danh_sach_Sinh_vien.forEach(
+        Sinh_vien => {
+            if (Sinh_vien.Ma_so_Lop == Ma_so_lop)
+                Danh_sach.push(Sinh_vien)
+        })     
+    return Danh_sach
+}

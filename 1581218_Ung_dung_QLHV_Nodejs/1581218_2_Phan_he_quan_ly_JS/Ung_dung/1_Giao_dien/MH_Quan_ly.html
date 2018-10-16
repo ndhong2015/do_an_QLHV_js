@@ -14,7 +14,16 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
               integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-<script src="../2_Xu_ly/Xu_ly.js"></script>
+<style>
+.search-control > input,
+.search-control > button {
+    background-color: #e4f0f5;
+    color: #29627e;
+    font-size: 1.2rem;
+}
+
+</style>
+              <script src="../2_Xu_ly/Xu_ly.js"></script>
 </head>
 <body style="font-family:Arial;height:auto;overflow-x:hidden">
  <form method="post" action="/" id="mainForm" enctype="multipart/form-data">
@@ -50,11 +59,7 @@
                                         <div class="CUA_SO_CHUC_NANG" style="background-color:orangered;margin:10px">
                                                 <div class="DANH_SACH_CHUC_NANG">
                                                     <div class="btn  CHUC_NANG">
-                                                        <form method="post">
-                                                            <input name="Th_Ma_so_Chuc_nang" type="hidden" value="" />
-                                                            <input name="Th_Chuoi_Tra_cuu" style="height:30px"
-                                                                   spellcheck="false" autocomplete="off" />
-                                                        </form>
+            
                                                     </div>                              
                                                 </div>
                                             </div>
@@ -264,7 +269,7 @@
         function Xu_ly_Dang_xuat(){
             window.location.href ="../../../1581218_1_Phan_he_khach_tham_quan_JS/Ung_dung/1_Giao_dien/MH_Chinh.html"              
         }
-        $(document).ready(function(){ 
+        $(document).ready(function(){
         //Tự động click
         if (GetURLParameter('Th_Ten_dang_nhap') != 0 && GetURLParameter('Th_Mat_khau') != 0){
         document.getElementById('Dong_y').click();

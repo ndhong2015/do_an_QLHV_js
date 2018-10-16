@@ -296,6 +296,15 @@ function Tao_Chuoi_HTML_Danh_sach_Don_nghi_phep_chua_duyet(Sinh_vien){
     return Chuoi_Danh_sach_Don_xin_nghi 
 }
 //==== Xử lý Nghiệp vụ
+function Tra_cuu_Sinh_vien(Chuoi_Tra_cuu, Danh_sach_Sinh_vien){
+    var Danh_sach_Sinh_vien = {}
+    for (var i = 0; i < Danh_sach_Sinh_vien.length; i++){
+        if (Danh_sach_Sinh_vien[i].Ho_ten.search(Chuoi_Tra_cuu)){
+            Danh_sach_Sinh_vien.push(Danh_sach_Sinh_vien[i])
+        }
+    }        
+    return Danh_sach_Sinh_vien
+}
 function Tim_Sinh_vien(Ma_so, Danh_sach_Sinh_vien){
     var Sinh_vien = {}
         var Hop_le = Danh_sach_Sinh_vien.some(x => x.Ma_so == Ma_so)
