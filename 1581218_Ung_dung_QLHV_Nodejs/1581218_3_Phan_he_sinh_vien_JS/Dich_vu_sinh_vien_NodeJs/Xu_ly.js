@@ -19,7 +19,7 @@ var Dich_vu = XL_HTTP.createServer((Yeu_cau, Dap_ung) => {
             else if (Ma_so_Xu_ly == "Ghi_Sinh_vien") {
               var Doi_tuong=JSON.parse(Chuoi_Nhan)
               Ghi_Doi_tuong(Doi_tuong,"SINH_VIEN")             
-            }            
+            }
             else if (Ma_so_Xu_ly == "Ghi_Don_nghi_phep") {
               var Doi_tuong=JSON.parse(Chuoi_Nhan)
               Ghi_Doi_tuong(Doi_tuong,"SINH_VIEN")             
@@ -51,3 +51,5 @@ function Ghi_Doi_tuong(Doi_tuong,Loai_Doi_tuong){
   var Chuoi=JSON.stringify (Doi_tuong)     
   XL_File.writeFileSync(Duong_dan , Chuoi,"UTF-8")   
 }
+
+ 

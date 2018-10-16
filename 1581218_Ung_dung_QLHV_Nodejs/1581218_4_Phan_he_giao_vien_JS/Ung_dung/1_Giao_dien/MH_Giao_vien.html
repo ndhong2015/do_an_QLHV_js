@@ -50,7 +50,11 @@
                                         <div class="CUA_SO_CHUC_NANG" style="background-color:orangered;margin:10px">
                                                 <div class="DANH_SACH_CHUC_NANG">
                                                     <div class="btn  CHUC_NANG">
-                                                        
+                                                        <form method="post">
+                                                            <input name="Th_Ma_so_Chuc_nang" type="hidden" value="@Khach_Tham_quan.Chuc_nang_Tra_cuu_Sinh_vien.Ma_so" />
+                                                            <input style="display:none" name="Th_Chuoi_Tra_cuu" style="height:30px"
+                                                                   spellcheck="false" autocomplete="off" />
+                                                        </form>
                                                     </div>                              
                                                 </div>
                                             </div>
@@ -178,7 +182,7 @@
             Ghi_Giao_vien(Giao_vien)
             Giao_vien_dang_nhap = Giao_vien
 
-            var Chuoi_HTML_Danh_sach_Nhom_nguoi_dung = `<select id="mySelect" onchange="Chuyen_doi_vai_tro()">`
+            var Chuoi_HTML_Danh_sach_Nhom_nguoi_dung = `<select style="width: 100%" id="mySelect" onchange="Chuyen_doi_vai_tro()">`
                     var Ma_so_Nhom_nguoi_dung = Giao_vien_dang_nhap.Nhom_Nguoi_dung.Ma_so
                     var DS_Vai_tro = Giao_vien_dang_nhap.Danh_sach_Nhom_Nguoi_dung
                     for (var i = 0; i < DS_Vai_tro.length; i++){

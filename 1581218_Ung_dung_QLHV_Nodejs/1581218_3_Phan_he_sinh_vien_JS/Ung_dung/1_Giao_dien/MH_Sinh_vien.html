@@ -50,7 +50,11 @@
                                         <div class="CUA_SO_CHUC_NANG" style="background-color:orangered;margin:10px">
                                                 <div class="DANH_SACH_CHUC_NANG">
                                                     <div class="btn  CHUC_NANG">
-                                                        
+                                                        <form method="post">
+                                                            <input name="Th_Ma_so_Chuc_nang" type="hidden" value=""/>
+                                                            <input style="display:none" name="Th_Chuoi_Tra_cuu" style="height:30px"
+                                                                   spellcheck="false" autocomplete="off" />
+                                                        </form>
                                                     </div>                              
                                                 </div>
                                             </div>
@@ -84,7 +88,7 @@
                                 </div>
                                 <div id='Th_Sinh_vien'></div>
                                 <div id="Th_Chi_tiet_Sinh_vien"></div>
-                                <div id='Th_Thong_bao'></div>
+                                <div id='Th_Thong_bao'></div>                      
                             </div>
                         </form>                                                                   
             </div>         
@@ -160,7 +164,6 @@
         Th_Chi_tiet_Sinh_vien.innerHTML = "<div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick='Xu_ly_Chi_tiet_Sinh_vien()'>Hồ sơ sinh viên</button></div><div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick='Xu_ly_Qua_trinh_hoc_tap()'>Quá trình học tập</button></div><div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick='Xu_ly_Danh_sach_nghi_phep()'>Nghỉ phép</button></div>"
         Th_Thong_bao.innerHTML=""
         Ghi_Sinh_vien(Sinh_vien)
-        
         Sinh_vien_dang_nhap = Sinh_vien
       }
       else {
@@ -212,9 +215,9 @@
     $(document).ready(function(){ 
     //Tự động click
     if (GetURLParameter('Th_Ten_dang_nhap') != 0 && GetURLParameter('Th_Mat_khau') != 0){
-        document.getElementById('Dong_y').click();
+    document.getElementById('Dong_y').click();
     }    
-    });
+    }); 
 </script>       
 </body>
 

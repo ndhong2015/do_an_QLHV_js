@@ -252,6 +252,58 @@ function Tao_Chuoi_HTML_Nhap_Diem(Giao_vien, Ma_so){
     Chuoi_HTML_Nhap_Diem += `<div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick='Xu_ly_Ghi_diem("${Ma_so}")'>Cập nhật điểm</button></div>`
     return Chuoi_HTML_Nhap_Diem 
 }
+// function Tao_Chuoi_HTML_Danh_sach_nghi_phep(Sinh_vien){
+//     var Danh_sach_Don_xin_nghi = Sinh_vien.Danh_sach_Don_xin_nghi;
+//     var Chuoi_Danh_sach_Don_xin_nghi =`
+//         <div class="thong-tin-thong-bao">                    	
+//         <div class="tieu-de-thong-tin-chi-tiet">
+//             <h3 style="color: Red; text-Align: center">Danh sách nghỉ phép</h3>
+//         </div>					
+//         <div class="noi-dung">
+//             <div id="bang-bieu" style="color:#2B2B2B; margin:0px">
+//                 <table class="col-sm-12 table-bordered table-striped table-condensed" style="padding:0px; width:100%;">
+//                     <thead>
+//                         <tr style="background-color:orangered; color:#ffffff; height:38px; text-align: center;">
+//                             <td style="width:6%">STT</td>
+//                             <td style="width:10%">Ngày nộp đơn</td>
+//                             <td style="width:10%">Ngày bắt đầu</td>
+//                             <td style="width:10%">Số ngày</td>
+//                             <td style="width:30%">Lý do</td>
+//                             <td style="width:26%">Ý kiến</td>
+//                             <td style="width:8%">Trạng thái</td>
+//                         </tr>
+//                     </thead>
+//                     <tbody>`
+//     for (var i = 0; i < Danh_sach_Don_xin_nghi.length; i++){
+//         var Chuoi_trang_thai = ""
+//         if (Danh_sach_Don_xin_nghi[i].Y_kien.Da_co_Y_kien == true){
+//             Chuoi_trang_thai = "Đã duyệt"
+//         } else{
+//             Chuoi_trang_thai = "Chưa duyệt"
+//         }
+//         Chuoi_Danh_sach_Don_xin_nghi +=`<tr class='chieu-cao'>
+//         <td data-title='STT' style='text-align: center;'>${i+1}</td>
+//         <td data-title='Ngay_Nop_don' style='text-align: center;'>${Danh_sach_Don_xin_nghi[i].Ngay_Nop_don}</td>
+//         <td data-title='Ngay_Bat_dau' style='text-align: center;'>${Danh_sach_Don_xin_nghi[i].Ngay_Bat_dau}</td>
+//         <td data-title='So_ngay' style='text-align: center;'>${Danh_sach_Don_xin_nghi[i].So_ngay}</td>
+//         <td data-title='Ly_do' style='text-align: left;'>${Danh_sach_Don_xin_nghi[i].Ly_do}</td>
+//         <td data-title='Noi_dung' style='text-align: left;'>${Danh_sach_Don_xin_nghi[i].Y_kien.Noi_dung}</td>
+//         <td data-title='Chuoi_trang_thai' style='text-align: center;'>${Chuoi_trang_thai}</td>
+//     </tr>`
+//     }
+//     Chuoi_Danh_sach_Don_xin_nghi +=       
+//                     `</tbody>
+//                 </table>
+//             </div>
+//             <div style="clear:both"></div>
+//         </div>                
+//     </div>`
+//     Chuoi_Danh_sach_Don_xin_nghi =`
+//         <div onclick="this.style.display='none'">
+//             ${Chuoi_Danh_sach_Don_xin_nghi}
+//         </div>`
+//     return Chuoi_Danh_sach_Don_xin_nghi 
+// }
 
 //==== Xử lý Nghiệp vụ
 function Tim_Sinh_vien(Ma_so, Danh_sach_Sinh_vien){
