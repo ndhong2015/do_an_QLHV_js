@@ -42,6 +42,17 @@ function Ghi_Giao_vien(Giao_vien) {
     Doi_tuong = JSON.parse(Chuoi_Kq)
     return Doi_tuong
 }
+function Ghi_Diem(Sinh_vien) {
+    var Doi_tuong = []
+    var Chuoi_Goi = JSON.stringify(Sinh_vien)
+    var Xu_ly_HTTP = new XMLHttpRequest()
+    var Dia_chi = `${Dia_chi_Dich_vu}?Ma_so_Xu_ly=Ghi_Diem`
+    Xu_ly_HTTP.open("POST", Dia_chi, false)
+    Xu_ly_HTTP.send(Chuoi_Goi)
+    var Chuoi_Kq = Xu_ly_HTTP.responseText
+    Doi_tuong = JSON.parse(Chuoi_Kq)
+    return Doi_tuong
+}
 //===== Xử lý Thể hiện
 function Tao_Chuoi_HTML_Giao_vien_Khi_Chao(Giao_vien) {
     var Chuoi_Hinh = `<img src='${Dia_chi_Dich_vu_Media}/${Giao_vien.Ma_so}.png'
@@ -167,9 +178,9 @@ function Tao_Chuoi_HTML_Danh_sach_Diem(Sinh_vien){
     return Chuoi_Qua_trinh_hoc_tap 
 }
 
-function Tao_Chuoi_HTML_Nhap_Diem(Giao_vien){
+function Tao_Chuoi_HTML_Nhap_Diem(Giao_vien, Ma_so){
     
-    var Chuoi_Qua_trinh_hoc_tap =`
+    var Chuoi_HTML_Nhap_Diem =`
         <div class="thong-tin-thong-bao" style=
     "clear: both">                    	
         <div class="tieu-de-thong-tin-chi-tiet">
@@ -198,38 +209,45 @@ function Tao_Chuoi_HTML_Nhap_Diem(Giao_vien){
             hoc_ky = 'II'
         }
         
-        var Chuoi_HTML_Danh_sach_Ma_mon = `<select style='width: 100%' >`
+        var Chuoi_HTML_Danh_sach_Ma_mon = `<select id="chon_ma_mon" style='width: 100%' >`
         var Danh_sach_Mon_day = Giao_vien.Danh_sach_Mon_day
         for (var i = 0; i < Danh_sach_Mon_day.length;i++){
-            Chuoi_HTML_Danh_sach_Ma_mon += `<option value="">${Danh_sach_Mon_day[i].Ma_mon}</option>`
+            if (i==0 && Danh_sach_Mon_day.length >= 1){
+                Chuoi_HTML_Danh_sach_Ma_mon += `<option selected>${Danh_sach_Mon_day[i].Ma_mon}</option>`
+            }
+            Chuoi_HTML_Danh_sach_Ma_mon += `<option>${Danh_sach_Mon_day[i].Ma_mon}</option>`
         }
         Chuoi_HTML_Danh_sach_Ma_mon += `</select>`
 
-        var Chuoi_HTML_Danh_sach_Ten_lop_hoc = `<select style='width: 100%'>`
+        var Chuoi_HTML_Danh_sach_Ten_lop_hoc = `<select id="chon_lop_hoc" style='width: 100%'>`
         var Danh_sach_Mon_day = Giao_vien.Danh_sach_Mon_day
         for (var i = 0; i < Danh_sach_Mon_day.length;i++){
-            Chuoi_HTML_Danh_sach_Ten_lop_hoc += `<option value="">${Danh_sach_Mon_day[i].Ten_lop_hoc}</option>`
+            if (i==0 && Danh_sach_Mon_day.length >= 1){
+                Chuoi_HTML_Danh_sach_Ten_lop_hoc += `<option selected>${Danh_sach_Mon_day[i].Ten_lop_hoc}</option>`
+            }
+            Chuoi_HTML_Danh_sach_Ten_lop_hoc += `<option>${Danh_sach_Mon_day[i].Ten_lop_hoc}</option>`
         }
         Chuoi_HTML_Danh_sach_Ten_lop_hoc += `</select>`
 
-        Chuoi_Qua_trinh_hoc_tap +=`<tr class='chieu-cao'>
+        Chuoi_HTML_Nhap_Diem +=`<tr class='chieu-cao'>
         <td data-title='STT' style='text-align: center;'>${1}</td>
-        <td data-title='Niên khóa' style='text-align: center;'>${year}-${year+1}</td>
-        <td data-title='Học kỳ' style='text-align: center;'>${hoc_ky}</td>
-        <td data-title='Mã môn' style='text-align: center;'>${Chuoi_HTML_Danh_sach_Ma_mon}</td>
-        <td data-title='Tên lớp học' style='text-align: left;'>${Chuoi_HTML_Danh_sach_Ten_lop_hoc}</td>
-        <td data-title='Loại điểm' style='text-align: left;'><input id="Loai_diem" type="text" style="width:100%" name="Loai_diem" required value='Thi lần 1'></td>
+        <td data-title='Niên khóa' id = 'Nien_khoa' style='text-align: center;'>${year}-${year+1}</td>
+        <td data-title='Học kỳ' id = 'Hoc_ky' style='text-align: center;'>${hoc_ky}</td>
+        <td data-title='Mã môn' id = 'Ma_mon' style='text-align: center;'>${Chuoi_HTML_Danh_sach_Ma_mon}</td>
+        <td data-title='Tên lớp học' id = 'Ten_lop_hoc' style='text-align: left;'>${Chuoi_HTML_Danh_sach_Ten_lop_hoc}</td>
+        <td data-title='Loại điểm'  style='text-align: left;'><input id="Loai_diem" type="text" style="width:100%" name="Loai_diem" required value='Thi lần 1'></td>
         <td data-title='Điểm' style='text-align: center;'><input id="Diem" type="text" style="width:100%" name="Diem" required ></td>
     </tr>`
     
-    Chuoi_Qua_trinh_hoc_tap +=       
+    Chuoi_HTML_Nhap_Diem +=       
                     `</tbody>
                 </table>
             </div>
             <div style="clear:both"></div>
         </div>                
     </div>`
-    return Chuoi_Qua_trinh_hoc_tap 
+    Chuoi_HTML_Nhap_Diem += `<div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick='Xu_ly_Ghi_diem("${Ma_so}")'>Cập nhật điểm</button></div>`
+    return Chuoi_HTML_Nhap_Diem 
 }
 function Tao_Chuoi_HTML_Danh_sach_nghi_phep(Sinh_vien){
     var Danh_sach_Don_xin_nghi = Sinh_vien.Danh_sach_Don_xin_nghi;

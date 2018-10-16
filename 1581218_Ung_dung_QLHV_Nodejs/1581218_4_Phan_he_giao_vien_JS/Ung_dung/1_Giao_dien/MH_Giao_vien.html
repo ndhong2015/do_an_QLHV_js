@@ -207,7 +207,7 @@
         Th_Thong_bao.innerHTML=""
       }
    }    
-   function Xu_ly_cho_diem_Sinh_vien(Ma_so){
+        function Xu_ly_cho_diem_Sinh_vien(Ma_so){
             var Sinh_vien = Tim_Sinh_vien(Ma_so, Danh_sach_Sinh_vien)
             Th_Danh_sach_Sinh_vien.innerHTML = ""
             Th_Sinh_vien.innerHTML = Tao_Chuoi_HTML_Sinh_vien(Sinh_vien)
@@ -220,9 +220,38 @@
         }   
         function Xu_ly_Cho_diem(Ma_so){
             var Sinh_vien = Tim_Sinh_vien(Ma_so, Danh_sach_Sinh_vien)
-            Th_Chi_tiet_Sinh_vien.innerHTML = `<div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick="Xu_ly_Qua_trinh_hoc_tap('${Ma_so}')">Quá trình học tập</button></div><div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick="Xu_ly_Cho_diem('${Ma_so}')">Nhập điểm</button></div>`+Tao_Chuoi_HTML_Nhap_Diem(Giao_vien_dang_nhap)
+            Th_Chi_tiet_Sinh_vien.innerHTML = `<div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick="Xu_ly_Qua_trinh_hoc_tap('${Ma_so}')">Quá trình học tập</button></div><div class='alert' style='height:40px; float:left'><button class='btn btn-danger' onclick="Xu_ly_Cho_diem('${Ma_so}')">Nhập điểm</button></div>`+Tao_Chuoi_HTML_Nhap_Diem(Giao_vien_dang_nhap, Ma_so)
         } 
-        function Chuyen_doi_vai_tro(){
+        function Xu_ly_Ghi_diem (Ma_so){
+            var Sinh_vien = Tim_Sinh_vien(Ma_so, Danh_sach_Sinh_vien)
+            var Diem_mon_hoc = {
+            "Nien_khoa": "",
+			"Hoc_ky": "",
+			"Ma_mon": "",
+			"Ten_lop_hoc": "",
+			"Loai_diem": "",
+            "Diem": ""
+            }
+            Diem_mon_hoc.Nien_khoa = document.getElementById('Nien_khoa').innerHTML
+            Diem_mon_hoc.Hoc_ky = document.getElementById('Hoc_ky').innerHTML
+            Diem_mon_hoc.Ma_mon = document.getElementById('chon_ma_mon').value
+            Diem_mon_hoc.Ten_lop_hoc = document.getElementById('chon_lop_hoc').value
+            Diem_mon_hoc.Loai_diem = document.getElementById('Loai_diem').value
+            Diem_mon_hoc.Diem = document.getElementById('Diem').value
+
+            var kiem_tra_hop_le = Diem_mon_hoc.Loai_diem != "" && Diem_mon_hoc.Diem != ""
+            if (kiem_tra_hop_le == true){
+                Sinh_vien.Qua_trinh_hoc_tap.push(Diem_mon_hoc)
+                Ghi_Diem(Sinh_vien)
+                alert("Đã ghi điểm thành công")
+                Th_Chi_tiet_Sinh_vien.innerHTML = ""
+            }
+            else {
+                alert("Du lieu khong hop le")
+            }  
+    }
+        
+    function Chuyen_doi_vai_tro(){
             var Danh_sach_Nhom_Nguoi_dung = Giao_vien_dang_nhap.Danh_sach_Nhom_Nguoi_dung
             for (var i = 0; i < Danh_sach_Nhom_Nguoi_dung.length;i++){
                 if (Danh_sach_Nhom_Nguoi_dung[i].Ten == document.getElementById("mySelect").value){
